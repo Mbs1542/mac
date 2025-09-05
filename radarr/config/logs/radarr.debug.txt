@@ -6139,3 +6139,1024 @@
 2025-09-06 00:17:49.1|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
 2025-09-06 00:18:19.2|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
 2025-09-06 00:18:49.2|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:20:19.2|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:21:49.2|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:23:19.3|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:23:19.4|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-09-06 00:24:49.4|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:26:19.4|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:27:49.4|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:28:19.5|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-09-06 00:28:49.5|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:30:19.5|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:30:19.6|Info|RssSyncService|Starting RSS Sync
+2025-09-06 00:30:19.6|Debug|FetchAndParseRssService|Available indexers 1
+2025-09-06 00:30:19.6|Debug|Torznab|Downloading Feed http://prowlarr:9696/2/api?t=movie&cat=2000,2040,2045,2060&extended=1&apikey=(removed)&offset=0&limit=100
+2025-09-06 00:30:20.2|Debug|FetchAndParseRssService|Found 97 reports
+2025-09-06 00:30:20.2|Info|DownloadDecisionMaker|Processing 97 releases
+2025-09-06 00:30:20.2|Debug|DownloadDecisionMaker|Processing release 'The Adventures of Jurassic Pet (2019) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.2|Debug|Parser|Parsing string 'The Adventures of Jurassic Pet (2019) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.2|Debug|Parser|Movie Parsed. The Adventures of Jurassic Pet - 2019 
+2025-09-06 00:30:20.2|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.2|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.2|Debug|QualityParser|Trying to parse quality for 'The Adventures of Jurassic Pet (2019) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.2|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.2|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.2|Debug|ParsingService|No matching movie for titles 'The Adventures of Jurassic Pet (2019)'
+2025-09-06 00:30:20.2|Debug|DownloadDecisionMaker|Release 'The Adventures of Jurassic Pet (2019) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.2|Debug|DownloadDecisionMaker|Processing release 'The Adventures of Jurassic Pet (2019) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.2|Debug|Parser|Parsing string 'The Adventures of Jurassic Pet (2019) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.2|Debug|Parser|Movie Parsed. The Adventures of Jurassic Pet - 2019 
+2025-09-06 00:30:20.2|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.2|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.2|Debug|QualityParser|Trying to parse quality for 'The Adventures of Jurassic Pet (2019) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.2|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.2|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.2|Debug|ParsingService|No matching movie for titles 'The Adventures of Jurassic Pet (2019)'
+2025-09-06 00:30:20.2|Debug|DownloadDecisionMaker|Release 'The Adventures of Jurassic Pet (2019) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.2|Debug|DownloadDecisionMaker|Processing release 'Psycho Cop (1989) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.2|Debug|Parser|Parsing string 'Psycho Cop (1989) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.2|Debug|Parser|Movie Parsed. Psycho Cop - 1989 
+2025-09-06 00:30:20.2|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.2|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.2|Debug|QualityParser|Trying to parse quality for 'Psycho Cop (1989) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.2|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.2|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.2|Debug|ParsingService|No matching movie for titles 'Psycho Cop (1989)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Psycho Cop (1989) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Psycho Cop (1989) 1080p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Psycho Cop (1989) 1080p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Psycho Cop - 1989 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Psycho Cop (1989) 1080p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Psycho Cop (1989)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Psycho Cop (1989) 1080p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'The Science Adventures of Tom & Huck (2025) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'The Science Adventures of Tom & Huck (2025) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. The Science Adventures of Tom & Huck - 2025 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'The Science Adventures of Tom & Huck (2025) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'The Science Adventures of Tom & Huck (2025)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'The Science Adventures of Tom & Huck (2025) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'The Science Adventures of Tom & Huck (2025) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'The Science Adventures of Tom & Huck (2025) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. The Science Adventures of Tom & Huck - 2025 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'The Science Adventures of Tom & Huck (2025) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'The Science Adventures of Tom & Huck (2025)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'The Science Adventures of Tom & Huck (2025) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Possessed by the Night (1994) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Possessed by the Night (1994) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Possessed by the Night - 1994 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Possessed by the Night (1994) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Possessed by the Night (1994)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Possessed by the Night (1994) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Possessed by the Night (1994) 1080p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Possessed by the Night (1994) 1080p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Possessed by the Night - 1994 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Possessed by the Night (1994) 1080p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Possessed by the Night (1994)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Possessed by the Night (1994) 1080p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'A Bun in the Oven (2016) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'A Bun in the Oven (2016) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. A Bun in the Oven - 2016 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'A Bun in the Oven (2016) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'A Bun in the Oven (2016)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'A Bun in the Oven (2016) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'A Bun in the Oven (2016) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'A Bun in the Oven (2016) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. A Bun in the Oven - 2016 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'A Bun in the Oven (2016) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'A Bun in the Oven (2016)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'A Bun in the Oven (2016) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Sønnike (2025) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Sønnike (2025) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Sønnike - 2025 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Sønnike (2025) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Sønnike (2025)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Sønnike (2025) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Sønnike (2025) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Sønnike (2025) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Sønnike - 2025 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Sønnike (2025) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Sønnike (2025)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Sønnike (2025) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Ténor (2022) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Ténor (2022) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Ténor - 2022 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Ténor (2022) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Ténor (2022)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Ténor (2022) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Ténor (2022) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Ténor (2022) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Ténor - 2022 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Ténor (2022) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Ténor (2022)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Ténor (2022) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Family Swap (2020) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Family Swap (2020) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Family Swap - 2020 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Family Swap (2020) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Family Swap (2020)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Family Swap (2020) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Family Swap (2020) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Family Swap (2020) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Family Swap - 2020 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Family Swap (2020) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Family Swap (2020)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Family Swap (2020) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'My Mother's Wedding (2023) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'My Mother's Wedding (2023) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. My Mother's Wedding - 2023 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'My Mother's Wedding (2023) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'My Mother's Wedding (2023)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'My Mother's Wedding (2023) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'My Mother's Wedding (2023) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'My Mother's Wedding (2023) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. My Mother's Wedding - 2023 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'My Mother's Wedding (2023) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'My Mother's Wedding (2023)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'My Mother's Wedding (2023) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Side by Side (1988) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Side by Side (1988) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Side by Side - 1988 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Side by Side (1988) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Side by Side (1988)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Side by Side (1988) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Side by Side (1988) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Side by Side (1988) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Side by Side - 1988 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Side by Side (1988) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Side by Side (1988)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Side by Side (1988) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Arachnicide (2014) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Arachnicide (2014) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Arachnicide - 2014 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Arachnicide (2014) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Arachnicide (2014)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Arachnicide (2014) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Arachnicide (2014) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Arachnicide (2014) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Arachnicide - 2014 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Arachnicide (2014) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Arachnicide (2014)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Arachnicide (2014) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Summer City (1977) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Summer City (1977) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Summer City - 1977 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Summer City (1977) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Summer City (1977)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Summer City (1977) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Summer City (1977) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Summer City (1977) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Movie Parsed. Summer City - 1977 
+2025-09-06 00:30:20.3|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.3|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.3|Debug|QualityParser|Trying to parse quality for 'Summer City (1977) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.3|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.3|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.3|Debug|ParsingService|No matching movie for titles 'Summer City (1977)'
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Release 'Summer City (1977) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.3|Debug|DownloadDecisionMaker|Processing release 'Do You Know the Muffin Man? (1989) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.3|Debug|Parser|Parsing string 'Do You Know the Muffin Man? (1989) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.4|Debug|Parser|Movie Parsed. Do You Know the Muffin Man - 1989 
+2025-09-06 00:30:20.4|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.4|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.4|Debug|QualityParser|Trying to parse quality for 'Do You Know the Muffin Man? (1989) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.4|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.4|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.4|Debug|ParsingService|No matching movie for titles 'Do You Know the Muffin Man (1989)'
+2025-09-06 00:30:20.4|Debug|DownloadDecisionMaker|Release 'Do You Know the Muffin Man? (1989) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.4|Debug|DownloadDecisionMaker|Processing release 'Do You Know the Muffin Man? (1989) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.4|Debug|Parser|Parsing string 'Do You Know the Muffin Man? (1989) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.4|Debug|Parser|Movie Parsed. Do You Know the Muffin Man - 1989 
+2025-09-06 00:30:20.4|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.4|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.4|Debug|QualityParser|Trying to parse quality for 'Do You Know the Muffin Man? (1989) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.4|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.4|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.4|Debug|ParsingService|No matching movie for titles 'Do You Know the Muffin Man (1989)'
+2025-09-06 00:30:20.4|Debug|DownloadDecisionMaker|Release 'Do You Know the Muffin Man? (1989) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.4|Debug|DownloadDecisionMaker|Processing release 'A Film Like Any Other (1968) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.4|Debug|Parser|Parsing string 'A Film Like Any Other (1968) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.4|Debug|Parser|Movie Parsed. A Film Like Any Other - 1968 
+2025-09-06 00:30:20.4|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.4|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.4|Debug|QualityParser|Trying to parse quality for 'A Film Like Any Other (1968) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.4|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.4|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.4|Debug|ParsingService|No matching movie for titles 'A Film Like Any Other (1968)'
+2025-09-06 00:30:20.4|Debug|DownloadDecisionMaker|Release 'A Film Like Any Other (1968) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.4|Debug|DownloadDecisionMaker|Processing release 'A Film Like Any Other (1968) 1080p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.4|Debug|Parser|Parsing string 'A Film Like Any Other (1968) 1080p BRRip x264 -YTS'
+2025-09-06 00:30:20.4|Debug|Parser|Movie Parsed. A Film Like Any Other - 1968 
+2025-09-06 00:30:20.4|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.4|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.4|Debug|QualityParser|Trying to parse quality for 'A Film Like Any Other (1968) 1080p BRRip x264 -YTS'
+2025-09-06 00:30:20.4|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.4|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.4|Debug|ParsingService|No matching movie for titles 'A Film Like Any Other (1968)'
+2025-09-06 00:30:20.4|Debug|DownloadDecisionMaker|Release 'A Film Like Any Other (1968) 1080p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.4|Debug|DownloadDecisionMaker|Processing release 'Highest 2 Lowest (2025) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.4|Debug|Parser|Parsing string 'Highest 2 Lowest (2025) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Highest 2 Lowest - 2025 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Highest 2 Lowest (2025) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Highest 2 Lowest (2025)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Highest 2 Lowest (2025) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Highest 2 Lowest (2025) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Highest 2 Lowest (2025) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Highest 2 Lowest - 2025 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Highest 2 Lowest (2025) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Highest 2 Lowest (2025)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Highest 2 Lowest (2025) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Highest 2 Lowest (2025) 1080p WEBRip 5.1 10Bit x265 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Highest 2 Lowest (2025) 1080p WEBRip 5.1 10Bit x265 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Highest 2 Lowest - 2025 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Highest 2 Lowest (2025) 1080p WEBRip 5.1 10Bit x265 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Highest 2 Lowest (2025)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Highest 2 Lowest (2025) 1080p WEBRip 5.1 10Bit x265 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Wake the Dead (2017) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Wake the Dead (2017) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Wake the Dead - 2017 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Wake the Dead (2017) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Wake the Dead (2017)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Wake the Dead (2017) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Wake the Dead (2017) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Wake the Dead (2017) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Wake the Dead - 2017 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Wake the Dead (2017) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Wake the Dead (2017)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Wake the Dead (2017) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'King of Boys (2018) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'King of Boys (2018) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. King of Boys - 2018 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'King of Boys (2018) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'King of Boys (2018)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'King of Boys (2018) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'King of Boys (2018) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'King of Boys (2018) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. King of Boys - 2018 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'King of Boys (2018) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'King of Boys (2018)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'King of Boys (2018) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Capps Crossing (2017) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Capps Crossing (2017) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Capps Crossing - 2017 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Capps Crossing (2017) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Capps Crossing (2017)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Capps Crossing (2017) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Capps Crossing (2017) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Capps Crossing (2017) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Capps Crossing - 2017 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Capps Crossing (2017) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Capps Crossing (2017)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Capps Crossing (2017) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'FernGully 2 The Magical Rescue (1998) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'FernGully 2 The Magical Rescue (1998) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. FernGully 2 The Magical Rescue - 1998 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'FernGully 2 The Magical Rescue (1998) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'FernGully 2 The Magical Rescue (1998)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'FernGully 2 The Magical Rescue (1998) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'FernGully 2 The Magical Rescue (1998) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'FernGully 2 The Magical Rescue (1998) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. FernGully 2 The Magical Rescue - 1998 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'FernGully 2 The Magical Rescue (1998) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'FernGully 2 The Magical Rescue (1998)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'FernGully 2 The Magical Rescue (1998) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Street Knight (1993) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Street Knight (1993) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Street Knight - 1993 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Street Knight (1993) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Street Knight (1993)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Street Knight (1993) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Street Knight (1993) 1080p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Street Knight (1993) 1080p BRRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Street Knight - 1993 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Street Knight (1993) 1080p BRRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Street Knight (1993)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Street Knight (1993) 1080p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Tales from the Crapper (2004) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Tales from the Crapper (2004) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Tales from the Crapper - 2004 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Tales from the Crapper (2004) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Tales from the Crapper (2004)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Tales from the Crapper (2004) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Tales from the Crapper (2004) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Tales from the Crapper (2004) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Tales from the Crapper - 2004 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Tales from the Crapper (2004) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Tales from the Crapper (2004)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Tales from the Crapper (2004) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Betrayal (2003) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Betrayal (2003) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Betrayal - 2003 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Betrayal (2003) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Betrayal (2003)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Betrayal (2003) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Betrayal (2003) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Betrayal (2003) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Betrayal - 2003 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Betrayal (2003) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Betrayal (2003)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Betrayal (2003) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Jury Duty The Comedy (1990) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Jury Duty The Comedy (1990) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Jury Duty The Comedy - 1990 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Jury Duty The Comedy (1990) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Jury Duty The Comedy (1990)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Jury Duty The Comedy (1990) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Jury Duty The Comedy (1990) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Jury Duty The Comedy (1990) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Jury Duty The Comedy - 1990 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Jury Duty The Comedy (1990) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Jury Duty The Comedy (1990)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Jury Duty The Comedy (1990) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Death in Small Doses (1995) 480p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'Death in Small Doses (1995) 480p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. Death in Small Doses - 1995 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'Death in Small Doses (1995) 480p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-480p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'Death in Small Doses (1995)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'Death in Small Doses (1995) 480p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release '3rd Night (2017) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string '3rd Night (2017) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. 3rd Night - 2017 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for '3rd Night (2017) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles '3rd Night (2017)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release '3rd Night (2017) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release '3rd Night (2017) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string '3rd Night (2017) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. 3rd Night - 2017 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for '3rd Night (2017) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles '3rd Night (2017)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release '3rd Night (2017) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'The Alleys (2021) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'The Alleys (2021) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. The Alleys - 2021 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'The Alleys (2021) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'The Alleys (2021)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'The Alleys (2021) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'The Alleys (2021) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'The Alleys (2021) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. The Alleys - 2021 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'The Alleys (2021) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'The Alleys (2021)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'The Alleys (2021) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'The Soft Kill (1994) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'The Soft Kill (1994) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. The Soft Kill - 1994 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'The Soft Kill (1994) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'The Soft Kill (1994)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'The Soft Kill (1994) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'The Soft Kill (1994) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.5|Debug|Parser|Parsing string 'The Soft Kill (1994) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Movie Parsed. The Soft Kill - 1994 
+2025-09-06 00:30:20.5|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.5|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.5|Debug|QualityParser|Trying to parse quality for 'The Soft Kill (1994) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.5|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.5|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.5|Debug|ParsingService|No matching movie for titles 'The Soft Kill (1994)'
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Release 'The Soft Kill (1994) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.5|Debug|DownloadDecisionMaker|Processing release 'Bambi The Reckoning (2025) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Bambi The Reckoning (2025) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Bambi The Reckoning - 2025 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Bambi The Reckoning (2025) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Bambi The Reckoning (2025)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Bambi The Reckoning (2025) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Bambi The Reckoning (2025) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Bambi The Reckoning (2025) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Bambi The Reckoning - 2025 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Bambi The Reckoning (2025) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Bambi The Reckoning (2025)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Bambi The Reckoning (2025) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Class of '83 (2020) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Class of '83 (2020) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Class of '83 - 2020 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Class of '83 (2020) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Class of '83 (2020)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Class of '83 (2020) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Class of '83 (2020) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Class of '83 (2020) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Class of '83 - 2020 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Class of '83 (2020) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Class of '83 (2020)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Class of '83 (2020) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Alice Through the Looking Glass (1987) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Alice Through the Looking Glass (1987) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Alice Through the Looking Glass - 1987 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Alice Through the Looking Glass (1987) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Alice Through the Looking Glass (1987)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Alice Through the Looking Glass (1987) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Alice Through the Looking Glass (1987) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Alice Through the Looking Glass (1987) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Alice Through the Looking Glass - 1987 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Alice Through the Looking Glass (1987) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Alice Through the Looking Glass (1987)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Alice Through the Looking Glass (1987) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Island of Terror (1966) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Island of Terror (1966) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Island of Terror - 1966 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Island of Terror (1966) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Island of Terror (1966)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Island of Terror (1966) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Island of Terror (1966) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Island of Terror (1966) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Island of Terror - 1966 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Island of Terror (1966) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Island of Terror (1966)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Island of Terror (1966) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Back to Back (1996) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Back to Back (1996) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Back to Back - 1996 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Back to Back (1996) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Back to Back (1996)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Back to Back (1996) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Back to Back (1996) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Back to Back (1996) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Back to Back - 1996 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Back to Back (1996) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Back to Back (1996)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Back to Back (1996) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Hard Evidence (1995) 480p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Hard Evidence (1995) 480p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Hard Evidence - 1995 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Hard Evidence (1995) 480p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-480p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Hard Evidence (1995)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Hard Evidence (1995) 480p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Dead Easy (2004) 480p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Dead Easy (2004) 480p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Dead Easy - 2004 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Dead Easy (2004) 480p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-480p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Dead Easy (2004)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Dead Easy (2004) 480p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Recovery (2016) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Recovery (2016) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Recovery - 2016 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Recovery (2016) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Recovery (2016)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Recovery (2016) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Recovery (2016) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Recovery (2016) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Recovery - 2016 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Recovery (2016) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Recovery (2016)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Recovery (2016) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Penance (2025) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Penance (2025) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Penance - 2025 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Penance (2025) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Penance (2025)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Penance (2025) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Audrey's Children (2024) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Audrey's Children (2024) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Audrey's Children - 2024 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Audrey's Children (2024) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Audrey's Children (2024)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Audrey's Children (2024) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Audrey's Children (2024) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Audrey's Children (2024) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Audrey's Children - 2024 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Audrey's Children (2024) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Audrey's Children (2024)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Audrey's Children (2024) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Stolen Innocence (1995) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Stolen Innocence (1995) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Stolen Innocence - 1995 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Stolen Innocence (1995) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Stolen Innocence (1995)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Stolen Innocence (1995) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Stolen Innocence (1995) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Stolen Innocence (1995) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Stolen Innocence - 1995 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Stolen Innocence (1995) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Stolen Innocence (1995)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Stolen Innocence (1995) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'A Father for Brittany (1998) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'A Father for Brittany (1998) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. A Father for Brittany - 1998 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'A Father for Brittany (1998) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'A Father for Brittany (1998)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'A Father for Brittany (1998) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'A Father for Brittany (1998) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'A Father for Brittany (1998) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. A Father for Brittany - 1998 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'A Father for Brittany (1998) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'A Father for Brittany (1998)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'A Father for Brittany (1998) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'The Minis (2007) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'The Minis (2007) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. The Minis - 2007 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'The Minis (2007) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'The Minis (2007)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'The Minis (2007) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'The Minis (2007) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'The Minis (2007) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. The Minis - 2007 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'The Minis (2007) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'The Minis (2007)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'The Minis (2007) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Found Footage The Making of the Patterson Project (2025) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Found Footage The Making of the Patterson Project (2025) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Found Footage The Making of the Patterson Project - 2025 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Found Footage The Making of the Patterson Project (2025) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Found Footage The Making of the Patterson Project (2025)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Found Footage The Making of the Patterson Project (2025) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Found Footage The Making of the Patterson Project (2025) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Found Footage The Making of the Patterson Project (2025) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Found Footage The Making of the Patterson Project - 2025 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Found Footage The Making of the Patterson Project (2025) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Found Footage The Making of the Patterson Project (2025)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Found Footage The Making of the Patterson Project (2025) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Genkai jinkô keisû (1995) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Genkai jinkô keisû (1995) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Genkai jinkô keisû - 1995 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Genkai jinkô keisû (1995) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Genkai jinkô keisû (1995)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Genkai jinkô keisû (1995) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Genkai jinkô keisû (1995) 1080p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Genkai jinkô keisû (1995) 1080p BRRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Genkai jinkô keisû - 1995 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Genkai jinkô keisû (1995) 1080p BRRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Genkai jinkô keisû (1995)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Genkai jinkô keisû (1995) 1080p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Les têtes de l'emploi (2016) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Les têtes de l'emploi (2016) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Les têtes de l'emploi - 2016 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Les têtes de l'emploi (2016) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.6|Debug|ParsingService|No matching movie for titles 'Les têtes de l'emploi (2016)'
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Release 'Les têtes de l'emploi (2016) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.6|Debug|DownloadDecisionMaker|Processing release 'Les têtes de l'emploi (2016) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.6|Debug|Parser|Parsing string 'Les têtes de l'emploi (2016) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Movie Parsed. Les têtes de l'emploi - 2016 
+2025-09-06 00:30:20.6|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.6|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.6|Debug|QualityParser|Trying to parse quality for 'Les têtes de l'emploi (2016) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.6|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.6|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Les têtes de l'emploi (2016)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Les têtes de l'emploi (2016) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release 'Beats (2019) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string 'Beats (2019) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. Beats - 2019 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for 'Beats (2019) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Beats (2019)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Beats (2019) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release 'Beats (2019) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string 'Beats (2019) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. Beats - 2019 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for 'Beats (2019) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Beats (2019)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Beats (2019) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release 'Joe Strummer The Future Is Unwritten (2007) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string 'Joe Strummer The Future Is Unwritten (2007) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. Joe Strummer The Future Is Unwritten - 2007 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for 'Joe Strummer The Future Is Unwritten (2007) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Joe Strummer The Future Is Unwritten (2007)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Joe Strummer The Future Is Unwritten (2007) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release 'Joe Strummer The Future Is Unwritten (2007) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string 'Joe Strummer The Future Is Unwritten (2007) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. Joe Strummer The Future Is Unwritten - 2007 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for 'Joe Strummer The Future Is Unwritten (2007) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Joe Strummer The Future Is Unwritten (2007)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Joe Strummer The Future Is Unwritten (2007) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release 'Recovery (2007) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string 'Recovery (2007) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. Recovery - 2007 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for 'Recovery (2007) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Recovery (2007)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Recovery (2007) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release 'Recovery (2007) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string 'Recovery (2007) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. Recovery - 2007 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for 'Recovery (2007) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Recovery (2007)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Recovery (2007) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release 'Not Friends (2023) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string 'Not Friends (2023) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. Not Friends - 2023 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for 'Not Friends (2023) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Not Friends (2023)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Not Friends (2023) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release 'Not Friends (2023) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string 'Not Friends (2023) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. Not Friends - 2023 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for 'Not Friends (2023) 1080p WEBRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Not Friends (2023)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Not Friends (2023) 1080p WEBRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release 'Three Stops to Murder (1953) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string 'Three Stops to Murder (1953) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. Three Stops to Murder - 1953 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for 'Three Stops to Murder (1953) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Three Stops to Murder (1953)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Three Stops to Murder (1953) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release 'Three Stops to Murder (1953) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string 'Three Stops to Murder (1953) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. Three Stops to Murder - 1953 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for 'Three Stops to Murder (1953) 1080p BRRip 5.1 x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Three Stops to Murder (1953)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Three Stops to Murder (1953) 1080p BRRip 5.1 x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release 'Alien Trespass (2009) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string 'Alien Trespass (2009) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. Alien Trespass - 2009 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for 'Alien Trespass (2009) 720p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: WEBRip-720p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Alien Trespass (2009)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Alien Trespass (2009) 720p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release 'Alien Trespass (2009) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string 'Alien Trespass (2009) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. Alien Trespass - 2009 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for 'Alien Trespass (2009) 1080p WEBRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: WEBRip-1080p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles 'Alien Trespass (2009)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release 'Alien Trespass (2009) 1080p WEBRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release '7 Women (1965) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string '7 Women (1965) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. 7 Women - 1965 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for '7 Women (1965) 720p BRRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: Bluray-720p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles '7 Women (1965)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release '7 Women (1965) 720p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Processing release '7 Women (1965) 1080p BRRip x264 -YTS' from 'YTS (Prowlarr)'
+2025-09-06 00:30:20.7|Debug|Parser|Parsing string '7 Women (1965) 1080p BRRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Movie Parsed. 7 Women - 1965 
+2025-09-06 00:30:20.7|Debug|Parser|Release Group parsed: YTS
+2025-09-06 00:30:20.7|Debug|Parser|Languages parsed: Unknown
+2025-09-06 00:30:20.7|Debug|QualityParser|Trying to parse quality for '7 Women (1965) 1080p BRRip x264 -YTS'
+2025-09-06 00:30:20.7|Debug|Parser|Quality parsed: Bluray-1080p v1
+2025-09-06 00:30:20.7|Debug|Parser|Edition parsed: 
+2025-09-06 00:30:20.7|Debug|ParsingService|No matching movie for titles '7 Women (1965)'
+2025-09-06 00:30:20.7|Debug|DownloadDecisionMaker|Release '7 Women (1965) 1080p BRRip x264 -YTS' from 'YTS (Prowlarr)' rejected for the following reasons: [Permanent] Unknown Movie. Unable to match to correct movie using release title.
+2025-09-06 00:30:20.7|Info|RssSyncService|RSS Sync Completed. Reports found: 97, Reports grabbed: 0
+2025-09-06 00:30:20.7|Debug|PendingReleaseService|Removing failed releases from pending
+2025-09-06 00:31:49.6|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:33:19.6|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:33:19.7|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-09-06 00:34:19.7|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:35:49.7|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:37:19.7|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:38:19.7|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:38:19.7|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-09-06 00:39:49.8|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:41:19.8|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:41:36.6|Debug|Api|[GET] /api/system/status?apikey=(removed) 404.NotFound (0 ms)
+2025-09-06 00:41:36.6|Debug|Api|[GET] /api/v3/system/status?apikey=(removed) 200.OK (1 ms)
+2025-09-06 00:41:36.7|Debug|RootFolderService|Generating list of unmapped folders
+2025-09-06 00:41:36.7|Debug|RootFolderService|0 unmapped folders detected.
+2025-09-06 00:41:36.7|Debug|Api|[GET] /api/v3/rootfolder?apikey=(removed) 200.OK (6 ms)
+2025-09-06 00:41:36.7|Debug|Api|[GET] /api/v3/qualityprofile?apikey=(removed) 200.OK (1 ms)
+2025-09-06 00:41:36.7|Debug|Api|[GET] /api/v3/tag?apikey=(removed) 200.OK (0 ms)
+2025-09-06 00:41:36.7|Debug|Api|[GET] /api/v3/movie?apikey=(removed) 200.OK (38 ms)
+2025-09-06 00:42:49.8|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:43:19.8|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-09-06 00:43:49.9|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:45:19.9|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:46:49.9|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:48:19.9|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:48:19.9|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-09-06 00:49:50.0|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:51:20.0|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:52:50.0|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:53:20.1|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning
+2025-09-06 00:53:50.1|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:55:20.1|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:56:50.1|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:58:20.2|Debug|DownloadClientFactory|Temporarily ignoring download client Transmission till 09/06/2025 01:06:48 due to recent failures.
+2025-09-06 00:58:20.2|Debug|ImportListSyncService|No enabled import lists, skipping sync and cleaning

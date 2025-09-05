@@ -6989,3 +6989,15 @@ container.With(rules => rules.WithCaptureContainerDisposeStackTrace())"
 2025-09-06 00:12:31.2|Warn|FetchAndParseRssService|No available indexers. check your configuration.
 2025-09-06 00:12:31.2|Info|DownloadDecisionMaker|No results found
 2025-09-06 00:12:31.2|Info|RssSyncService|RSS Sync Completed. Reports found: 0, Reports grabbed: 0
+2025-09-06 00:27:31.3|Info|RssSyncService|Starting RSS Sync
+2025-09-06 00:27:31.4|Warn|FetchAndParseRssService|No available indexers. check your configuration.
+2025-09-06 00:27:31.4|Info|DownloadDecisionMaker|No results found
+2025-09-06 00:27:31.4|Info|RssSyncService|RSS Sync Completed. Reports found: 0, Reports grabbed: 0
+2025-09-06 00:42:31.8|Info|RssSyncService|Starting RSS Sync
+2025-09-06 00:42:31.8|Warn|FetchAndParseRssService|No available indexers. check your configuration.
+2025-09-06 00:42:31.8|Info|DownloadDecisionMaker|No results found
+2025-09-06 00:42:31.8|Info|RssSyncService|RSS Sync Completed. Reports found: 0, Reports grabbed: 0
+2025-09-06 00:57:32.1|Info|RssSyncService|Starting RSS Sync
+2025-09-06 00:57:32.2|Warn|FetchAndParseRssService|No available indexers. check your configuration.
+2025-09-06 00:57:32.2|Info|DownloadDecisionMaker|No results found
+2025-09-06 00:57:32.2|Info|RssSyncService|RSS Sync Completed. Reports found: 0, Reports grabbed: 0

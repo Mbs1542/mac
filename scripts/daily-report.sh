@@ -13,9 +13,13 @@ LOG_FILE="/tmp/daily-report.log"
 echo "=== דוח יומי - $DATE ===" > $LOG_FILE
 echo "" >> $LOG_FILE
 
-# בדיקת סטטוס שירותים
 echo "📊 סטטוס שירותים:" >> $LOG_FILE
 docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" >> $LOG_FILE
+echo "" >> $LOG_FILE
+
+# מדדי מערכת
+echo "🖥️ CPU/Load:" >> $LOG_FILE
+uptime >> $LOG_FILE
 echo "" >> $LOG_FILE
 
 # בדיקת שימוש בדיסק
@@ -28,14 +32,17 @@ echo "🧠 שימוש בזיכרון:" >> $LOG_FILE
 free -h >> $LOG_FILE
 echo "" >> $LOG_FILE
 
-# בדיקת לוגים של Grafana
 echo "📈 לוגים אחרונים של Grafana:" >> $LOG_FILE
 docker logs grafana --tail 10 >> $LOG_FILE
 echo "" >> $LOG_FILE
 
-# בדיקת לוגים של Prometheus
 echo "📊 לוגים אחרונים של Prometheus:" >> $LOG_FILE
 docker logs prometheus --tail 10 >> $LOG_FILE
+echo "" >> $LOG_FILE
+
+# שימוש בדיסק לדירקטוריות חשובות
+echo "🗂️ שימוש בדיסק (נתיבים חשובים):" >> $LOG_FILE
+du -sh /Volumes/WorkDrive/MacStorage/docker/* 2>/dev/null | sort -h | tail -n 20 >> $LOG_FILE
 echo "" >> $LOG_FILE
 
 # שליחת המייל

@@ -419,3 +419,6 @@ FeedUrl: http://prowlarr:9696/2/api?t=movie&cat=2000,2040,2045,2060&extended=1&a
    at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
 
 
+2025-09-06 00:30:19.6|Info|RssSyncService|Starting RSS Sync
+2025-09-06 00:30:20.2|Info|DownloadDecisionMaker|Processing 97 releases
+2025-09-06 00:30:20.7|Info|RssSyncService|RSS Sync Completed. Reports found: 97, Reports grabbed: 0

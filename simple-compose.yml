@@ -385,6 +385,7 @@ services:
     # no direct UI exposure; route via Traefik
     volumes:
       - /Volumes/WorkDrive/MacStorage/docker/grafana/data:/var/lib/grafana
+      - /Volumes/WorkDrive/MacStorage/docker/grafana/config/provisioning:/etc/grafana/provisioning
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:?set in .env}

@@ -1,3 +1,17 @@
+# Example users database for Authelia; ensure hashed passwords (argon2id)
+users:
+  admin:
+    displayname: "Administrator"
+    password: "$argon2id$v=19$m=65536,t=3,p=2$ZHVtbXk$ZHVtbXk"  # REPLACE with real argon2id hash
+    email: admin@mbs-home.ddns.net
+    groups:
+      - admins
+  user:
+    displayname: "Standard User"
+    password: "$argon2id$v=19$m=65536,t=3,p=2$ZHVtbXk$ZHVtbXk"  # REPLACE with real argon2id hash
+    email: user@mbs-home.ddns.net
+    groups:
+      - users
 users:
   admin:
     displayname: "מנהל המערכת"

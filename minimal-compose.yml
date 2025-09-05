@@ -48,7 +48,6 @@ services:
       - --log.level=INFO
       - --accesslog=true
       - --metrics.prometheus=true
-      - --metrics.prometheus=true
     deploy:
       placement:
         constraints:
@@ -65,12 +64,12 @@ services:
         - "traefik.http.routers.traefik-ddns.entrypoints=websecure"
         - "traefik.http.routers.traefik-ddns.service=api@internal"
         - "traefik.http.routers.traefik-ddns.tls.certresolver=letsencrypt"
-        - "traefik.http.routers.traefik-ddns.middlewares=secure-headers@file"
+        - "traefik.http.routers.traefik-ddns.middlewares=authelia@file,secure-headers@file"
         - "traefik.http.routers.traefik-local.rule=Host(`traefik.local`)"
         - "traefik.http.routers.traefik-local.entrypoints=websecure"
         - "traefik.http.routers.traefik-local.service=api@internal"
         - "traefik.http.routers.traefik-local.tls=true"
-        - "traefik.http.routers.traefik-local.middlewares=secure-headers@file"
+        - "traefik.http.routers.traefik-local.middlewares=authelia@file,secure-headers@file"
         - "traefik.http.services.traefik.loadbalancer.server.port=8080"
 
   homepage:
@@ -104,4 +103,9 @@ services:
         - "traefik.http.routers.homepage-local.entrypoints=websecure"
         - "traefik.http.routers.homepage-local.tls=true"
         - "traefik.http.routers.homepage-local.service=homepage"
+<<<<<<< Current (Your changes)
+=======
+        - "traefik.http.middlewares.homepage-auth.forwardauth.address=http://authelia:9091/api/verify?rd=https://auth.mbs-home.ddns.net/"
+        - "traefik.http.routers.homepage-local.middlewares=homepage-auth,secure-headers@file"
+>>>>>>> Incoming (Background Agent changes)
         - "traefik.http.services.homepage.loadbalancer.server.port=3000"

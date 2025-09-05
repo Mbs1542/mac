@@ -307,3 +307,38 @@
 2025-09-06 00:06:18.2|Debug|Cardigann|Downloading Feed https://eztvx.to/home
 2025-09-06 00:06:18.6|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
 2025-09-06 00:06:18.9|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-06 00:21:48.6|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-06 00:21:48.6|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-06 00:21:48.6|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-06 00:21:48.6|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-06 00:21:48.6|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-06 00:21:48.6|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-06 00:21:48.6|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-06 00:21:48.6|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-06 00:21:49.1|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-06 00:21:49.4|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-06 00:30:19.6|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-06 00:30:19.6|Info|ReleaseSearchService|Searching indexer(s): [YTS] for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060]
+2025-09-06 00:30:19.6|Debug|Cardigann|Adding request for YTS: https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-06 00:30:19.6|Debug|Cardigann|Downloading Feed https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-06 00:30:20.2|Debug|ReleaseSearchService|Total of 97 reports were found for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060] from 1 indexer(s)
+2025-09-06 00:37:19.0|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-06 00:37:19.0|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-06 00:37:19.0|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-06 00:37:19.0|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-06 00:37:19.0|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-06 00:37:19.0|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-06 00:37:19.0|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-06 00:37:19.0|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-06 00:37:19.4|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-06 00:37:19.7|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-06 00:52:49.4|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-06 00:52:49.4|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-06 00:52:49.4|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-06 00:52:49.4|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-06 00:52:49.4|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-06 00:52:49.4|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-06 00:52:49.4|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-06 00:52:49.4|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-06 00:52:49.8|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-06 00:52:50.1|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
