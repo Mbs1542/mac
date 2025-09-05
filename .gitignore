@@ -1,0 +1,22 @@
+# Ignore local AI models
+ai-local/
+
+# Ignore Jellyfin data and cache
+jellyfin/config/
+jellyfin/data/
+
+# Ignore Prometheus data
+prometheus/data/
+
+# Ignore other common data/log folders
+transmission/config/
+qbittorrent/
+npm/
+node_modules/
+
+# Ignore Traefik's auto-generated files
+config/resume/
+acme.json
+
+# Ignore local environment variables
+.env
