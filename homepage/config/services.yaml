@@ -1,0 +1,156 @@
+# קובץ זה מגדיר את כל השירותים שיוצגו בדשבורד
+
+- "🎬 מדיה וניהול תוכן":
+    - Jellyfin:
+        icon: jellyfin.svg
+        href: https://jellyfin.mbs-home.ddns.net
+        description: "שרת מדיה מתקדם - סטרימינג של סרטים, סדרות ומוזיקה עם ממשק יפה ונוח"
+        server: my-docker
+        container: jellyfin
+
+    - Sonarr:
+        icon: sonarr.svg
+        href: https://sonarr.mbs-home.ddns.net
+        description: "ניהול אוטומטי של סדרות - הורדה, ארגון ועדכון אוטומטי של סדרות TV"
+        server: my-docker
+        container: sonarr
+
+    - Radarr:
+        icon: radarr.svg
+        href: https://radarr.mbs-home.ddns.net
+        description: "ניהול אוטומטי של סרטים - הורדה, ארגון ועדכון אוטומטי של סרטים"
+        server: my-docker
+        container: radarr
+
+    - Lidarr:
+        icon: lidarr.svg
+        href: https://lidarr.mbs-home.ddns.net
+        description: "ניהול אוטומטי של מוזיקה - הורדה, ארגון ועדכון אוטומטי של מוזיקה"
+        server: my-docker
+        container: lidarr
+
+    - Bazarr:
+        icon: bazarr.svg
+        href: https://bazarr.mbs-home.ddns.net
+        description: "ניהול כתוביות אוטומטי - הורדה ועדכון אוטומטי של כתוביות לסרטים וסדרות"
+        server: my-docker
+        container: bazarr
+
+- "⬇️ הורדות ושיתוף":
+    - Transmission:
+        icon: transmission.svg
+        href: https://transmission.mbs-home.ddns.net
+        description: "לקוח טורנטים מתקדם - הורדה מהירה ואמינה של קבצים דרך BitTorrent"
+        server: my-docker
+        container: transmission
+
+    - Prowlarr:
+        icon: prowlarr.svg
+        href: https://prowlarr.mbs-home.ddns.net
+        description: "מנהל אינדקסרים - חיפוש וניהול של אתרי טורנטים ואינדקסרים"
+        server: my-docker
+        container: prowlarr
+
+    - slskd:
+        icon: slskd.svg
+        href: https://slskd.mbs-home.ddns.net
+        description: "שיתוף מוזיקה Soulseek - שיתוף והורדת מוזיקה דרך רשת Soulseek"
+        server: my-docker
+        container: slskd
+
+- "🔧 ניהול מערכת":
+    - Portainer:
+        icon: portainer.svg
+        href: https://portainer.mbs-home.ddns.net
+        description: "ניהול Docker - ממשק גרפי מתקדם לניהול קונטיינרים, תמונות ורשתות"
+        server: my-docker
+        container: portainer
+
+    - Traefik:
+        icon: traefik.svg
+        href: https://traefik.mbs-home.ddns.net
+        description: "Reverse Proxy - ניהול תעבורת רשת, SSL ואיזון עומסים לכל השירותים"
+        server: my-docker
+        container: traefik
+
+    - AdGuard Home:
+        icon: adguard-home.svg
+        href: https://dns.mbs-home.ddns.net
+        description: "חוסם פרסומות ו-DNS - חסימת פרסומות, מעקב ופילטור DNS ברמת הרשת"
+        server: my-docker
+        container: adguard
+
+- "📊 ניטור ומדדים":
+    - Grafana:
+        icon: grafana.svg
+        href: https://monitor.mbs-home.ddns.net
+        description: "דשבורד ניטור מתקדם - ויזואליזציה של מדדים, גרפים ואוטומציה של המערכת"
+        server: my-docker
+        container: grafana
+
+    - Prometheus:
+        icon: prometheus.svg
+        href: https://prometheus.mbs-home.ddns.net
+        description: "איסוף מדדים - איסוף ואחסון מדדי ביצועים של כל השירותים במערכת"
+        server: my-docker
+        container: prometheus
+
+    - Watchtower:
+        icon: watchtower.svg
+        href: "docker logs watchtower"
+        description: "עדכונים אוטומטיים - עדכון אוטומטי של כל הקונטיינרים לגרסאות החדשות ביותר"
+        server: my-docker
+        container: watchtower
+
+- "🤖 AI וכלים מתקדמים":
+    - Open WebUI:
+        icon: openai.svg
+        href: https://ai.mbs-home.ddns.net
+        description: "ממשק AI מתקדם - שיחה עם מודלי AI, עזרה בכתיבת קוד ופתרון בעיות"
+        server: my-docker
+        container: open-webui
+
+    - WireGuard:
+        icon: wireguard.svg
+        href: https://vpn.mbs-home.ddns.net
+        description: "VPN מאובטח - גישה מרחוק מאובטחת לכל השירותים והרשת הביתית"
+        server: my-docker
+        container: wireguard
+
+- "🔐 אבטחה וניהול סיסמאות":
+    - Vaultwarden:
+        icon: bitwarden.svg
+        href: https://vault.mbs-home.ddns.net
+        description: "ניהול סיסמאות חכם - אחסון מאובטח של סיסמאות, כרטיסי אשראי ומידע רגיש"
+        server: my-docker
+        container: vaultwarden
+    - Authelia SSO:
+        icon: shield.svg
+        href: https://auth.mbs-home.ddns.net
+        description: "מערכת SSO מרכזית - התחברות מאובטחת לכל השירותים עם הרשאות מתקדמות"
+        server: my-docker
+        container: authelia
+
+- "📧 תקשורת ומיילים":
+    - Mail Server:
+        icon: mail.svg
+        href: https://mail.mbs-home.ddns.net
+        description: "שרת מיילים פרטי - שליחת וקבלת מיילים, התראות וניטור מערכת"
+        server: my-docker
+        container: mailserver
+
+- "💾 גיבויים ואוטומציה":
+    - Backup System:
+        icon: backup.svg
+        href: "docker logs backup"
+        description: "מערכת גיבויים אוטומטית - גיבוי יומי של כל הנתונים והגדרות"
+        server: my-docker
+        container: backup
+
+- "🏠 השתלטות מהבית":
+    - Home Assistant:
+        icon: home-assistant.svg
+        href: https://home.mbs-home.ddns.net
+        description: "מרכז השתלטות חכם - אוטומציה של הבית, ניהול מכשירים חכמים ואינטגרציה מלאה"
+        server: my-docker
+        container: homeassistant

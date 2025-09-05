@@ -1,0 +1,421 @@
+2025-09-05 15:08:42.1|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 15:18:42.3|Info|RssSyncService|Starting RSS Sync
+2025-09-05 15:18:42.9|Info|DownloadDecisionMaker|Processing 96 releases
+2025-09-05 15:18:43.4|Info|RssSyncService|RSS Sync Completed. Reports found: 96, Reports grabbed: 0
+2025-09-05 15:24:12.3|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 15:49:13.1|Info|RssSyncService|Starting RSS Sync
+2025-09-05 15:49:13.1|Error|Torznab|An error occurred while processing indexer feed. http://prowlarr:9696/2/api?t=movie&cat=2000,2040,2045,2060&extended=1&apikey=(removed)&offset=0&limit=100
+
+[v5.27.5.10198] System.Net.Http.HttpRequestException: Name does not resolve (prowlarr:9696)
+ ---> System.Net.Sockets.SocketException (0xFFFDFFFF): Name does not resolve
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|277_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 337
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 313
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(HttpRequestMessage request)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Radarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 115
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Radarr.Common/Http/HttpClient.cs:line 157
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Radarr.Core/Indexers/HttpIndexerBase.cs:line 332
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Radarr.Core/Indexers/HttpIndexerBase.cs:line 305
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchReleases(Func`2 pageableRequestChainSelector, Boolean isRecent) in ./Radarr.Core/Indexers/HttpIndexerBase.cs:line 131
+FeedUrl: http://prowlarr:9696/2/api?t=movie&cat=2000,2040,2045,2060&extended=1&apikey=(removed)&offset=0&limit=100
+
+2025-09-05 15:49:13.6|Info|DownloadDecisionMaker|No results found
+2025-09-05 15:49:13.6|Info|RssSyncService|RSS Sync Completed. Reports found: 0, Reports grabbed: 0
+2025-09-05 15:49:28.7|Info|Microsoft.Hosting.Lifetime|Application is shutting down...
+2025-09-05 15:49:28.9|Info|ConsoleApp|Exiting main.
+2025-09-05 17:10:03.3|Info|Bootstrap|Starting Radarr - /app/radarr/bin/Radarr - Version 5.27.5.10198
+2025-09-05 17:10:03.3|Info|AppFolderInfo|Data directory is being overridden to [/config]
+2025-09-05 17:10:03.3|Info|AppFolderInfo|Data directory is being overridden to [/config]
+2025-09-05 17:10:03.5|Info|AppFolderInfo|Data directory is being overridden to [/config]
+2025-09-05 17:10:03.6|Info|MigrationController|*** Migrating data source=/config/radarr.db;cache size=-20000;datetimekind=Utc;journal mode=Wal;pooling=True;version=3;busytimeout=100 ***
+2025-09-05 17:10:03.7|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrating
+2025-09-05 17:10:03.7|Info|FluentMigrator.Runner.MigrationRunner|PerformDBOperation 
+2025-09-05 17:10:03.7|Info|NzbDrone.Core.Datastore.Migration.Framework.NzbDroneSQLiteProcessor|Performing DB Operation
+2025-09-05 17:10:03.7|Info|DatabaseEngineVersionCheck|SQLite 3.49.2
+2025-09-05 17:10:03.7|Info|FluentMigrator.Runner.MigrationRunner|=> 0.0273397s
+2025-09-05 17:10:03.7|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrated
+2025-09-05 17:10:03.7|Info|FluentMigrator.Runner.MigrationRunner|=> 0.0289495s
+2025-09-05 17:10:03.7|Info|MigrationController|*** Migrating data source=/config/logs.db;cache size=-20000;datetimekind=Utc;journal mode=Wal;pooling=True;version=3;busytimeout=100 ***
+2025-09-05 17:10:03.7|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrating
+2025-09-05 17:10:03.7|Info|FluentMigrator.Runner.MigrationRunner|PerformDBOperation 
+2025-09-05 17:10:03.8|Info|NzbDrone.Core.Datastore.Migration.Framework.NzbDroneSQLiteProcessor|Performing DB Operation
+2025-09-05 17:10:03.9|Info|DatabaseEngineVersionCheck|SQLite 3.49.2
+2025-09-05 17:10:03.9|Info|FluentMigrator.Runner.MigrationRunner|=> 0.1067039s
+2025-09-05 17:10:03.9|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrated
+2025-09-05 17:10:03.9|Info|FluentMigrator.Runner.MigrationRunner|=> 0.1236775s
+2025-09-05 17:10:04.1|Info|Microsoft.Hosting.Lifetime|Now listening on: http://[::]:7878
+2025-09-05 17:10:04.3|Info|CommandExecutor|Starting 2 threads for tasks.
+2025-09-05 17:10:04.3|Info|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2025-09-05 17:10:04.4|Info|Microsoft.Hosting.Lifetime|Hosting environment: Production
+2025-09-05 17:10:04.4|Info|Microsoft.Hosting.Lifetime|Content root path: /app/radarr/bin
+2025-09-05 17:10:04.4|Info|ManagedHttpDispatcher|IPv4 is available: True, IPv6 will be disabled
+2025-09-05 17:10:34.4|Info|RssSyncService|Starting RSS Sync
+2025-09-05 17:10:34.4|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 17:10:35.3|Info|DownloadDecisionMaker|Processing 97 releases
+2025-09-05 17:10:36.1|Info|RssSyncService|RSS Sync Completed. Reports found: 97, Reports grabbed: 0
+2025-09-05 17:16:04.5|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 17:21:34.7|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 17:27:34.7|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 17:41:05.3|Info|RssSyncService|Starting RSS Sync
+2025-09-05 17:41:06.3|Info|DownloadDecisionMaker|Processing 97 releases
+2025-09-05 17:41:06.7|Info|RssSyncService|RSS Sync Completed. Reports found: 97, Reports grabbed: 0
+2025-09-05 17:52:10.2|Info|Microsoft.Hosting.Lifetime|Application is shutting down...
+2025-09-05 17:52:11.8|Info|ConsoleApp|Exiting main.
+2025-09-05 18:24:14.8|Info|Bootstrap|Starting Radarr - /app/radarr/bin/Radarr - Version 5.27.5.10198
+2025-09-05 18:24:14.9|Info|AppFolderInfo|Data directory is being overridden to [/config]
+2025-09-05 18:24:14.9|Info|AppFolderInfo|Data directory is being overridden to [/config]
+2025-09-05 18:24:15.2|Info|AppFolderInfo|Data directory is being overridden to [/config]
+2025-09-05 18:24:16.2|Info|MigrationController|*** Migrating data source=/config/radarr.db;cache size=-20000;datetimekind=Utc;journal mode=Wal;pooling=True;version=3;busytimeout=100 ***
+2025-09-05 18:24:16.3|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrating
+2025-09-05 18:24:16.3|Info|FluentMigrator.Runner.MigrationRunner|PerformDBOperation 
+2025-09-05 18:24:16.3|Info|NzbDrone.Core.Datastore.Migration.Framework.NzbDroneSQLiteProcessor|Performing DB Operation
+2025-09-05 18:24:16.6|Info|DatabaseEngineVersionCheck|SQLite 3.49.2
+2025-09-05 18:24:16.6|Info|FluentMigrator.Runner.MigrationRunner|=> 0.3052022s
+2025-09-05 18:24:16.6|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrated
+2025-09-05 18:24:16.6|Info|FluentMigrator.Runner.MigrationRunner|=> 0.3125374s
+2025-09-05 18:24:16.7|Info|MigrationController|*** Migrating data source=/config/logs.db;cache size=-20000;datetimekind=Utc;journal mode=Wal;pooling=True;version=3;busytimeout=100 ***
+2025-09-05 18:24:16.8|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrating
+2025-09-05 18:24:16.8|Info|FluentMigrator.Runner.MigrationRunner|PerformDBOperation 
+2025-09-05 18:24:16.8|Info|NzbDrone.Core.Datastore.Migration.Framework.NzbDroneSQLiteProcessor|Performing DB Operation
+2025-09-05 18:24:16.8|Info|DatabaseEngineVersionCheck|SQLite 3.49.2
+2025-09-05 18:24:16.8|Info|FluentMigrator.Runner.MigrationRunner|=> 0.0518356s
+2025-09-05 18:24:16.8|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrated
+2025-09-05 18:24:16.8|Info|FluentMigrator.Runner.MigrationRunner|=> 0.0624818s
+2025-09-05 18:24:17.2|Info|Microsoft.Hosting.Lifetime|Now listening on: http://[::]:7878
+2025-09-05 18:24:17.5|Info|CommandExecutor|Starting 2 threads for tasks.
+2025-09-05 18:24:17.6|Info|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2025-09-05 18:24:17.6|Info|Microsoft.Hosting.Lifetime|Hosting environment: Production
+2025-09-05 18:24:17.6|Info|Microsoft.Hosting.Lifetime|Content root path: /app/radarr/bin
+2025-09-05 18:24:17.7|Info|ManagedHttpDispatcher|IPv4 is available: True, IPv6 will be disabled
+2025-09-05 18:24:47.5|Info|RssSyncService|Starting RSS Sync
+2025-09-05 18:24:48.3|Info|DownloadDecisionMaker|Processing 97 releases
+2025-09-05 18:24:49.4|Info|RssSyncService|RSS Sync Completed. Reports found: 97, Reports grabbed: 0
+2025-09-05 18:27:47.7|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 18:33:47.8|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 18:34:50.1|Info|Radarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was challenged.
+2025-09-05 18:39:18.1|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 18:55:19.0|Info|RssSyncService|Starting RSS Sync
+2025-09-05 18:55:19.8|Info|DownloadDecisionMaker|Processing 94 releases
+2025-09-05 18:55:20.3|Info|RssSyncService|RSS Sync Completed. Reports found: 94, Reports grabbed: 0
+2025-09-05 19:04:18.1|Warn|HttpClient|HTTP Error - Res: HTTP/1.1 [GET] http://prowlarr:9696/4/api?t=movie&cat=2000,2070,2030,2010,2040,2060,2045&extended=1&apikey=(removed)&offset=0&limit=100: 429.TooManyRequests (142 bytes)
+<?xml version="1.0" encoding="UTF-8"?>
+<error code="429" description="Indexer is disabled till 09/06/2025 19:04:18 due to recent failures." />
+2025-09-05 19:04:18.2|Warn|Torznab|Unable to connect to indexer
+
+[v5.27.5.10198] NzbDrone.Common.Http.TooManyRequestsException: HTTP request failed: [429:TooManyRequests] [GET] at [http://prowlarr:9696/4/api?t=movie&cat=2000,2070,2030,2010,2040,2060,2045&extended=1&apikey=(removed)&offset=0&limit=100]
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 115
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Radarr.Core/Indexers/HttpIndexerBase.cs:line 332
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Radarr.Core/Indexers/HttpIndexerBase.cs:line 305
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.TestConnection() in ./Radarr.Core/Indexers/HttpIndexerBase.cs:line 359
+<?xml version="1.0" encoding="UTF-8"?>
+<error code="429" description="Indexer is disabled till 09/06/2025 19:04:18 due to recent failures." />
+
+
+2025-09-05 19:04:18.4|Warn|RadarrErrorPipeline|Invalid request Validation failed: 
+ -- : Unable to connect to indexer, check the log above the ValidationFailure for more details. HTTP request failed: [429:TooManyRequests] [GET] at [http://prowlarr:9696/4/api?t=movie&cat=2000,2070,2030,2010,2040,2060,2045&extended=1&apikey=(removed)&offset=0&limit=100]
+2025-09-05 19:04:19.8|Warn|HttpClient|HTTP Error - Res: HTTP/1.1 [GET] http://prowlarr:9696/4/api?t=movie&cat=2000,2070,2030,2010,2040,2060,2045&extended=1&apikey=(removed)&offset=0&limit=100: 429.TooManyRequests (142 bytes)
+<?xml version="1.0" encoding="UTF-8"?>
+<error code="429" description="Indexer is disabled till 09/06/2025 19:04:18 due to recent failures." />
+2025-09-05 19:04:19.8|Warn|Torznab|Unable to connect to indexer
+
+[v5.27.5.10198] NzbDrone.Common.Http.TooManyRequestsException: HTTP request failed: [429:TooManyRequests] [GET] at [http://prowlarr:9696/4/api?t=movie&cat=2000,2070,2030,2010,2040,2060,2045&extended=1&apikey=(removed)&offset=0&limit=100]
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Radarr.Common/Http/HttpClient.cs:line 115
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchIndexerResponse(IndexerRequest request) in ./Radarr.Core/Indexers/HttpIndexerBase.cs:line 332
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.FetchPage(IndexerRequest request, IParseIndexerResponse parser) in ./Radarr.Core/Indexers/HttpIndexerBase.cs:line 305
+   at NzbDrone.Core.Indexers.HttpIndexerBase`1.TestConnection() in ./Radarr.Core/Indexers/HttpIndexerBase.cs:line 359
+<?xml version="1.0" encoding="UTF-8"?>
+<error code="429" description="Indexer is disabled till 09/06/2025 19:04:18 due to recent failures." />
+
+
+2025-09-05 19:04:19.8|Warn|RadarrErrorPipeline|Invalid request Validation failed: 
+ -- : Unable to connect to indexer, check the log above the ValidationFailure for more details. HTTP request failed: [429:TooManyRequests] [GET] at [http://prowlarr:9696/4/api?t=movie&cat=2000,2070,2030,2010,2040,2060,2045&extended=1&apikey=(removed)&offset=0&limit=100]
+2025-09-05 19:25:50.4|Info|RssSyncService|Starting RSS Sync
+2025-09-05 19:25:53.9|Info|DownloadDecisionMaker|Processing 94 releases
+2025-09-05 19:26:17.2|Info|RssSyncService|RSS Sync Completed. Reports found: 94, Reports grabbed: 0
+2025-09-05 19:39:57.3|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 19:56:45.5|Info|RssSyncService|Starting RSS Sync
+2025-09-05 19:56:47.0|Info|DownloadDecisionMaker|Processing 95 releases
+2025-09-05 19:56:48.6|Info|RssSyncService|RSS Sync Completed. Reports found: 95, Reports grabbed: 0
+2025-09-05 20:18:22.7|Info|Radarr.Http.Authentication.ApiKeyAuthenticationHandler|AuthenticationScheme: API was challenged.
+2025-09-05 20:27:16.4|Info|RssSyncService|Starting RSS Sync
+2025-09-05 20:27:17.2|Info|DownloadDecisionMaker|Processing 95 releases
+2025-09-05 20:27:17.6|Info|RssSyncService|RSS Sync Completed. Reports found: 95, Reports grabbed: 0
+2025-09-05 20:41:17.5|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 20:57:18.4|Info|RssSyncService|Starting RSS Sync
+2025-09-05 20:57:19.3|Info|DownloadDecisionMaker|Processing 97 releases
+2025-09-05 20:57:19.8|Info|RssSyncService|RSS Sync Completed. Reports found: 97, Reports grabbed: 0
+2025-09-05 21:27:49.5|Info|RssSyncService|Starting RSS Sync
+2025-09-05 21:27:50.5|Info|DownloadDecisionMaker|Processing 97 releases
+2025-09-05 21:27:51.8|Info|RssSyncService|RSS Sync Completed. Reports found: 97, Reports grabbed: 0
+2025-09-05 21:33:18.7|Info|Microsoft.Hosting.Lifetime|Application is shutting down...
+2025-09-05 21:33:19.6|Info|ConsoleApp|Exiting main.
+2025-09-05 21:34:05.3|Info|Bootstrap|Starting Radarr - /app/radarr/bin/Radarr - Version 5.27.5.10198
+2025-09-05 21:34:05.3|Info|AppFolderInfo|Data directory is being overridden to [/config]
+2025-09-05 21:34:05.4|Info|AppFolderInfo|Data directory is being overridden to [/config]
+2025-09-05 21:34:05.7|Info|AppFolderInfo|Data directory is being overridden to [/config]
+2025-09-05 21:34:07.7|Info|MigrationController|*** Migrating data source=/config/radarr.db;cache size=-20000;datetimekind=Utc;journal mode=Wal;pooling=True;version=3;busytimeout=100 ***
+2025-09-05 21:34:07.8|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrating
+2025-09-05 21:34:07.8|Info|FluentMigrator.Runner.MigrationRunner|PerformDBOperation 
+2025-09-05 21:34:07.8|Info|NzbDrone.Core.Datastore.Migration.Framework.NzbDroneSQLiteProcessor|Performing DB Operation
+2025-09-05 21:34:07.9|Info|DatabaseEngineVersionCheck|SQLite 3.49.2
+2025-09-05 21:34:07.9|Info|FluentMigrator.Runner.MigrationRunner|=> 0.1080303s
+2025-09-05 21:34:07.9|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrated
+2025-09-05 21:34:08.0|Info|FluentMigrator.Runner.MigrationRunner|=> 0.1414691s
+2025-09-05 21:34:08.2|Info|MigrationController|*** Migrating data source=/config/logs.db;cache size=-20000;datetimekind=Utc;journal mode=Wal;pooling=True;version=3;busytimeout=100 ***
+2025-09-05 21:34:08.2|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrating
+2025-09-05 21:34:08.2|Info|FluentMigrator.Runner.MigrationRunner|PerformDBOperation 
+2025-09-05 21:34:08.2|Info|NzbDrone.Core.Datastore.Migration.Framework.NzbDroneSQLiteProcessor|Performing DB Operation
+2025-09-05 21:34:08.3|Info|DatabaseEngineVersionCheck|SQLite 3.49.2
+2025-09-05 21:34:08.3|Info|FluentMigrator.Runner.MigrationRunner|=> 0.0812152s
+2025-09-05 21:34:08.3|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrated
+2025-09-05 21:34:08.3|Info|FluentMigrator.Runner.MigrationRunner|=> 0.0827904s
+2025-09-05 21:34:09.8|Info|Microsoft.Hosting.Lifetime|Now listening on: http://[::]:7878
+2025-09-05 21:34:10.6|Info|CommandExecutor|Starting 2 threads for tasks.
+2025-09-05 21:34:10.7|Info|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2025-09-05 21:34:10.8|Info|Microsoft.Hosting.Lifetime|Hosting environment: Production
+2025-09-05 21:34:10.8|Info|Microsoft.Hosting.Lifetime|Content root path: /app/radarr/bin
+2025-09-05 21:34:10.8|Info|ManagedHttpDispatcher|IPv4 is available: True, IPv6 will be disabled
+2025-09-05 21:42:42.2|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 21:43:44.9|Info|Microsoft.Hosting.Lifetime|Application is shutting down...
+2025-09-05 21:43:49.3|Info|ConsoleApp|Exiting main.
+2025-09-05 21:44:34.3|Info|Bootstrap|Starting Radarr - /app/radarr/bin/Radarr - Version 5.27.5.10198
+2025-09-05 21:44:34.5|Info|AppFolderInfo|Data directory is being overridden to [/config]
+2025-09-05 21:44:34.6|Info|AppFolderInfo|Data directory is being overridden to [/config]
+2025-09-05 21:44:34.8|Info|AppFolderInfo|Data directory is being overridden to [/config]
+2025-09-05 21:44:38.3|Info|MigrationController|*** Migrating data source=/config/radarr.db;cache size=-20000;datetimekind=Utc;journal mode=Wal;pooling=True;version=3;busytimeout=100 ***
+2025-09-05 21:44:38.4|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrating
+2025-09-05 21:44:38.7|Info|FluentMigrator.Runner.MigrationRunner|PerformDBOperation 
+2025-09-05 21:44:38.7|Info|NzbDrone.Core.Datastore.Migration.Framework.NzbDroneSQLiteProcessor|Performing DB Operation
+2025-09-05 21:44:38.8|Info|DatabaseEngineVersionCheck|SQLite 3.49.2
+2025-09-05 21:44:38.8|Info|FluentMigrator.Runner.MigrationRunner|=> 0.158843s
+2025-09-05 21:44:38.8|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrated
+2025-09-05 21:44:38.8|Info|FluentMigrator.Runner.MigrationRunner|=> 0.1616903s
+2025-09-05 21:44:39.4|Info|MigrationController|*** Migrating data source=/config/logs.db;cache size=-20000;datetimekind=Utc;journal mode=Wal;pooling=True;version=3;busytimeout=100 ***
+2025-09-05 21:44:39.7|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrating
+2025-09-05 21:44:39.7|Info|FluentMigrator.Runner.MigrationRunner|PerformDBOperation 
+2025-09-05 21:44:39.8|Info|NzbDrone.Core.Datastore.Migration.Framework.NzbDroneSQLiteProcessor|Performing DB Operation
+2025-09-05 21:44:39.9|Info|DatabaseEngineVersionCheck|SQLite 3.49.2
+2025-09-05 21:44:39.9|Info|FluentMigrator.Runner.MigrationRunner|=> 0.1458901s
+2025-09-05 21:44:39.9|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrated
+2025-09-05 21:44:39.9|Info|FluentMigrator.Runner.MigrationRunner|=> 0.1476062s
+2025-09-05 21:44:40.2|Info|Microsoft.Hosting.Lifetime|Now listening on: http://[::]:7878
+2025-09-05 21:44:42.6|Info|CommandExecutor|Starting 2 threads for tasks.
+2025-09-05 21:44:42.8|Info|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2025-09-05 21:44:42.8|Info|Microsoft.Hosting.Lifetime|Hosting environment: Production
+2025-09-05 21:44:42.8|Info|Microsoft.Hosting.Lifetime|Content root path: /app/radarr/bin
+2025-09-05 21:44:42.9|Info|ManagedHttpDispatcher|IPv4 is available: True, IPv6 will be disabled
+2025-09-05 21:48:13.7|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 21:53:43.8|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 21:58:13.9|Info|RssSyncService|Starting RSS Sync
+2025-09-05 21:58:14.8|Info|DownloadDecisionMaker|Processing 97 releases
+2025-09-05 21:58:15.5|Info|RssSyncService|RSS Sync Completed. Reports found: 97, Reports grabbed: 0
+2025-09-05 21:59:13.9|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 22:05:14.3|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 22:28:17.3|Info|RssSyncService|Starting RSS Sync
+2025-09-05 22:28:20.9|Info|DownloadDecisionMaker|Processing 97 releases
+2025-09-05 22:28:26.2|Info|RssSyncService|RSS Sync Completed. Reports found: 97, Reports grabbed: 0
+2025-09-05 22:58:56.3|Info|RssSyncService|Starting RSS Sync
+2025-09-05 22:58:59.5|Info|DownloadDecisionMaker|Processing 97 releases
+2025-09-05 22:59:04.5|Info|RssSyncService|RSS Sync Completed. Reports found: 97, Reports grabbed: 0
+2025-09-05 23:06:26.8|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+
+2025-09-05 23:29:28.3|Info|RssSyncService|Starting RSS Sync
+2025-09-05 23:29:29.2|Info|DownloadDecisionMaker|Processing 97 releases
+2025-09-05 23:29:29.6|Info|RssSyncService|RSS Sync Completed. Reports found: 97, Reports grabbed: 0
+2025-09-05 23:59:48.7|Info|RssSyncService|Starting RSS Sync
+2025-09-05 23:59:49.4|Info|DownloadDecisionMaker|Processing 97 releases
+2025-09-05 23:59:50.1|Info|RssSyncService|RSS Sync Completed. Reports found: 97, Reports grabbed: 0
+2025-09-06 00:06:48.9|Warn|DownloadMonitoringService|Unable to retrieve queue and history items from Transmission
+
+[v5.27.5.10198] NzbDrone.Core.Download.Clients.DownloadClientAuthenticationException: Failed to authenticate with Transmission.
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.AuthenticateClient(HttpRequestBuilder requestBuilder, TransmissionSettings settings, Boolean reauthenticate) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 296
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.ProcessRequest(String action, Object arguments, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 315
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrentStatus(IEnumerable`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 240
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionProxy.GetTorrents(IReadOnlyCollection`1 hashStrings, TransmissionSettings settings) in ./Radarr.Core/Download/Clients/Transmission/TransmissionProxy.cs:line 50
+   at NzbDrone.Core.Download.Clients.Transmission.TransmissionBase.GetItems() in ./Radarr.Core/Download/Clients/Transmission/TransmissionBase.cs:line 43
+   at NzbDrone.Core.Download.TrackedDownloads.DownloadMonitoringService.ProcessClientDownloads(IDownloadClient downloadClient) in ./Radarr.Core/Download/TrackedDownloads/DownloadMonitoringService.cs:line 90
+
+

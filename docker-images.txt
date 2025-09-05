@@ -1,0 +1,21 @@
+REPOSITORY                         TAG                  IMAGE ID       CREATED AT                      SIZE
+ghcr.io/hotio/lidarr               latest               0957e78b5431   2025-08-29 02:18:12 +0300 IDT   488MB
+ghcr.io/hotio/lidarr               nightly              dcf99963b254   2025-08-29 02:15:05 +0300 IDT   488MB
+linuxserver/lidarr                 latest               186bc4d3f22b   2025-08-28 23:59:27 +0300 IDT   405MB
+ghcr.io/hotio/lidarr               pr-plugins           04261cc919a8   2025-08-27 14:34:01 +0300 IDT   488MB
+portainer/portainer-ce             latest               f4c59b58fd64   2025-08-27 03:05:13 +0300 IDT   238MB
+lscr.io/linuxserver/bazarr         latest               f9cb78eaec1d   2025-08-27 00:31:26 +0300 IDT   592MB
+lscr.io/linuxserver/transmission   latest               fa4904b824a2   2025-08-26 13:44:37 +0300 IDT   132MB
+ollama/ollama                      latest               c76340da9ed9   2025-08-25 20:12:01 +0300 IDT   5.55GB
+lscr.io/linuxserver/radarr         latest               7eb64f5af8bb   2025-08-24 20:00:44 +0300 IDT   319MB
+lscr.io/linuxserver/prowlarr       latest               4f2a6d597845   2025-08-24 01:30:50 +0300 IDT   300MB
+ghcr.io/hotio/lidarr               pr-plugins-1c21412   da21285ad6d0   2025-08-24 01:30:15 +0300 IDT   488MB
+ghcr.io/open-webui/open-webui      main                 74a5ee5c453e   2025-08-22 16:27:14 +0300 IDT   7.52GB
+ghcr.io/gethomepage/homepage       latest               a1a578fdcfc7   2025-08-21 17:04:31 +0300 IDT   383MB
+adguard/adguardhome                latest               d765078d2140   2025-08-20 15:59:12 +0300 IDT   100MB
+lscr.io/linuxserver/lidarr         latest               9f14ac890945   2025-08-20 05:52:41 +0300 IDT   414MB
+lscr.io/linuxserver/sonarr         latest               1a90192952c3   2025-08-16 02:39:59 +0300 IDT   316MB
+slskd/slskd                        latest               28df5325f301   2025-08-11 02:41:00 +0300 IDT   383MB
+jc21/nginx-proxy-manager           latest               6ab097814f54   2025-07-10 00:37:16 +0300 IDT   1.58GB
+jellyfin/jellyfin                  latest               7ae36aab93ef   2025-04-05 22:25:06 +0300 IDT   748MB
+traefik                            v3.0                 a208c74fd80a   2024-07-03 00:51:36 +0300 IDT   216MB

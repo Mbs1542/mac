@@ -1,0 +1,4 @@
+# קובץ זה מגדיר את החיבור ל-Docker
+
+my-docker:
+  socket: /var/run/docker.sock

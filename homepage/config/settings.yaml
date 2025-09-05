@@ -1,0 +1,21 @@
+# קובץ זה מגדיר את הכותרת, הפריסה והשפה של הדשבורד
+
+title: Maor's Homelab
+subtitle: Personal Media & Services Hub
+language: en
+theme: dark
+
+# פריסת הקבוצות בעמוד
+layout:
+  "Media":
+    style: row
+    columns: 3
+  "Downloads":
+    style: row
+    columns: 3
+  "Management":
+    style: row
+    columns: 3
+  "AI & Tools":
+    style: row
+    columns: 2

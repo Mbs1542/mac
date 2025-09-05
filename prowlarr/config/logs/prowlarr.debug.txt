@@ -1,0 +1,309 @@
+2025-09-05 20:59:45.1|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 21:15:14.9|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 21:15:15.0|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 21:15:15.1|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-05 21:15:15.1|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-05 21:15:15.1|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 21:15:15.1|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 21:15:15.1|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-05 21:15:15.1|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-05 21:15:15.5|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 21:15:15.8|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 21:27:49.7|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 21:27:49.7|Info|ReleaseSearchService|Searching indexer(s): [YTS] for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060]
+2025-09-05 21:27:49.7|Debug|Cardigann|Adding request for YTS: https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-05 21:27:49.7|Debug|Cardigann|Downloading Feed https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-05 21:27:50.5|Debug|ReleaseSearchService|Total of 97 reports were found for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060] from 1 indexer(s)
+2025-09-05 21:30:45.3|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 21:30:45.3|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 21:30:45.3|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 21:30:45.3|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 21:30:45.3|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-05 21:30:45.3|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-05 21:30:45.3|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-05 21:30:45.3|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-05 21:30:45.8|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 21:30:46.2|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 21:33:18.8|Info|Microsoft.Hosting.Lifetime|Application is shutting down...
+2025-09-05 21:33:20.2|Info|ConsoleApp|Exiting main.
+2025-09-05 21:34:33.0|Debug|ProcessProvider|Found 0 processes with the name: Prowlarr.Console
+2025-09-05 21:34:33.1|Debug|ProcessProvider|Found 1 processes with the name: Prowlarr
+2025-09-05 21:34:33.2|Debug|ProcessProvider| - [160] Prowlarr
+2025-09-05 21:34:33.4|Info|MigrationController|*** Migrating data source=/config/prowlarr.db;cache size=-20000;datetimekind=Utc;journal mode=Wal;pooling=True;version=3;busytimeout=100 ***
+2025-09-05 21:34:33.6|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrating
+2025-09-05 21:34:33.7|Info|FluentMigrator.Runner.MigrationRunner|PerformDBOperation 
+2025-09-05 21:34:33.7|Info|NzbDrone.Core.Datastore.Migration.Framework.NzbDroneSQLiteProcessor|Performing DB Operation
+2025-09-05 21:34:34.1|Info|DatabaseEngineVersionCheck|SQLite 3.49.2
+2025-09-05 21:34:34.3|Info|FluentMigrator.Runner.MigrationRunner|=> 0.526036s
+2025-09-05 21:34:34.4|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrated
+2025-09-05 21:34:34.4|Info|FluentMigrator.Runner.MigrationRunner|=> 0.6627777s
+2025-09-05 21:34:34.7|Debug|MigrationController|Took: 00:00:01.2462677
+2025-09-05 21:34:34.9|Info|MigrationController|*** Migrating data source=/config/logs.db;cache size=-20000;datetimekind=Utc;journal mode=Wal;pooling=True;version=3;busytimeout=100 ***
+2025-09-05 21:34:35.0|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrating
+2025-09-05 21:34:35.1|Info|FluentMigrator.Runner.MigrationRunner|PerformDBOperation 
+2025-09-05 21:34:35.1|Info|NzbDrone.Core.Datastore.Migration.Framework.NzbDroneSQLiteProcessor|Performing DB Operation
+2025-09-05 21:34:35.8|Info|DatabaseEngineVersionCheck|SQLite 3.49.2
+2025-09-05 21:34:35.9|Info|FluentMigrator.Runner.MigrationRunner|=> 0.8053724s
+2025-09-05 21:34:36.2|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrated
+2025-09-05 21:34:36.4|Info|FluentMigrator.Runner.MigrationRunner|=> 1.0468369s
+2025-09-05 21:34:36.5|Debug|MigrationController|Took: 00:00:01.5394017
+2025-09-05 21:34:36.8|Info|Microsoft.Hosting.Lifetime|Now listening on: http://[::]:9696
+2025-09-05 21:34:37.2|Debug|NotificationFactory|Initializing Providers. Count 20
+2025-09-05 21:34:37.2|Info|CommandExecutor|Starting 3 threads for tasks.
+2025-09-05 21:34:37.7|Debug|HttpClient|Downloading [https://indexers.prowlarr.com/master/11/package.zip] to [/config/Definitions/indexers.zip]
+2025-09-05 21:34:37.7|Info|ManagedHttpDispatcher|IPv4 is available: True, IPv6 will be disabled
+2025-09-05 21:34:39.4|Debug|HttpClient|Downloading Completed. took 1s
+2025-09-05 21:34:43.8|Debug|IndexerDefinitionUpdateService|Updated indexer definitions
+2025-09-05 21:34:43.9|Debug|IndexerFactory|Initializing Providers. Count 67
+2025-09-05 21:34:43.9|Debug|IndexerProxyFactory|Initializing Providers. Count 4
+2025-09-05 21:34:44.0|Debug|DownloadClientFactory|Initializing Providers. Count 18
+2025-09-05 21:34:44.0|Debug|ApplicationFactory|Initializing Providers. Count 7
+2025-09-05 21:34:44.1|Info|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2025-09-05 21:34:44.2|Info|Microsoft.Hosting.Lifetime|Hosting environment: Production
+2025-09-05 21:34:44.2|Info|Microsoft.Hosting.Lifetime|Content root path: /app/prowlarr/bin
+2025-09-05 21:34:47.0|Debug|FlareSolverr|Cloudflare Detected, Applying FlareSolverr Proxy FlareSolverr to request https://prowlarr.servarr.com/v1/ping
+2025-09-05 21:34:47.0|Error|FlareSolverr|Proxy validation failed
+
+[v2.0.5.5160] System.Net.Http.HttpRequestException: Connection refused (192.168.1.191:8191)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 355
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 341
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 137
+   at NzbDrone.Core.IndexerProxies.FlareSolverr.FlareSolverr.Test() in ./Prowlarr.Core/IndexerProxies/FlareSolverr/FlareSolverr.cs:line 189
+
+
+2025-09-05 21:43:44.9|Info|Microsoft.Hosting.Lifetime|Application is shutting down...
+2025-09-05 21:43:49.1|Info|ConsoleApp|Exiting main.
+2025-09-05 21:44:57.7|Debug|ProcessProvider|Found 0 processes with the name: Prowlarr.Console
+2025-09-05 21:44:57.9|Debug|ProcessProvider|Found 1 processes with the name: Prowlarr
+2025-09-05 21:44:57.9|Debug|ProcessProvider| - [152] Prowlarr
+2025-09-05 21:44:57.9|Info|MigrationController|*** Migrating data source=/config/prowlarr.db;cache size=-20000;datetimekind=Utc;journal mode=Wal;pooling=True;version=3;busytimeout=100 ***
+2025-09-05 21:44:57.9|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrating
+2025-09-05 21:44:58.0|Info|FluentMigrator.Runner.MigrationRunner|PerformDBOperation 
+2025-09-05 21:44:58.0|Info|NzbDrone.Core.Datastore.Migration.Framework.NzbDroneSQLiteProcessor|Performing DB Operation
+2025-09-05 21:44:58.1|Info|DatabaseEngineVersionCheck|SQLite 3.49.2
+2025-09-05 21:44:58.5|Info|FluentMigrator.Runner.MigrationRunner|=> 0.1111212s
+2025-09-05 21:44:59.6|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrated
+2025-09-05 21:45:00.1|Info|FluentMigrator.Runner.MigrationRunner|=> 1.605141s
+2025-09-05 21:45:00.1|Debug|MigrationController|Took: 00:00:02.2456138
+2025-09-05 21:45:00.3|Info|MigrationController|*** Migrating data source=/config/logs.db;cache size=-20000;datetimekind=Utc;journal mode=Wal;pooling=True;version=3;busytimeout=100 ***
+2025-09-05 21:45:00.4|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrating
+2025-09-05 21:45:00.5|Info|FluentMigrator.Runner.MigrationRunner|PerformDBOperation 
+2025-09-05 21:45:01.1|Info|NzbDrone.Core.Datastore.Migration.Framework.NzbDroneSQLiteProcessor|Performing DB Operation
+2025-09-05 21:45:01.9|Info|DatabaseEngineVersionCheck|SQLite 3.49.2
+2025-09-05 21:45:01.9|Info|FluentMigrator.Runner.MigrationRunner|=> 0.788931s
+2025-09-05 21:45:02.0|Info|FluentMigrator.Runner.MigrationRunner|DatabaseEngineVersionCheck migrated
+2025-09-05 21:45:02.0|Info|FluentMigrator.Runner.MigrationRunner|=> 0.8447442s
+2025-09-05 21:45:02.2|Debug|MigrationController|Took: 00:00:01.8974420
+2025-09-05 21:45:02.5|Info|Microsoft.Hosting.Lifetime|Now listening on: http://[::]:9696
+2025-09-05 21:45:03.4|Debug|NotificationFactory|Initializing Providers. Count 20
+2025-09-05 21:45:03.4|Info|CommandExecutor|Starting 3 threads for tasks.
+2025-09-05 21:45:03.7|Debug|HttpClient|Downloading [https://indexers.prowlarr.com/master/11/package.zip] to [/config/Definitions/indexers.zip]
+2025-09-05 21:45:03.8|Info|ManagedHttpDispatcher|IPv4 is available: True, IPv6 will be disabled
+2025-09-05 21:45:06.2|Debug|HttpClient|Downloading Completed. took 2s
+2025-09-05 21:45:28.8|Debug|IndexerDefinitionUpdateService|Updated indexer definitions
+2025-09-05 21:45:28.8|Debug|IndexerFactory|Initializing Providers. Count 67
+2025-09-05 21:45:28.8|Debug|IndexerProxyFactory|Initializing Providers. Count 4
+2025-09-05 21:45:28.8|Debug|DownloadClientFactory|Initializing Providers. Count 18
+2025-09-05 21:45:28.8|Debug|ApplicationFactory|Initializing Providers. Count 7
+2025-09-05 21:45:28.8|Info|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2025-09-05 21:45:28.8|Info|Microsoft.Hosting.Lifetime|Hosting environment: Production
+2025-09-05 21:45:28.8|Info|Microsoft.Hosting.Lifetime|Content root path: /app/prowlarr/bin
+2025-09-05 21:45:30.4|Debug|FlareSolverr|Cloudflare Detected, Applying FlareSolverr Proxy FlareSolverr to request https://prowlarr.servarr.com/v1/ping
+2025-09-05 21:45:30.5|Error|FlareSolverr|Proxy validation failed
+
+[v2.0.5.5160] System.Net.Http.HttpRequestException: Connection refused (192.168.1.191:8191)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 355
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 341
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 137
+   at NzbDrone.Core.IndexerProxies.FlareSolverr.FlareSolverr.Test() in ./Prowlarr.Core/IndexerProxies/FlareSolverr/FlareSolverr.cs:line 189
+
+
+2025-09-05 21:46:03.8|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 21:46:03.8|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 21:46:03.8|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 21:46:03.8|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 21:46:03.8|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-05 21:46:03.8|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-05 21:46:03.8|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-05 21:46:03.8|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-05 21:46:04.4|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 21:46:04.8|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 21:58:14.0|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 21:58:14.0|Info|ReleaseSearchService|Searching indexer(s): [YTS] for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060]
+2025-09-05 21:58:14.0|Debug|Cardigann|Adding request for YTS: https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-05 21:58:14.0|Debug|Cardigann|Downloading Feed https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-05 21:58:14.7|Debug|ReleaseSearchService|Total of 97 reports were found for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060] from 1 indexer(s)
+2025-09-05 22:01:04.2|Debug|FlareSolverr|Cloudflare Detected, Applying FlareSolverr Proxy FlareSolverr to request https://prowlarr.servarr.com/v1/ping
+2025-09-05 22:01:04.3|Error|FlareSolverr|Proxy validation failed
+
+[v2.0.5.5160] System.Net.Http.HttpRequestException: Connection refused (192.168.1.191:8191)
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.attemptConnection(AddressFamily addressFamily, SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 355
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.onConnect(SocketsHttpConnectionContext context, CancellationToken cancellationToken) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 341
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.AuthenticationHelper.SendWithAuthAsync(HttpRequestMessage request, Uri authUri, Boolean async, ICredentials credentials, Boolean preAuthenticate, Boolean isProxyAuth, Boolean doRequestAuth, HttpConnectionPool pool, CancellationToken cancellationToken)
+   at System.Net.Http.DecompressionHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at NzbDrone.Common.Http.Dispatchers.ManagedHttpDispatcher.GetResponseAsync(HttpRequest request, CookieContainer cookies) in ./Prowlarr.Common/Http/Dispatchers/ManagedHttpDispatcher.cs:line 120
+   at NzbDrone.Common.Http.HttpClient.ExecuteRequestAsync(HttpRequest request, CookieContainer cookieContainer) in ./Prowlarr.Common/Http/HttpClient.cs:line 171
+   at NzbDrone.Common.Http.HttpClient.ExecuteAsync(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 70
+   at NzbDrone.Common.Http.HttpClient.Execute(HttpRequest request) in ./Prowlarr.Common/Http/HttpClient.cs:line 137
+   at NzbDrone.Core.IndexerProxies.FlareSolverr.FlareSolverr.Test() in ./Prowlarr.Core/IndexerProxies/FlareSolverr/FlareSolverr.cs:line 189
+
+
+2025-09-05 22:01:34.1|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 22:01:34.1|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 22:01:34.1|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 22:01:34.1|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 22:01:34.1|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-05 22:01:34.1|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-05 22:01:34.1|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-05 22:01:34.1|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-05 22:01:34.5|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 22:01:34.8|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 22:17:04.8|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 22:17:04.8|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 22:17:04.9|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 22:17:04.9|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-05 22:17:04.9|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 22:17:04.9|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-05 22:17:04.9|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-05 22:17:05.0|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-05 22:17:05.8|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 22:17:06.0|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 22:28:17.7|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 22:28:18.1|Info|ReleaseSearchService|Searching indexer(s): [YTS] for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060]
+2025-09-05 22:28:18.6|Debug|Cardigann|Adding request for YTS: https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-05 22:28:19.1|Debug|Cardigann|Downloading Feed https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-05 22:28:20.8|Debug|ReleaseSearchService|Total of 97 reports were found for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060] from 1 indexer(s)
+2025-09-05 22:32:37.9|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 22:32:38.2|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 22:32:38.2|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 22:32:38.3|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-05 22:32:38.3|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 22:32:38.4|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-05 22:32:39.2|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-05 22:32:40.0|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-05 22:32:43.2|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 22:32:44.0|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 22:48:35.2|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 22:48:35.2|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 22:48:35.5|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 22:48:35.9|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 22:48:36.4|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-05 22:48:36.4|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-05 22:48:36.4|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-05 22:48:36.4|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-05 22:48:43.7|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 22:48:44.8|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 22:58:56.6|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 22:58:56.6|Info|ReleaseSearchService|Searching indexer(s): [YTS] for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060]
+2025-09-05 22:58:56.7|Debug|Cardigann|Adding request for YTS: https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-05 22:58:56.7|Debug|Cardigann|Downloading Feed https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-05 22:58:58.9|Debug|ReleaseSearchService|Total of 97 reports were found for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060] from 1 indexer(s)
+2025-09-05 23:04:37.2|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 23:04:37.2|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 23:04:37.3|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 23:04:37.3|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 23:04:37.3|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-05 23:04:37.3|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-05 23:04:37.3|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-05 23:04:37.3|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-05 23:04:37.9|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 23:04:38.2|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 23:20:10.2|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 23:20:11.4|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 23:20:11.3|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 23:20:11.4|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 23:20:11.4|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-05 23:20:11.4|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-05 23:20:11.4|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-05 23:20:11.4|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-05 23:20:12.4|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 23:20:13.4|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 23:29:28.3|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 23:29:28.4|Info|ReleaseSearchService|Searching indexer(s): [YTS] for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060]
+2025-09-05 23:29:28.4|Debug|Cardigann|Adding request for YTS: https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-05 23:29:28.4|Debug|Cardigann|Downloading Feed https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-05 23:29:29.2|Debug|ReleaseSearchService|Total of 97 reports were found for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060] from 1 indexer(s)
+2025-09-05 23:35:38.5|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 23:35:38.5|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 23:35:38.5|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 23:35:38.5|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 23:35:38.5|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-05 23:35:38.5|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-05 23:35:38.5|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-05 23:35:38.5|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-05 23:35:39.0|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 23:35:39.3|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 23:50:48.0|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 23:50:48.1|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 23:50:48.1|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-05 23:50:48.1|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-05 23:50:48.1|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 23:50:48.1|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-05 23:50:48.1|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-05 23:50:48.1|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-05 23:50:48.7|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 23:50:48.9|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-05 23:59:48.8|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-05 23:59:48.9|Info|ReleaseSearchService|Searching indexer(s): [YTS] for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060]
+2025-09-05 23:59:48.9|Debug|Cardigann|Adding request for YTS: https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-05 23:59:48.9|Debug|Cardigann|Downloading Feed https://yts.mx/api/v2/list_movies.json?limit=50&sort_by=date_added&order_by=desc
+2025-09-05 23:59:49.3|Debug|ReleaseSearchService|Total of 97 reports were found for Term: [], Offset: 0, Limit: 100, Categories: [2000, 2040, 2045, 2060] from 1 indexer(s)
+2025-09-06 00:06:18.2|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-06 00:06:18.2|Debug|IndexerFactory|Temporarily ignoring indexer 1337x till 09/06/2025 19:04:18 due to recent failures.
+2025-09-06 00:06:18.2|Info|ReleaseSearchService|Searching indexer(s): [ACG.RIP] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-06 00:06:18.2|Info|ReleaseSearchService|Searching indexer(s): [EZTV] for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000]
+2025-09-06 00:06:18.2|Debug|Cardigann|Adding request for ACG.RIP: https://acg.rip/
+2025-09-06 00:06:18.2|Debug|Cardigann|Adding request for EZTV: https://eztvx.to/home
+2025-09-06 00:06:18.2|Debug|Cardigann|Downloading Feed https://acg.rip/
+2025-09-06 00:06:18.2|Debug|Cardigann|Downloading Feed https://eztvx.to/home
+2025-09-06 00:06:18.6|Debug|ReleaseSearchService|Total of 30 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)
+2025-09-06 00:06:18.9|Debug|ReleaseSearchService|Total of 100 reports were found for Term: [] for Season / Episode:[], Offset: 0, Limit: 100, Categories: [5000] from 1 indexer(s)

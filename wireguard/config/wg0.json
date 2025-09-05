@@ -1,0 +1,19 @@
+{
+  "server": {
+    "privateKey": "KNEYaHKF7qwT4Q3GGQmxKcCoHqyH2Ei9EjjL8nv6mX8=",
+    "publicKey": "xBXfCMVAThawjpSATzewe4gfzP3HldWdgzHrT+Zt+3o=",
+    "address": "10.8.0.1"
+  },
+  "clients": {
+    "8e098f08-3659-4aff-b60a-08cd41c8f968": {
+      "name": "Maor Ben Simon",
+      "address": "10.8.0.2",
+      "privateKey": "IL/zWHSGyVDtY5/HLGXaGC9JzaaUiuGBowg5d2mIXkA=",
+      "publicKey": "/4mHcf6sxhJgyZkiCma72MXDK66iDMoKrsQQdK3+3Cw=",
+      "preSharedKey": "MXM+cASmiG9umyUw7cuWZosAbEVg5/QKtsEoZ0qaOQg=",
+      "createdAt": "2025-09-02T09:07:23.331Z",
+      "updatedAt": "2025-09-02T09:07:23.331Z",
+      "enabled": true
+    }
+  }
+}

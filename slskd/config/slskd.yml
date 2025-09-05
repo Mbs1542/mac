@@ -1,0 +1,25 @@
+web:
+  authentication:
+    disabled: false
+    username: "mbs"
+    password: "Mbs212471!"
+    jwt:
+      key: "E94NJQesrmcZCDv+KTcOr1+bld/OA2YSL0vBcqnxXl45"
+      ttl: 604800000
+    api_keys:
+      lidarr_api:
+        key: "E94NJQesrmcZCDv+KTcOr1+bld/OA2YSL0vBcqnxXlA8"
+        role: readwrite
+        cidr: "0.0.0.0/0,::/0"
+
+directories:
+  downloads: /music
+
+shares:
+  directories:
+    - /music
+
+soulseek:
+  username: maor
+  password: "1234"
+

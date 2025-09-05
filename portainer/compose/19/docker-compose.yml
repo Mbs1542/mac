@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  traefik:
+    image: traefik:v3.0
+    container_name: traefik-gateway
+    restart: unless-stopped
+    
+    # השומר תופס את הפורטים הראשיים
+    ports:
+      - "80:80"       # HTTP
+      - "443:443"     # HTTPS  
+      - "8080:8080"   # Dashboard של Traefik
+    
+    command:
+      - "--api.dashboard=true"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--log.level=INFO"
+    
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    
+    networks:
+      - traefik-network
+
+networks:
+  traefik-network:
+    external: false

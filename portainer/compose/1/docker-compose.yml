@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  lidarr:
+    image: ghcr.io/hotio/lidarr:pr-plugins-1c21412
+    container_name: lidarr
+    environment:
+      PUID: "501"
+      PGID: "20"
+      TZ: Asia/Jerusalem
+      LIDARR__API__PROXY_HOST: proxy.lidarr.audio
+
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/lidarr/config:/config
+      - /Volumes/WorkDrive/MacStorage/Media/Music:/music
+      - /Volumes/WorkDrive/MacStorage/Downloads:/downloads
+    ports:
+      - "8686:8686"
+    restart: unless-stopped
+    networks:
+      - media-stack
+
+networks:
+  media-stack:
+    external: true

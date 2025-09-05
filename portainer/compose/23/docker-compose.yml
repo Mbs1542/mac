@@ -1,0 +1,61 @@
+services:
+  traefik:
+    image: traefik:v3.0
+    container_name: traefik-gateway
+    restart: unless-stopped
+    
+    ports:
+      - "80:80"       # HTTP
+      - "443:443"     # HTTPS
+      - "8080:8080"   # Dashboard
+    
+    command:
+      - "--api.dashboard=true"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--log.level=INFO"
+    
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    
+    networks:
+      - gateway
+
+  nginx-proxy-manager:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: nginx-proxy-manager
+    restart: unless-stopped
+    
+    expose:
+      - "80"
+      - "81"
+      - "443"
+    
+    volumes:
+      - "/Volumes/WorkDrive/MacStorage/docker/npm/data:/data"
+      - "/Volumes/WorkDrive/MacStorage/docker/npm/letsencrypt:/etc/letsencrypt"
+    
+    labels:
+      - "traefik.enable=true"
+      
+      # ממשק ניהול פנימי
+      - "traefik.http.routers.npm-admin.rule=Host(`proxy.local`)"
+      - "traefik.http.routers.npm-admin.service=npm-admin"
+      - "traefik.http.services.npm-admin.loadbalancer.server.port=81"
+      
+      # הדומיינים החיצוניים - העבר לProxy Manager
+      - "traefik.http.routers.npm-ext1.rule=Host(`maor-ai.duckdns.org`)"
+      - "traefik.http.routers.npm-ext1.service=npm-proxy"
+      - "traefik.http.routers.npm-ext2.rule=Host(`mbs-home.duckdns.org`)"  
+      - "traefik.http.routers.npm-ext2.service=npm-proxy"
+      - "traefik.http.services.npm-proxy.loadbalancer.server.port=80"
+    
+    networks:
+      - gateway
+
+networks:
+  gateway:
+    driver: bridge

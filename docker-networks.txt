@@ -1,0 +1,9 @@
+NETWORK ID     NAME                     DRIVER    SCOPE
+333f173732c7   bridge                   bridge    local
+2f6166d38960   dg_gateway               bridge    local
+e06e67cd1345   docker-gateway_gateway   bridge    local
+1a9d8ea82d1c   host                     host      local
+445ac617f375   maor_default             bridge    local
+4a62b7ade860   media-stack              bridge    local
+4de0407c6e6c   none                     null      local
+a385a16bc611   npm_default              bridge    local

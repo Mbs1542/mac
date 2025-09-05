@@ -1,0 +1,810 @@
+version: '3.8'
+
+# ===================================================================
+# Docker Stack Homelab - מותאם ומתוקן לפי ניתוח המערכת
+# שינויים עיקריים:
+# - תיקון התנגשויות פורטים (AdGuard/Traefik)
+# - הוספת הגבלות משאבים לכל השירותים
+# - פישוט רשתות Docker
+# - הוספת health checks ו-restart policies מתקדמות
+# - ניקוי שירותים כפולים
+# ===================================================================
+
+networks:
+  # פישוט הרשתות מ-10 ל-3 רשתות עיקריות
+  frontend:
+    driver: overlay
+    attachable: true
+  backend:
+    driver: overlay
+    internal: true
+  management:
+    driver: overlay
+    attachable: true
+
+services:
+
+# =================== שירותי רשת ואבטחה ===================
+
+  traefik:
+    image: traefik:v3.0
+    hostname: traefik
+    networks:
+      - frontend
+      - management
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"  # Dashboard - להסרה בסביבת ייצור
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /Volumes/WorkDrive/MacStorage/docker/traefik/config:/etc/traefik:ro
+      - /Volumes/WorkDrive/MacStorage/docker/traefik/certificates:/certificates
+    environment:
+      - TZ=Asia/Jerusalem
+    command:
+      - "--api.dashboard=true"
+      - "--api.insecure=true"  # רק לפיתוח
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--providers.docker=true"
+      - "--providers.docker.swarmMode=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=frontend"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.letsencrypt.acme.email=admin@mbs-home.ddns.net"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/certificates/acme.json"
+      - "--log.level=INFO"
+      - "--accesslog=true"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.5'
+        reservations:
+          memory: 128M
+          cpus: '0.2'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.traefik-secure.rule=Host(`traefik.mbs-home.ddns.net`) || Host(`traefik.local`)"
+        - "traefik.http.routers.traefik-secure.entrypoints=websecure"
+        - "traefik.http.routers.traefik-secure.service=api@internal"
+        - "traefik.http.routers.traefik-secure.tls=true"
+        - "traefik.http.routers.traefik-secure.tls.certresolver=letsencrypt"
+        - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+        - "traefik.docker.network=frontend"
+
+  adguard:
+    image: adguard/adguardhome:latest
+    hostname: adguard-home
+    networks:
+      - management
+      - frontend  # להוספת Traefik routing
+    ports:
+      # DNS פורטים בלבד - הסרת פורט 80 שהתנגש עם Traefik
+      - target: 53
+        published: 53
+        protocol: tcp
+        mode: host
+      - target: 53
+        published: 53
+        protocol: udp
+        mode: host
+      - "853:853/tcp"   # DNS over TLS
+      - "5443:5443/tcp" # DNS over QUIC
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/adguard/work:/opt/adguardhome/work
+      - /Volumes/WorkDrive/MacStorage/docker/adguard/conf:/opt/adguardhome/conf
+    environment:
+      - TZ=Asia/Jerusalem
+    healthcheck:
+      test: ["CMD", "nslookup", "google.com", "127.0.0.1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 5
+        window: 120s
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.1'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.adguard.rule=Host(`dns.mbs-home.ddns.net`) || Host(`adguard.local`)"
+        - "traefik.http.routers.adguard.entrypoints=websecure"
+        - "traefik.http.routers.adguard.tls=true"
+        - "traefik.http.routers.adguard.tls.certresolver=letsencrypt"
+        - "traefik.http.services.adguard.loadbalancer.server.port=3000"
+        - "traefik.docker.network=frontend"
+
+  wireguard:
+    image: weejewel/wg-easy:latest
+    hostname: wireguard
+    networks:
+      - frontend
+      - management
+    ports:
+      - "51820:51820/udp"
+    environment:
+      - WG_HOST=mbs-home.ddns.net
+      - PASSWORD=Mbs212471387!
+      - WG_PORT=51820
+      - WG_DEFAULT_ADDRESS=10.8.0.x
+      - WG_DEFAULT_DNS=192.168.1.191
+      - WG_ALLOWED_IPS=10.8.0.0/24,192.168.1.0/24
+      - TZ=Asia/Jerusalem
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/wireguard/config:/etc/wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv4.ip_forward=1
+    healthcheck:
+      test: ["CMD", "test", "-f", "/etc/wireguard/wg0.conf"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 128M
+          cpus: '0.3'
+        reservations:
+          memory: 64M
+          cpus: '0.1'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.wireguard-ui.rule=Host(`vpn.mbs-home.ddns.net`) || Host(`vpn.local`)"
+        - "traefik.http.routers.wireguard-ui.entrypoints=websecure"
+        - "traefik.http.routers.wireguard-ui.tls=true"
+        - "traefik.http.routers.wireguard-ui.tls.certresolver=letsencrypt"
+        - "traefik.http.services.wireguard-ui.loadbalancer.server.port=51821"
+        - "traefik.docker.network=frontend"
+
+# =================== ניהול והשגחה ===================
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    hostname: portainer
+    networks:
+      - frontend
+      - management
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - TZ=Asia/Jerusalem
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:9000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 5
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 1G
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.2'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.portainer.rule=Host(`portainer.mbs-home.ddns.net`) || Host(`portainer.local`)"
+        - "traefik.http.routers.portainer.entrypoints=websecure"
+        - "traefik.http.routers.portainer.tls=true"
+        - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
+        - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+        - "traefik.docker.network=frontend"
+
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    hostname: homepage
+    networks:
+      - frontend
+      - backend
+      - management
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/homepage/config:/app/config:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - TZ=Asia/Jerusalem
+      - PUID=1000
+      - PGID=1000
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.3'
+        reservations:
+          memory: 128M
+          cpus: '0.1'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.homepage.rule=Host(`mbs-home.ddns.net`) || Host(`home.local`) || Host(`dashboard.local`)"
+        - "traefik.http.routers.homepage.entrypoints=websecure"
+        - "traefik.http.routers.homepage.tls=true"
+        - "traefik.http.routers.homepage.tls.certresolver=letsencrypt"
+        - "traefik.http.services.homepage.loadbalancer.server.port=3000"
+        - "traefik.docker.network=frontend"
+
+# =================== מדיה וזרימה ===================
+
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    hostname: jellyfin
+    networks:
+      - backend
+      - frontend
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/jellyfin/config:/config
+      - /Volumes/WorkDrive/MacStorage/docker/jellyfin/cache:/cache
+      - /Volumes/WorkDrive/MacStorage/Media/Movies:/data/movies:ro
+      - /Volumes/WorkDrive/MacStorage/Media/Music:/data/music:ro
+      - /Volumes/WorkDrive/MacStorage/Media/TV:/data/tvshows:ro
+    environment:
+      - TZ=Asia/Jerusalem
+      - JELLYFIN_PublishedServerUrl=https://media.mbs-home.ddns.net
+      - PUID=1000
+      - PGID=1000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8096/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 4G
+          cpus: '2.0'
+        reservations:
+          memory: 1G
+          cpus: '0.5'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.jellyfin.rule=Host(`media.mbs-home.ddns.net`) || Host(`jellyfin.local`)"
+        - "traefik.http.routers.jellyfin.entrypoints=websecure"
+        - "traefik.http.routers.jellyfin.tls=true"
+        - "traefik.http.routers.jellyfin.tls.certresolver=letsencrypt"
+        - "traefik.http.services.jellyfin.loadbalancer.server.port=8096"
+        - "traefik.docker.network=frontend"
+
+# =================== *arr Stack - ניהול מדיה ===================
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    hostname: sonarr
+    networks:
+      - backend
+      - frontend
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/sonarr/config:/config
+      - /Volumes/WorkDrive/MacStorage/Downloads:/downloads
+      - /Volumes/WorkDrive/MacStorage/Media/TV:/tv
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jerusalem
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8989/api/v3/system/status?apiKey=$$(grep -oP '(?<=<ApiKey>).*?(?=</ApiKey>)' /config/config.xml)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      restart_policy: 
+        condition: on-failure
+        delay: 15s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.2'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.sonarr.rule=Host(`sonarr.mbs-home.ddns.net`) || Host(`sonarr.local`)"
+        - "traefik.http.routers.sonarr.entrypoints=websecure"
+        - "traefik.http.routers.sonarr.tls=true"
+        - "traefik.http.routers.sonarr.tls.certresolver=letsencrypt"
+        - "traefik.http.services.sonarr.loadbalancer.server.port=8989"
+        - "traefik.docker.network=frontend"
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    hostname: radarr
+    networks:
+      - backend
+      - frontend
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/radarr/config:/config
+      - /Volumes/WorkDrive/MacStorage/Downloads:/downloads
+      - /Volumes/WorkDrive/MacStorage/Media/Movies:/movies
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jerusalem
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7878/api/v3/system/status?apiKey=$$(grep -oP '(?<=<ApiKey>).*?(?=</ApiKey>)' /config/config.xml)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.2'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.radarr.rule=Host(`radarr.mbs-home.ddns.net`) || Host(`radarr.local`)"
+        - "traefik.http.routers.radarr.entrypoints=websecure"
+        - "traefik.http.routers.radarr.tls=true"
+        - "traefik.http.routers.radarr.tls.certresolver=letsencrypt"
+        - "traefik.http.services.radarr.loadbalancer.server.port=7878"
+        - "traefik.docker.network=frontend"
+
+  lidarr:
+    image: ghcr.io/hotio/lidarr:pr-plugins-1c21412
+    hostname: lidarr
+    networks:
+      - backend
+      - frontend
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/lidarr/config:/config
+      - /Volumes/WorkDrive/MacStorage/Downloads:/downloads
+      - /Volumes/WorkDrive/MacStorage/Media/Music:/music
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jerusalem
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8686/api/v1/system/status?apiKey=$$(grep -oP '(?<=<ApiKey>).*?(?=</ApiKey>)' /config/config.xml)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.2'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.lidarr.rule=Host(`lidarr.mbs-home.ddns.net`) || Host(`lidarr.local`)"
+        - "traefik.http.routers.lidarr.entrypoints=websecure"
+        - "traefik.http.routers.lidarr.tls=true"
+        - "traefik.http.routers.lidarr.tls.certresolver=letsencrypt"
+        - "traefik.http.services.lidarr.loadbalancer.server.port=8686"
+        - "traefik.docker.network=frontend"
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    hostname: bazarr
+    networks:
+      - backend
+      - frontend
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/bazarr/config:/config
+      - /Volumes/WorkDrive/MacStorage/Media/Movies:/movies:ro
+      - /Volumes/WorkDrive/MacStorage/Media/TV:/tv:ro
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jerusalem
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6767"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 45s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.3'
+        reservations:
+          memory: 128M
+          cpus: '0.1'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.bazarr.rule=Host(`bazarr.mbs-home.ddns.net`) || Host(`bazarr.local`)"
+        - "traefik.http.routers.bazarr.entrypoints=websecure"
+        - "traefik.http.routers.bazarr.tls=true"
+        - "traefik.http.routers.bazarr.tls.certresolver=letsencrypt"
+        - "traefik.http.services.bazarr.loadbalancer.server.port=6767"
+        - "traefik.docker.network=frontend"
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    hostname: prowlarr
+    networks:
+      - backend
+      - frontend
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/prowlarr/config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jerusalem
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9696"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 45s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.3'
+        reservations:
+          memory: 128M
+          cpus: '0.1'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.prowlarr.rule=Host(`prowlarr.mbs-home.ddns.net`) || Host(`prowlarr.local`)"
+        - "traefik.http.routers.prowlarr.entrypoints=websecure"
+        - "traefik.http.routers.prowlarr.tls=true"
+        - "traefik.http.routers.prowlarr.tls.certresolver=letsencrypt"
+        - "traefik.http.services.prowlarr.loadbalancer.server.port=9696"
+        - "traefik.docker.network=frontend"
+
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    hostname: flaresolverr
+    networks:
+      - backend
+    environment:
+      - LOG_LEVEL=info
+      - LOG_HTML=false
+      - TZ=Asia/Jerusalem
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8191/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 1G
+          cpus: '1.0'
+        reservations:
+          memory: 512M
+          cpus: '0.3'
+
+# =================== הורדות ושיתוף ===================
+
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    hostname: transmission
+    networks:
+      - backend
+      - frontend
+    ports:
+      - "51413:51413/tcp"
+      - "51413:51413/udp"
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/Downloads:/downloads
+      - /Volumes/WorkDrive/MacStorage/Downloads/watch:/watch
+      - /Volumes/WorkDrive/MacStorage/docker/transmission/config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jerusalem
+      - TRANSMISSION_WEB_HOME=/transmission-web-control/
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9091"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 512M
+          cpus: '1.0'
+        reservations:
+          memory: 256M
+          cpus: '0.3'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.transmission.rule=Host(`transmission.mbs-home.ddns.net`) || Host(`transmission.local`)"
+        - "traefik.http.routers.transmission.entrypoints=websecure"
+        - "traefik.http.routers.transmission.tls=true"
+        - "traefik.http.routers.transmission.tls.certresolver=letsencrypt"
+        - "traefik.http.services.transmission.loadbalancer.server.port=9091"
+        - "traefik.docker.network=frontend"
+
+  slskd:
+    image: slskd/slskd:latest
+    hostname: slskd
+    networks:
+      - backend
+      - frontend
+    ports:
+      - "50300:50300/tcp"
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/Media/Music:/music:ro
+      - /Volumes/WorkDrive/MacStorage/docker/slskd/config:/app
+      - /Volumes/WorkDrive/MacStorage/Downloads/slskd:/downloads
+    environment:
+      - TZ=Asia/Jerusalem
+      - SLSKD_DOWNLOADS_DIR=/downloads
+      - PUID=1000
+      - PGID=1000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5030"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.5'
+        reservations:
+          memory: 128M
+          cpus: '0.2'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.slskd.rule=Host(`slskd.mbs-home.ddns.net`) || Host(`slskd.local`)"
+        - "traefik.http.routers.slskd.entrypoints=websecure"
+        - "traefik.http.routers.slskd.tls=true"
+        - "traefik.http.routers.slskd.tls.certresolver=letsencrypt"
+        - "traefik.http.services.slskd.loadbalancer.server.port=5030"
+        - "traefik.docker.network=frontend"
+
+# =================== AI ושירותים נוספים ===================
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    hostname: open-webui
+    networks:
+      - frontend
+      - management
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/ai-local/open-webui:/app/backend/data
+    environment:
+      - TZ=Asia/Jerusalem
+      - WEBUI_AUTH=False
+      - WEBUI_SECRET_KEY=mbs-homelab-secret-key-2024
+      - PUID=1000
+      - PGID=1000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 20s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 2G
+          cpus: '1.0'
+        reservations:
+          memory: 512M
+          cpus: '0.5'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.openwebui.rule=Host(`ai.mbs-home.ddns.net`) || Host(`ai.local`)"
+        - "traefik.http.routers.openwebui.entrypoints=websecure"
+        - "traefik.http.routers.openwebui.tls=true"
+        - "traefik.http.routers.openwebui.tls.certresolver=letsencrypt"
+        - "traefik.http.services.openwebui.loadbalancer.server.port=8080"
+        - "traefik.docker.network=frontend"
+
+# =================== הגדרות לוגים גלובליות ===================
+
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+    compress: "true"
+
+# הוספת הגדרות logging לכל השירותים
+x-common-configs: &common-configs
+  logging: *default-logging
+  
+# =================== שירותי ניטור (אופציונלי) ===================
+
+  # watchtower - עדכון אוטומטי של containers
+  watchtower:
+    image: containrrr/watchtower:latest
+    hostname: watchtower
+    networks:
+      - management
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - TZ=Asia/Jerusalem
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=86400  # 24 שעות
+      - WATCHTOWER_INCLUDE_STOPPED=true
+      - WATCHTOWER_REVIVE_STOPPED=false
+      - WATCHTOWER_NOTIFICATIONS=shoutrrr
+      - WATCHTOWER_NOTIFICATION_URL=logger://
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 30s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 128M
+          cpus: '0.2'
+        reservations:
+          memory: 64M
+          cpus: '0.1'
+    logging: *default-logging
+
+  # dozzle - צפייה בלוגים בזמן אמת
+  dozzle:
+    image: amir20/dozzle:latest
+    hostname: dozzle
+    networks:
+      - frontend
+      - management
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - DOZZLE_LEVEL=info
+      - DOZZLE_TAILSIZE=300
+      - TZ=Asia/Jerusalem
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 128M
+          cpus: '0.2'
+        reservations:
+          memory: 64M
+          cpus: '0.1'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.dozzle.rule=Host(`logs.mbs-home.ddns.net`) || Host(`logs.local`)"
+        - "traefik.http.routers.dozzle.entrypoints=websecure"
+        - "traefik.http.routers.dozzle.tls=true"
+        - "traefik.http.routers.dozzle.tls.certresolver=letsencrypt"
+        - "traefik.http.services.dozzle.loadbalancer.server.port=8080"
+        - "traefik.docker.network=frontend"
+    logging: *default-logging

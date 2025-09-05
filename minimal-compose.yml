@@ -1,0 +1,107 @@
+# Minimal working homelab stack
+networks:
+  web-overlay:
+    driver: overlay
+    attachable: true
+  management:
+    driver: overlay
+    attachable: true
+
+services:
+  traefik:
+    image: traefik:v3.0
+    hostname: traefik
+    networks:
+      - web-overlay
+      - management
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: host
+      - target: 443
+        published: 443
+        protocol: tcp
+        mode: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /Volumes/WorkDrive/MacStorage/docker/traefik/config:/etc/traefik:ro
+      - /Volumes/WorkDrive/MacStorage/docker/traefik/certificates:/certificates
+    environment:
+      - TZ=Asia/Jerusalem
+    command:
+      - --api.dashboard=true
+      - --api.insecure=false
+      - --providers.swarm=true
+      - --providers.swarm.endpoint=unix:///var/run/docker.sock
+      - --providers.swarm.watch=true
+      - --providers.swarm.exposedbydefault=false
+      - --providers.swarm.network=homelab_web-overlay
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --entrypoints.web.http.redirections.entrypoint.to=websecure
+      - --entrypoints.web.http.redirections.entrypoint.scheme=https
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge=true
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web
+      - --certificatesresolvers.letsencrypt.acme.email=admin@mbs-home.ddns.net
+      - --certificatesresolvers.letsencrypt.acme.storage=/certificates/acme.json
+      - --log.level=INFO
+      - --accesslog=true
+      - --metrics.prometheus=true
+      - --metrics.prometheus=true
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.docker.network=homelab_web-overlay"
+        - "traefik.http.routers.traefik-ddns.rule=Host(`traefik.mbs-home.ddns.net`)"
+        - "traefik.http.routers.traefik-ddns.entrypoints=websecure"
+        - "traefik.http.routers.traefik-ddns.service=api@internal"
+        - "traefik.http.routers.traefik-ddns.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.traefik-ddns.middlewares=secure-headers@file"
+        - "traefik.http.routers.traefik-local.rule=Host(`traefik.local`)"
+        - "traefik.http.routers.traefik-local.entrypoints=websecure"
+        - "traefik.http.routers.traefik-local.service=api@internal"
+        - "traefik.http.routers.traefik-local.tls=true"
+        - "traefik.http.routers.traefik-local.middlewares=secure-headers@file"
+        - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    hostname: homepage
+    networks:
+      - web-overlay
+      - management
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/homepage/config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - TZ=Asia/Jerusalem
+      - HOMEPAGE_ALLOWED_HOSTS=mbs-home.ddns.net,home.local,dashboard.local,192.168.1.191
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+      labels:
+        - "traefik.enable=true"
+        - "traefik.docker.network=homelab_web-overlay"
+        - "traefik.http.routers.homepage-ddns.rule=Host(`mbs-home.ddns.net`)"
+        - "traefik.http.routers.homepage-ddns.entrypoints=websecure"
+        - "traefik.http.routers.homepage-ddns.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.homepage-ddns.service=homepage"
+        - "traefik.http.routers.homepage-local.rule=Host(`home.local`) || Host(`dashboard.local`)"
+        - "traefik.http.routers.homepage-local.entrypoints=websecure"
+        - "traefik.http.routers.homepage-local.tls=true"
+        - "traefik.http.routers.homepage-local.service=homepage"
+        - "traefik.http.services.homepage.loadbalancer.server.port=3000"

@@ -1,0 +1,26 @@
+2025-09-02 10:07:25|INFO    |root                            |Scheduler will use this timezone: Asia/Jerusalem|
+2025-09-02 10:07:27|INFO    |root                            |BAZARR trying to connect to Sonarr SignalR feed...|
+2025-09-02 10:07:27|INFO    |root                            |BAZARR trying to connect to Radarr SignalR feed...|
+2025-09-02 10:07:27|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://***.***.***.***:6767|
+2025-09-02 10:07:27|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://[::]:6767|
+2025-09-02 10:07:27|INFO    |root                            |BAZARR SignalR client for Sonarr is connected and waiting for events.|
+2025-09-02 10:07:52|INFO    |root                            |BAZARR SignalR client for Radarr is connected and waiting for events.|
+2025-09-02 11:19:42|ERROR   |root                            |BAZARR SignalR client for Sonarr connection as been lost. Trying to reconnect...|
+2025-09-02 11:20:34|INFO    |root                            |Scheduler will use this timezone: Asia/Jerusalem|
+2025-09-02 11:20:35|INFO    |root                            |BAZARR trying to connect to Sonarr SignalR feed...|
+2025-09-02 11:20:35|INFO    |root                            |BAZARR trying to connect to Radarr SignalR feed...|
+2025-09-02 11:20:35|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://***.***.***.***:6767|
+2025-09-02 11:20:35|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://[::]:6767|
+2025-09-02 11:20:35|INFO    |root                            |BAZARR SignalR client for Sonarr is connected and waiting for events.|
+2025-09-02 11:20:40|INFO    |root                            |BAZARR SignalR client for Radarr is connected and waiting for events.|
+2025-09-02 11:28:41|ERROR   |root                            |BAZARR SignalR client for Sonarr connection as been lost. Trying to reconnect...|
+2025-09-02 11:28:41|ERROR   |root                            |BAZARR SignalR client for Radarr connection as been lost. Trying to reconnect...|
+2025-09-02 11:29:28|INFO    |root                            |Scheduler will use this timezone: Asia/Jerusalem|
+2025-09-02 11:29:29|INFO    |root                            |BAZARR trying to connect to Sonarr SignalR feed...|
+2025-09-02 11:29:29|INFO    |root                            |BAZARR trying to connect to Radarr SignalR feed...|
+2025-09-02 11:29:29|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://***.***.***.***:6767|
+2025-09-02 11:29:29|INFO    |waitress                        |BAZARR is started and waiting for requests on: http://[::]:6767|
+2025-09-02 11:29:29|INFO    |root                            |BAZARR SignalR client for Sonarr is connected and waiting for events.|
+2025-09-02 11:29:34|INFO    |root                            |BAZARR SignalR client for Radarr is connected and waiting for events.|
+2025-09-02 16:27:37|INFO    |root                            |BAZARR Finished searching for missing Movies Subtitles. Check History for more information.|
+2025-09-02 17:12:17|INFO    |root                            |BAZARR Finished searching for missing Series Subtitles. Check History for more information.|

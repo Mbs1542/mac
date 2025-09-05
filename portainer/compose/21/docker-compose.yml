@@ -1,0 +1,47 @@
+services:
+  adguardhome:
+    image: adguard/adguardhome:latest
+    container_name: adguard-dns
+    restart: unless-stopped
+    
+    ports:
+      - "5454:53/tcp"    # DNS TCP
+      - "5454:53/udp"    # DNS UDP
+      - "8853:853/tcp"   # DNS-over-TLS
+      - "8784:784/udp"   # DNS-over-QUIC
+      - "5443:5443/tcp"  # DNSCrypt TCP
+      - "5443:5443/udp"  # DNSCrypt UDP
+      - "67:67/udp"      # DHCP Server
+      - "68:68/udp"      # DHCP Client
+    
+    expose:
+      - "3000"  # Web interface
+    
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/adguard/work:/opt/adguardhome/work
+      - /Volumes/WorkDrive/MacStorage/docker/adguard/conf:/opt/adguardhome/conf
+    
+    environment:
+      - TZ=Asia/Jerusalem
+    
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.adguard.rule=Host(`adguard.local`)"
+      - "traefik.http.routers.adguard.service=adguard-web"
+      - "traefik.http.services.adguard-web.loadbalancer.server.port=3000"
+    
+    networks:
+      - default
+
+networks:
+  default:
+    name: docker-gateway_gateway
+    external: true
