@@ -562,3 +562,73 @@ services:
       - WATCHTOWER_INCLUDE_STOPPED=true
       - WATCHTOWER_REVIVE_STOPPED=false
       - WATCHTOWER_LABEL_ENABLE=true
+
+  nextcloud-db:
+    image: postgres:15-alpine
+    container_name: nextcloud-db
+    networks:
+      - homelab
+    environment:
+      - POSTGRES_DB=nextcloud
+      - POSTGRES_USER=nextcloud
+      - POSTGRES_PASSWORD=${NEXTCLOUD_DB_PASSWORD:?set in .env}
+      - TZ=Asia/Jerusalem
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+  nextcloud-redis:
+    image: redis:7-alpine
+    container_name: nextcloud-redis
+    networks:
+      - homelab
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+    interval: 30s
+    timeout: 10s
+    retries: 5
+    restart: unless-stopped
+
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud:latest
+    container_name: nextcloud
+    networks:
+      - homelab
+    depends_on:
+      - nextcloud-db
+      - nextcloud-redis
+    environment:
+      - PUID=501
+      - PGID=20
+      - TZ=Asia/Jerusalem
+      - NEXTCLOUD_TRUSTED_DOMAINS=nextcloud.mbs-home.ddns.net
+      - TRUSTED_PROXIES=172.16.0.0/12
+      - OVERWRITEPROTOCOL=https
+      - REDIS_HOST=nextcloud-redis
+      - REDIS_HOST_PORT=6379
+      - DB_TYPE=pgsql
+      - DB_HOST=nextcloud-db
+      - DB_NAME=nextcloud
+      - DB_USER=nextcloud
+      - DB_PASSWORD=${NEXTCLOUD_DB_PASSWORD:?set in .env}
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/config:/config
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/data:/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.mbs-home.ddns.net`)"
+      - "traefik.http.routers.nextcloud.entrypoints=websecure"
+      - "traefik.http.routers.nextcloud.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.nextcloud.middlewares=secure-headers@file"
+      - "traefik.http.routers.nextcloud.service=nextcloud"
+      - "traefik.http.services.nextcloud.loadbalancer.server.scheme=http"
+      - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
+    restart: unless-stopped
