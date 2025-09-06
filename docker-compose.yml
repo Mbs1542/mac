@@ -102,7 +102,7 @@ services:
       - "--global.sendAnonymousUsage=false"
     healthcheck:
       <<: *healthcheck-defaults
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/ping"]
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/api/rawdata"]
     deploy:
       resources:
         limits:

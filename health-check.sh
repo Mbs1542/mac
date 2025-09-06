@@ -5,12 +5,12 @@ echo "🏥 בדיקת תקינות שירותים..."
 
 # Added the /ping path to the Traefik check
 services=(
-    "traefik-gateway:8080/ping" 
+    "traefik-gateway:8080/api/rawdata" 
     "jellyfin:8096" 
     "sonarr:8989" 
     "radarr:7878" 
     "lidarr:8686" 
-    "homepage:3030"
+    "homepage:3000"
 )
 
 for service in "${services[@]}"; do

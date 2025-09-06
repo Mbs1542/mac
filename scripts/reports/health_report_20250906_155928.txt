@@ -1,0 +1,213 @@
+================================================================================
+HOMELAB COMPREHENSIVE HEALTH REPORT
+================================================================================
+Generated: 2025-09-06 15:59:28
+Scan Duration: 39.02 seconds
+
+📊 EXECUTIVE SUMMARY
+----------------------------------------
+Total Services: 27
+✅ Healthy: 5 (18.5%)
+⚠️  Warning: 0 (0.0%)
+❌ Critical: 22 (81.5%)
+
+📋 SERVICE STATUS MATRIX
+----------------------------------------
+
+AI:
++------------+----------+----------+----------+-------+----------+
+| Service    | Status   | Health   | Uptime   | CPU   | Memory   |
++============+==========+==========+==========+=======+==========+
+| open-webui | ✅        | 100%     | N/A      | 0.21% | 27.28%   |
++------------+----------+----------+----------+-------+----------+
+
+Automation:
++---------------+----------+----------+----------+-------+----------+
+| Service       | Status   | Health   | Uptime   | CPU   | Memory   |
++===============+==========+==========+==========+=======+==========+
+| homeassistant | ❌        | 50%      | N/A      | 0.00% | 37.25%   |
++---------------+----------+----------+----------+-------+----------+
+
+Cloud:
++--------------+----------+----------+----------+-------+----------+
+| Service      | Status   | Health   | Uptime   | CPU   | Memory   |
++==============+==========+==========+==========+=======+==========+
+| nextcloud    | ❌        | 50%      | N/A      | 0.01% | 4.02%    |
++--------------+----------+----------+----------+-------+----------+
+| nextcloud-db | ✅        | 100%     | N/A      | 0.00% | 4.39%    |
++--------------+----------+----------+----------+-------+----------+
+
+Development:
++-------------+----------+----------+----------+-------+----------+
+| Service     | Status   | Health   | Uptime   | CPU   | Memory   |
++=============+==========+==========+==========+=======+==========+
+| code-server | ❌        | 0%       | N/A      | N/A   | N/A      |
++-------------+----------+----------+----------+-------+----------+
+
+Downloads:
++--------------+----------+----------+----------+-------+----------+
+| Service      | Status   | Health   | Uptime   | CPU   | Memory   |
++==============+==========+==========+==========+=======+==========+
+| transmission | ❌        | 50%      | N/A      | 3.92% | 3.30%    |
++--------------+----------+----------+----------+-------+----------+
+| slskd        | ❌        | 50%      | N/A      | 2.50% | 42.03%   |
++--------------+----------+----------+----------+-------+----------+
+
+Finance:
++-------------+----------+----------+----------+-------+----------+
+| Service     | Status   | Health   | Uptime   | CPU   | Memory   |
++=============+==========+==========+==========+=======+==========+
+| firefly-iii | ❌        | 50%      | N/A      | N/A   | N/A      |
++-------------+----------+----------+----------+-------+----------+
+| firefly-db  | ❌        | 0%       | N/A      | N/A   | N/A      |
++-------------+----------+----------+----------+-------+----------+
+
+Infrastructure:
++-----------+----------+----------+----------+-------+----------+
+| Service   | Status   | Health   | Uptime   | CPU   | Memory   |
++===========+==========+==========+==========+=======+==========+
+| traefik   | ✅        | 100%     | N/A      | 0.00% | 23.77%   |
++-----------+----------+----------+----------+-------+----------+
+| portainer | ❌        | 50%      | N/A      | 0.00% | 2.47%    |
++-----------+----------+----------+----------+-------+----------+
+| adguard   | ❌        | 50%      | N/A      | 0.04% | 11.00%   |
++-----------+----------+----------+----------+-------+----------+
+
+Media:
++-----------+----------+----------+----------+-------+----------+
+| Service   | Status   | Health   | Uptime   | CPU   | Memory   |
++===========+==========+==========+==========+=======+==========+
+| jellyfin  | ❌        | 50%      | N/A      | 0.02% | 3.84%    |
++-----------+----------+----------+----------+-------+----------+
+| sonarr    | ❌        | 50%      | N/A      | 0.23% | 27.52%   |
++-----------+----------+----------+----------+-------+----------+
+| radarr    | ❌        | 50%      | N/A      | 0.15% | 24.71%   |
++-----------+----------+----------+----------+-------+----------+
+| lidarr    | ❌        | 50%      | N/A      | 0.04% | 24.24%   |
++-----------+----------+----------+----------+-------+----------+
+| bazarr    | ❌        | 50%      | N/A      | 0.08% | 64.35%   |
++-----------+----------+----------+----------+-------+----------+
+| prowlarr  | ❌        | 50%      | N/A      | 0.11% | 53.74%   |
++-----------+----------+----------+----------+-------+----------+
+
+Monitoring:
++------------+----------+----------+----------+-------+----------+
+| Service    | Status   | Health   | Uptime   | CPU   | Memory   |
++============+==========+==========+==========+=======+==========+
+| prometheus | ❌        | 50%      | N/A      | 0.00% | 0.00%    |
++------------+----------+----------+----------+-------+----------+
+| grafana    | ❌        | 50%      | N/A      | 0.18% | 24.14%   |
++------------+----------+----------+----------+-------+----------+
+| dozzle     | ✅        | 100%     | N/A      | 0.15% | 44.79%   |
++------------+----------+----------+----------+-------+----------+
+
+Remote Access:
++-------------+----------+----------+----------+-------+----------+
+| Service     | Status   | Health   | Uptime   | CPU   | Memory   |
++=============+==========+==========+==========+=======+==========+
+| nomachine   | ❌        | 0%       | N/A      | N/A   | N/A      |
++-------------+----------+----------+----------+-------+----------+
+| filebrowser | ❌        | 0%       | N/A      | N/A   | N/A      |
++-------------+----------+----------+----------+-------+----------+
+| webssh      | ❌        | 0%       | N/A      | N/A   | N/A      |
++-------------+----------+----------+----------+-------+----------+
+
+Security:
++-------------+----------+----------+----------+-------+----------+
+| Service     | Status   | Health   | Uptime   | CPU   | Memory   |
++=============+==========+==========+==========+=======+==========+
+| wireguard   | ✅        | 100%     | N/A      | 0.00% | 10.62%   |
++-------------+----------+----------+----------+-------+----------+
+| authelia    | ❌        | 50%      | N/A      | 0.00% | 0.00%    |
++-------------+----------+----------+----------+-------+----------+
+| vaultwarden | ❌        | 50%      | N/A      | 0.00% | 4.69%    |
++-------------+----------+----------+----------+-------+----------+
+
+⚠️  ISSUES & RECOMMENDATIONS
+----------------------------------------
+
+portainer:
+  - Endpoint http://localhost:9000 is not responding
+
+adguard:
+  - Endpoint http://localhost:3000 is not responding
+
+authelia:
+  - Endpoint http://localhost:9091/api/health is not responding
+
+vaultwarden:
+  - Endpoint http://localhost:80/alive is not responding
+
+code-server:
+  - Container code-server is not running
+  - Endpoint http://localhost:8443 is not responding
+
+nomachine:
+  - Container nomachine is not running
+  - Custom check check_nomachine failed
+
+filebrowser:
+  - Container filebrowser is not running
+  - Endpoint http://localhost:80/health is not responding
+
+webssh:
+  - Container webssh is not running
+  - Endpoint http://localhost:5032 is not responding
+
+firefly-iii:
+  - Container firefly-iii is not running
+
+firefly-db:
+  - Container firefly-db is not running
+  - Custom check check_postgres failed
+
+jellyfin:
+  - Endpoint http://localhost:8096/health is not responding
+
+sonarr:
+  - Endpoint http://localhost:8989/api/v3/system/status is not responding
+
+radarr:
+  - Endpoint http://localhost:7878/api/v3/system/status is not responding
+
+lidarr:
+  - Endpoint http://localhost:8686/api/v1/system/status is not responding
+
+bazarr:
+  - Endpoint http://localhost:6767 is not responding
+
+prowlarr:
+  - Endpoint http://localhost:9696 is not responding
+
+transmission:
+  - Endpoint http://localhost:9091 is not responding
+
+slskd:
+  - Endpoint http://localhost:5030 is not responding
+
+nextcloud:
+  - Endpoint http://localhost:80/status.php is not responding
+
+homeassistant:
+  - Endpoint http://localhost:8123 is not responding
+
+prometheus:
+  - Endpoint http://localhost:9090/-/ready is not responding
+
+grafana:
+  - Endpoint http://localhost:3000/api/health is not responding
+
+📈 PERFORMANCE METRICS
+----------------------------------------
+Average Health Score: 50.0%
+
+💡 RECOMMENDATIONS
+----------------------------------------
+1. URGENT: Address critical service failures immediately
+3. Consider implementing automated recovery for failed services
+4. Review resource allocation for high-usage containers
+5. Ensure all critical services have backup configurations
+
+================================================================================
+END OF REPORT
+================================================================================
