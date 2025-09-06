@@ -826,6 +826,147 @@ services:
       - "traefik.http.routers.openwebui.middlewares=authelia@file,secure-headers@file"
       - "traefik.http.services.openwebui.loadbalancer.server.port=8080"
 
+# =================== Remote Access, Development & Finance Services ===================
+
+  code-server:
+    <<: *common-configs
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server
+    hostname: code-server
+    networks:
+      - homelab-main
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jerusalem
+      - PASSWORD=${CODESERVER_PASSWORD:-change-me}
+      - SUDO_PASSWORD=${CODESERVER_SUDO_PASSWORD:-change-me}
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/code-server/config:/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8443"]
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.code-server.rule=Host(`code.mbs-home.ddns.net`)"
+      - "traefik.http.routers.code-server.entrypoints=websecure"
+      - "traefik.http.routers.code-server.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.code-server.middlewares=authelia@file,secure-headers@file,vpn-whitelist@file"
+      - "traefik.http.services.code-server.loadbalancer.server.port=8443"
+
+  nomachine:
+    <<: *common-configs
+    image: lscr.io/linuxserver/nomachine:latest
+    container_name: nomachine
+    hostname: nomachine
+    networks:
+      - homelab-main
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Jerusalem
+    # Bind ports only on the WireGuard interface to restrict access to VPN
+    ports:
+      - "10.8.0.1:4000:4000"
+      - "10.8.0.1:4080:4080"
+      - "10.8.0.1:4443:4443"
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/nomachine/config:/config
+
+  filebrowser:
+    <<: *common-configs
+    image: filebrowser/filebrowser:latest
+    container_name: filebrowser
+    hostname: filebrowser
+    networks:
+      - homelab-main
+    volumes:
+      - /Volumes/WorkDrive/MacStorage:/srv
+      - /Volumes/WorkDrive/MacStorage/docker/filebrowser/database.db:/database.db
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:80"]
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.filebrowser.rule=Host(`files.mbs-home.ddns.net`)"
+      - "traefik.http.routers.filebrowser.entrypoints=websecure"
+      - "traefik.http.routers.filebrowser.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.filebrowser.middlewares=authelia@file,secure-headers@file,vpn-whitelist@file"
+      - "traefik.http.services.filebrowser.loadbalancer.server.port=80"
+
+  webssh:
+    <<: *common-configs
+    image: huashengdun/webssh:latest
+    container_name: webssh
+    hostname: webssh
+    networks:
+      - homelab-main
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8888"]
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.webssh.rule=Host(`ssh.mbs-home.ddns.net`)"
+      - "traefik.http.routers.webssh.entrypoints=websecure"
+      - "traefik.http.routers.webssh.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.webssh.middlewares=authelia@file,secure-headers@file,vpn-whitelist@file"
+      - "traefik.http.services.webssh.loadbalancer.server.port=8888"
+
+  # SOCKS5 proxy for Cursor AI traffic over WireGuard (VPN-only bind)
+  cursor-socks5:
+    <<: *common-configs
+    image: serjs/go-socks5-proxy:latest
+    container_name: cursor-socks5
+    hostname: cursor-socks5
+    networks:
+      - homelab-main
+    environment:
+      - PROXY_USER=${CURSOR_PROXY_USER:-cursor}
+      - PROXY_PASSWORD=${CURSOR_PROXY_PASSWORD:-change-me}
+    ports:
+      - "10.8.0.1:1080:1080"
+
+  firefly-iii-db:
+    <<: *common-configs
+    image: postgres:15
+    container_name: firefly-iii-db
+    hostname: firefly-iii-db
+    networks:
+      - homelab-db
+    env_file: ./.env.firefly
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/firefly-iii/postgres:/var/lib/postgresql/data
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+
+  firefly-iii:
+    <<: *common-configs
+    image: fireflyiii/core:latest
+    container_name: firefly-iii
+    hostname: firefly-iii
+    depends_on:
+      - firefly-iii-db
+    networks:
+      - homelab-main
+      - homelab-db
+    env_file: ./.env.firefly
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/firefly-iii/upload:/var/www/html/storage/upload
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080"]
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.firefly.rule=Host(`money.mbs-home.ddns.net`)"
+      - "traefik.http.routers.firefly.entrypoints=websecure"
+      - "traefik.http.routers.firefly.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.firefly.middlewares=authelia@file,secure-headers@file,vpn-whitelist@file"
+      - "traefik.http.services.firefly.loadbalancer.server.port=8080"
+
 # =================== Home Automation ===================
 
   homeassistant:

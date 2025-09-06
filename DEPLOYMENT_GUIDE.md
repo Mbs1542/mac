@@ -146,6 +146,47 @@ Access comprehensive dashboards at `https://monitor.mbs-home.ddns.net`:
 - **Alerts**: Immediate notifications for critical issues
 - **Storage**: Reports archived in `/Volumes/WorkDrive/MacStorage/docker/logs/homelab-reports/`
 
+## 🖥️ Remote Access & Development
+
+### WireGuard Access
+- Ensure your client connects to the WireGuard server (10.8.0.1/24)
+- New services (Code Server, WebSSH, File Browser, Firefly III) are restricted with a VPN whitelist middleware
+- NoMachine binds only on `10.8.0.1` ports 4000, 4080, 4443
+
+### Cursor AI Proxy
+- SOCKS5 proxy exposed only on VPN: `10.8.0.1:1080`
+- Configure Cursor to use SOCKS5 with username `${CURSOR_PROXY_USER}` and password `${CURSOR_PROXY_PASSWORD}`
+
+### Code Server
+- URL: `https://code.mbs-home.ddns.net`
+- Protected by Authelia and VPN whitelist
+- Credentials via `${CODESERVER_PASSWORD}` and optional `${CODESERVER_SUDO_PASSWORD}`
+
+### WebSSH
+- URL: `https://ssh.mbs-home.ddns.net`
+- Protected by Authelia and VPN whitelist
+
+### File Browser
+- URL: `https://files.mbs-home.ddns.net`
+- Protected by Authelia and VPN whitelist
+
+## 💰 Firefly III - Shared Expense Tracking
+
+### Deployment
+- App: `fireflyiii/core:latest`
+- DB: `postgres:15`
+- Env file: `/.env.firefly` with `APP_KEY` and DB creds
+
+### Initial Setup
+1. Visit `https://money.mbs-home.ddns.net`
+2. Create admin account for you and your partner
+3. Define categories, budgets, and recurring transactions
+4. Use Rules to auto-categorize common merchants
+
+### Backup
+- App uploads: `/Volumes/WorkDrive/MacStorage/docker/firefly-iii/upload`
+- Database: `/Volumes/WorkDrive/MacStorage/docker/firefly-iii/postgres`
+
 ## 🔒 Security Enhancements
 
 ### Authelia Configuration

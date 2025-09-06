@@ -28,3 +28,11 @@ http:
           X-Content-Type-Options: "nosniff"
           X-Frame-Options: "SAMEORIGIN"
           X-XSS-Protection: "1; mode=block"
+    vpn-whitelist:
+      ipWhiteList:
+        sourceRange:
+          - 10.8.0.0/24
+          - 192.168.1.0/24
+  serversTransports:
+    insecure-transport:
+      insecureSkipVerify: true

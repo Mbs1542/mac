@@ -60,45 +60,45 @@ SERVICES = {
         'category': 'Security'
     },
     
-    # Remote Access & Development (commented out - not in current setup)
-    # 'code-server': {
-    #     'url': 'http://localhost:8443',
-    #     'container': 'code-server',
-    #     'critical': False,
-    #     'category': 'Development'
-    # },
-    # 'nomachine': {
-    #     'container': 'nomachine',
-    #     'critical': False,
-    #     'category': 'Remote Access',
-    #     'custom_check': 'check_nomachine'
-    # },
-    # 'filebrowser': {
-    #     'url': 'http://localhost:80/health',
-    #     'container': 'filebrowser',
-    #     'critical': False,
-    #     'category': 'Remote Access'
-    # },
-    # 'webssh': {
-    #     'url': 'http://localhost:5032',
-    #     'container': 'webssh',
-    #     'critical': False,
-    #     'category': 'Remote Access'
-    # },
+    # Remote Access & Development
+    'code-server': {
+        'url': 'https://code.mbs-home.ddns.net',
+        'container': 'code-server',
+        'critical': False,
+        'category': 'Development'
+    },
+    'nomachine': {
+        'container': 'nomachine',
+        'critical': False,
+        'category': 'Remote Access',
+        'custom_check': 'check_nomachine'
+    },
+    'filebrowser': {
+        'url': 'https://files.mbs-home.ddns.net',
+        'container': 'filebrowser',
+        'critical': False,
+        'category': 'Remote Access'
+    },
+    'webssh': {
+        'url': 'https://ssh.mbs-home.ddns.net',
+        'container': 'webssh',
+        'critical': False,
+        'category': 'Remote Access'
+    },
     
-    # Financial Management (commented out - not in current setup)
-    # 'firefly-iii': {
-    #     'url': 'http://localhost:8080/api/v1/about',
-    #     'container': 'firefly-iii',
-    #     'critical': False,
-    #     'category': 'Finance'
-    # },
-    # 'firefly-db': {
-    #     'container': 'firefly-db',
-    #     'critical': False,
-    #     'category': 'Finance',
-    #     'custom_check': 'check_postgres'
-    # },
+    # Financial Management
+    'firefly-iii': {
+        'url': 'https://money.mbs-home.ddns.net',
+        'container': 'firefly-iii',
+        'critical': False,
+        'category': 'Finance'
+    },
+    'firefly-iii-db': {
+        'container': 'firefly-iii-db',
+        'critical': False,
+        'category': 'Finance',
+        'custom_check': 'check_postgres'
+    },
     
     # Media Services
     'jellyfin': {
