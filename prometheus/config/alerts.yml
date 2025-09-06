@@ -1,0 +1,89 @@
+groups:
+  - name: availability.rules
+    rules:
+      - alert: InstanceDown
+        expr: up == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Instance down"
+          description: "{{ $labels.job }} on {{ $labels.instance }} is down."
+
+      - alert: HTTPSProbeFailed
+        expr: probe_success == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Blackbox probe failed"
+          description: "Probe {{ $labels.instance }} failed."
+
+      - alert: SSLCertificateExpiringSoon
+        expr: (probe_ssl_earliest_cert_expiry - time()) < 14 * 24 * 3600
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "SSL certificate expiring soon"
+          description: "Certificate for {{ $labels.instance }} expires in less than 14 days."
+
+  - name: performance.rules
+    rules:
+      - alert: TraefikHigh5xxRate
+        expr: sum by (service) (rate(traefik_service_requests_total{code=~"5.."}[5m])) > 0.1
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High 5xx from Traefik"
+          description: "Service {{ $labels.service }} is returning 5xx at >0.1 req/s"
+
+      - alert: HighCPUUsage
+        expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 85
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage"
+          description: "CPU usage > 85% on {{ $labels.instance }}"
+
+      - alert: LowMemoryAvailable
+        expr: (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100 < 10
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Low available memory"
+          description: "Available memory < 10% on {{ $labels.instance }}"
+
+      - alert: RootDiskSpaceLow
+        expr: (node_filesystem_avail_bytes{mountpoint="/",fstype!~"tmpfs|overlay"} / node_filesystem_size_bytes{mountpoint="/",fstype!~"tmpfs|overlay"}) * 100 < 10
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Low root disk space"
+          description: "Root filesystem available < 10% on {{ $labels.instance }}"
+
+  - name: stability.rules
+    rules:
+      - alert: ContainerFrequentRestarts
+        expr: sum by (name) (changes(container_start_time_seconds[1h])) > 2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Container restarting frequently"
+          description: "Container {{ $labels.name }} restarted more than 2 times in the last hour."
+
+  - name: sla.rules
+    rules:
+      - alert: SLADegradation
+        expr: (1 - avg_over_time(probe_success[24h])) * 100 > (100 - 99.9)
+        for: 30m
+        labels:
+          severity: info
+        annotations:
+          summary: "SLA degradation detected"
+          description: "Average availability over 24h for {{ $labels.instance }} below 99.9%."
