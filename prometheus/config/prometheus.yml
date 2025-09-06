@@ -3,8 +3,7 @@ global:
   evaluation_interval: 15s
 
 rule_files:
-  # - "first_rules.yml"
-  # - "second_rules.yml"
+  - "/etc/prometheus/alerts.yml"
 
 scrape_configs:
   - job_name: 'prometheus'
@@ -16,9 +15,10 @@ scrape_configs:
     static_configs:
       - targets: ['traefik:8080']
 
-  - job_name: 'docker'
-    static_configs:
-      - targets: ['docker.for.mac.localhost:9323']
+  # Docker engine metrics are optional; enable if you expose 9323
+  # - job_name: 'docker'
+  #   static_configs:
+  #     - targets: ['docker.for.mac.localhost:9323']
 
   - job_name: 'cadvisor'
     static_configs:
@@ -28,6 +28,45 @@ scrape_configs:
     static_configs:
       - targets: ['node-exporter:9100']
 
-  - job_name: 'node-exporter'
+  - job_name: 'mysqld-exporter'
     static_configs:
-      - targets: ['node-exporter:9100']
+      - targets: ['mysqld-exporter:9104']
+
+  - job_name: 'blackbox-http'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+          - https://mbs-home.ddns.net
+          - https://traefik.mbs-home.ddns.net
+          - https://portainer.mbs-home.ddns.net
+          - https://media.mbs-home.ddns.net
+          - https://jellyfin.mbs-home.ddns.net
+          - https://sonarr.mbs-home.ddns.net
+          - https://radarr.mbs-home.ddns.net
+          - https://lidarr.mbs-home.ddns.net
+          - https://bazarr.mbs-home.ddns.net
+          - https://prowlarr.mbs-home.ddns.net
+          - https://transmission.mbs-home.ddns.net
+          - https://slskd.mbs-home.ddns.net
+          - https://ai.mbs-home.ddns.net
+          - https://prometheus.mbs-home.ddns.net
+          - https://monitor.mbs-home.ddns.net
+          - https://home.mbs-home.ddns.net
+          - https://vault.mbs-home.ddns.net
+          - https://dns.mbs-home.ddns.net
+          - https://vpn.mbs-home.ddns.net
+          - https://nextcloud.mbs-home.ddns.net
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ['alertmanager:9093']

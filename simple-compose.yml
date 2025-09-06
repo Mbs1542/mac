@@ -73,8 +73,8 @@ services:
       - "traefik.http.routers.adguard.tls.certresolver=letsencrypt"
       - "traefik.http.routers.adguard.middlewares=authelia@file,secure-headers@file"
       - "traefik.http.routers.adguard.service=adguard"
-      - "traefik.http.services.adguard.loadbalancer.server.scheme=https"
-      - "traefik.http.services.adguard.loadbalancer.server.port=3000"
+      - "traefik.http.services.adguard.loadbalancer.server.scheme=http"
+      - "traefik.http.services.adguard.loadbalancer.server.port=5443"
 
   portainer:
     image: portainer/portainer-ce:latest
@@ -119,7 +119,7 @@ services:
       - "traefik.http.routers.jellyfin.rule=Host(`media.mbs-home.ddns.net`) || Host(`jellyfin.mbs-home.ddns.net`)"
       - "traefik.http.routers.jellyfin.entrypoints=websecure"
       - "traefik.http.routers.jellyfin.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.jellyfin.middlewares=authelia@file,secure-headers@file"
+      - "traefik.http.routers.jellyfin.middlewares=secure-headers@file"
       - "traefik.http.routers.jellyfin.service=jellyfin"
       - "traefik.http.services.jellyfin.loadbalancer.server.port=8096"
 
@@ -385,12 +385,20 @@ services:
     # no direct UI exposure; route via Traefik
     volumes:
       - /Volumes/WorkDrive/MacStorage/docker/grafana/data:/var/lib/grafana
+      - /Volumes/WorkDrive/MacStorage/docker/grafana/config/grafana.ini:/etc/grafana/grafana.ini:ro
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:?set in .env}
       - TZ=Asia/Jerusalem
       - GF_INSTALL_PLUGINS=grafana-piechart-panel
       - GF_METRICS_ENABLED=true
+      - GF_SMTP_ENABLED=true
+      - GF_SMTP_HOST=mailserver:25
+      - GF_SMTP_FROM_ADDRESS=grafana@mbs-home.ddns.net
+      - GF_SMTP_FROM_NAME=Grafana
+      - GF_SMTP_SKIP_VERIFY=true
+      - GF_RENDERING_SERVER_URL=http://grafana-image-renderer:8081/render
+      - GF_RENDERING_CALLBACK_URL=http://grafana:3000/
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.grafana.rule=Host(`monitor.mbs-home.ddns.net`)"
@@ -455,6 +463,81 @@ services:
       - "traefik.http.routers.vaultwarden.service=vaultwarden"
       - "traefik.http.services.vaultwarden.loadbalancer.server.port=80"
 
+  nextcloud-db:
+    image: mariadb:10.11
+    container_name: nextcloud-db
+    networks:
+      - management
+    environment:
+      - MYSQL_ROOT_PASSWORD=${NEXTCLOUD_DB_ROOT_PASSWORD:?set in .env}
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=${NEXTCLOUD_DB_USER:?set in .env}
+      - MYSQL_PASSWORD=${NEXTCLOUD_DB_PASSWORD:?set in .env}
+      - TZ=Asia/Jerusalem
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/db:/var/lib/mysql
+    restart: unless-stopped
+
+  nextcloud-redis:
+    image: redis:alpine
+    container_name: nextcloud-redis
+    networks:
+      - management
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/redis:/data
+    restart: unless-stopped
+
+  nextcloud:
+    image: nextcloud:latest
+    container_name: nextcloud
+    depends_on:
+      - nextcloud-db
+      - nextcloud-redis
+    networks:
+      - homelab
+      - management
+    environment:
+      - NEXTCLOUD_TRUSTED_DOMAINS=nextcloud.mbs-home.ddns.net
+      - NEXTCLOUD_DATA_DIR=/var/www/html/data
+      - OVERWRITEPROTOCOL=https
+      - OVERWRITECLIURL=https://nextcloud.mbs-home.ddns.net
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=${NEXTCLOUD_DB_USER:?set in .env}
+      - MYSQL_PASSWORD=${NEXTCLOUD_DB_PASSWORD:?set in .env}
+      - MYSQL_HOST=nextcloud-db
+      - REDIS_HOST=nextcloud-redis
+      - PHP_MEMORY_LIMIT=1024M
+      - TZ=Asia/Jerusalem
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/app:/var/www/html
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/data:/var/www/html/data
+    entrypoint: ["/bin/sh","-c","chown -R www-data:www-data /var/www/html /var/www/html/data || true; exec /entrypoint.sh apache2-foreground"]
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.mbs-home.ddns.net`)"
+      - "traefik.http.routers.nextcloud.entrypoints=websecure"
+      - "traefik.http.routers.nextcloud.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.nextcloud.middlewares=authelia@file,secure-headers@file"
+      - "traefik.http.routers.nextcloud.service=nextcloud"
+      - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
+      # WebDAV/status bypass without Authelia for clients and probes
+      - "traefik.http.routers.nextcloud-webdav.rule=Host(`nextcloud.mbs-home.ddns.net`) && (PathPrefix(`/remote.php`) || PathPrefix(`/public.php`) || PathPrefix(`/status.php`) || PathPrefix(`/ocs/v2.php`))"
+      - "traefik.http.routers.nextcloud-webdav.entrypoints=websecure"
+      - "traefik.http.routers.nextcloud-webdav.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.nextcloud-webdav.middlewares=secure-headers@file"
+      - "traefik.http.routers.nextcloud-webdav.service=nextcloud"
+
+  mysqld-exporter:
+    image: prom/mysqld-exporter:latest
+    container_name: mysqld-exporter
+    networks:
+      - management
+    environment:
+      - DATA_SOURCE_NAME=${NEXTCLOUD_DB_USER:?set in .env}:${NEXTCLOUD_DB_PASSWORD:?set in .env}@(nextcloud-db:3306)/nextcloud
+    restart: unless-stopped
+
   backup:
     image: alpine:latest
     container_name: backup
@@ -511,6 +594,48 @@ services:
       - "traefik.http.routers.mailserver.service=mailserver"
       - "traefik.http.services.mailserver.loadbalancer.server.port=80"
 
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    networks:
+      - management
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    restart: unless-stopped
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    networks:
+      - management
+    pid: host
+    restart: unless-stopped
+
+  blackbox-exporter:
+    image: prom/blackbox-exporter:latest
+    container_name: blackbox-exporter
+    networks:
+      - management
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/prometheus/config/blackbox.yml:/config/blackbox.yml:ro
+    command: ["--config.file=/config/blackbox.yml"]
+    restart: unless-stopped
+
+  alertmanager:
+    image: prom/alertmanager:latest
+    container_name: alertmanager
+    networks:
+      - management
+    ports:
+      - "9093:9093"
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/alertmanager:/etc/alertmanager
+    restart: unless-stopped
+
   authelia:
     image: authelia/authelia:latest
     container_name: authelia
@@ -540,9 +665,15 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       - TZ=Asia/Jerusalem
+      - SMTP_HOST=mailserver
+      - SMTP_PORT=25
+      - SMTP_FROM=noreply@mbs-home.ddns.net
+      - SMTP_TO=admin@mbs-home.ddns.net
     command: |
       sh -c "
-      apk add --no-cache dcron docker-cli &&
+      apk add --no-cache dcron docker-cli curl jq msmtp-mta &&
+      printf 'defaults\naccount default\nhost %s\nport %s\nfrom %s\nauto_from on\ntls off\nlogfile /tmp/msmtp.log\n' \"$SMTP_HOST\" \"$SMTP_PORT\" \"$SMTP_FROM\" > /etc/msmtprc &&
+      chmod 600 /etc/msmtprc &&
       echo '0 8 * * * /scripts/daily-report.sh' | crontab - &&
       crond -f
       "
@@ -562,3 +693,24 @@ services:
       - WATCHTOWER_INCLUDE_STOPPED=true
       - WATCHTOWER_REVIVE_STOPPED=false
       - WATCHTOWER_LABEL_ENABLE=true
+
+  grafana-image-renderer:
+    image: grafana/grafana-image-renderer:latest
+    container_name: grafana-image-renderer
+    networks:
+      - management
+    environment:
+      - TZ=Asia/Jerusalem
+    restart: unless-stopped
+
+  autoheal:
+    image: willfarrell/autoheal:latest
+    container_name: autoheal
+    networks:
+      - management
+    environment:
+      - AUTOHEAL_INTERVAL=30
+      - TZ=Asia/Jerusalem
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
