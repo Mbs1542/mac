@@ -1,5 +1,16 @@
 version: '3.8'
 
+# =================== Global extensions ===================
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+    compress: "true"
+
+x-common-configs: &common-configs
+  logging: *default-logging
+
 # ===================================================================
 # Docker Stack Homelab - מותאם ומתוקן לפי ניתוח המערכת
 # שינויים עיקריים:
@@ -27,6 +38,7 @@ services:
 # =================== שירותי רשת ואבטחה ===================
 
   traefik:
+    <<: *common-configs
     image: traefik:v3.0
     hostname: traefik
     networks:
@@ -91,6 +103,7 @@ services:
         - "traefik.docker.network=frontend"
 
   adguard:
+    <<: *common-configs
     image: adguard/adguardhome:latest
     hostname: adguard-home
     networks:
@@ -147,6 +160,7 @@ services:
         - "traefik.docker.network=frontend"
 
   wireguard:
+    <<: *common-configs
     image: weejewel/wg-easy:latest
     hostname: wireguard
     networks:
@@ -201,6 +215,7 @@ services:
 # =================== ניהול והשגחה ===================
 
   portainer:
+    <<: *common-configs
     image: portainer/portainer-ce:latest
     hostname: portainer
     networks:
@@ -244,6 +259,7 @@ services:
         - "traefik.docker.network=frontend"
 
   homepage:
+    <<: *common-configs
     image: ghcr.io/gethomepage/homepage:latest
     hostname: homepage
     networks:
@@ -289,6 +305,7 @@ services:
 # =================== מדיה וזרימה ===================
 
   jellyfin:
+    <<: *common-configs
     image: jellyfin/jellyfin:latest
     hostname: jellyfin
     networks:
@@ -337,6 +354,7 @@ services:
 # =================== *arr Stack - ניהול מדיה ===================
 
   sonarr:
+    <<: *common-configs
     image: lscr.io/linuxserver/sonarr:latest
     hostname: sonarr
     networks:
@@ -351,7 +369,7 @@ services:
       - PGID=1000
       - TZ=Asia/Jerusalem
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8989/api/v3/system/status?apiKey=$$(grep -oP '(?<=<ApiKey>).*?(?=</ApiKey>)' /config/config.xml)"]
+      test: ["CMD-SHELL", "curl -sf \"http://localhost:8989/api/v3/system/status?apiKey=$(sed -n 's:.*<ApiKey>\\(.*\\)</ApiKey>.*:\\1:p' /config/config.xml)\""]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -380,6 +398,7 @@ services:
         - "traefik.docker.network=frontend"
 
   radarr:
+    <<: *common-configs
     image: lscr.io/linuxserver/radarr:latest
     hostname: radarr
     networks:
@@ -394,7 +413,7 @@ services:
       - PGID=1000
       - TZ=Asia/Jerusalem
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:7878/api/v3/system/status?apiKey=$$(grep -oP '(?<=<ApiKey>).*?(?=</ApiKey>)' /config/config.xml)"]
+      test: ["CMD-SHELL", "curl -sf \"http://localhost:7878/api/v3/system/status?apiKey=$(sed -n 's:.*<ApiKey>\\(.*\\)</ApiKey>.*:\\1:p' /config/config.xml)\""]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -423,6 +442,7 @@ services:
         - "traefik.docker.network=frontend"
 
   lidarr:
+    <<: *common-configs
     image: ghcr.io/hotio/lidarr:pr-plugins-1c21412
     hostname: lidarr
     networks:
@@ -437,7 +457,7 @@ services:
       - PGID=1000
       - TZ=Asia/Jerusalem
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8686/api/v1/system/status?apiKey=$$(grep -oP '(?<=<ApiKey>).*?(?=</ApiKey>)' /config/config.xml)"]
+      test: ["CMD-SHELL", "curl -sf \"http://localhost:8686/api/v1/system/status?apiKey=$(sed -n 's:.*<ApiKey>\\(.*\\)</ApiKey>.*:\\1:p' /config/config.xml)\""]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -466,6 +486,7 @@ services:
         - "traefik.docker.network=frontend"
 
   bazarr:
+    <<: *common-configs
     image: lscr.io/linuxserver/bazarr:latest
     hostname: bazarr
     networks:
@@ -509,6 +530,7 @@ services:
         - "traefik.docker.network=frontend"
 
   prowlarr:
+    <<: *common-configs
     image: lscr.io/linuxserver/prowlarr:latest
     hostname: prowlarr
     networks:
@@ -550,6 +572,7 @@ services:
         - "traefik.docker.network=frontend"
 
   flaresolverr:
+    <<: *common-configs
     image: ghcr.io/flaresolverr/flaresolverr:latest
     hostname: flaresolverr
     networks:
@@ -582,6 +605,7 @@ services:
 # =================== הורדות ושיתוף ===================
 
   transmission:
+    <<: *common-configs
     image: lscr.io/linuxserver/transmission:latest
     hostname: transmission
     networks:
@@ -629,6 +653,7 @@ services:
         - "traefik.docker.network=frontend"
 
   slskd:
+    <<: *common-configs
     image: slskd/slskd:latest
     hostname: slskd
     networks:
@@ -677,6 +702,7 @@ services:
 # =================== AI ושירותים נוספים ===================
 
   open-webui:
+    <<: *common-configs
     image: ghcr.io/open-webui/open-webui:main
     hostname: open-webui
     networks:
@@ -719,23 +745,11 @@ services:
         - "traefik.http.services.openwebui.loadbalancer.server.port=8080"
         - "traefik.docker.network=frontend"
 
-# =================== הגדרות לוגים גלובליות ===================
-
-x-logging: &default-logging
-  driver: "json-file"
-  options:
-    max-size: "10m"
-    max-file: "3"
-    compress: "true"
-
-# הוספת הגדרות logging לכל השירותים
-x-common-configs: &common-configs
-  logging: *default-logging
-  
-# =================== שירותי ניטור (אופציונלי) ===================
+  # =================== שירותי ניטור (אופציונלי) ===================
 
   # watchtower - עדכון אוטומטי של containers
   watchtower:
+    <<: *common-configs
     image: containrrr/watchtower:latest
     hostname: watchtower
     networks:
@@ -764,10 +778,10 @@ x-common-configs: &common-configs
         reservations:
           memory: 64M
           cpus: '0.1'
-    logging: *default-logging
 
   # dozzle - צפייה בלוגים בזמן אמת
   dozzle:
+    <<: *common-configs
     image: amir20/dozzle:latest
     hostname: dozzle
     networks:
@@ -807,4 +821,3 @@ x-common-configs: &common-configs
         - "traefik.http.routers.dozzle.tls.certresolver=letsencrypt"
         - "traefik.http.services.dozzle.loadbalancer.server.port=8080"
         - "traefik.docker.network=frontend"
-    logging: *default-logging
