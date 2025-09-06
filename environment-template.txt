@@ -1,0 +1,48 @@
+# Homelab Environment Variables Template
+# Copy this content to a file named '.env' in the same directory and fill in your secure values
+
+# ====================================================================================
+# IMPORTANT: Generate secure random values for all secrets
+# Use this command to generate secure random strings:
+# openssl rand -base64 32
+# ====================================================================================
+
+# Nextcloud Database Configuration
+NEXTCLOUD_DB_PASSWORD=nextcloud-secure-password-2024-CHANGE-ME
+
+# Grafana Admin Configuration  
+GRAFANA_ADMIN_PASSWORD=grafana-admin-secure-2024-CHANGE-ME
+
+# Authelia Security Configuration (CRITICAL - CHANGE THESE)
+AUTHELIA_SESSION_SECRET=CHANGE-ME-generate-secure-32-char-string
+AUTHELIA_STORAGE_ENCRYPTION_KEY=CHANGE-ME-generate-secure-32-char-string  
+AUTHELIA_JWT_SECRET=CHANGE-ME-generate-secure-32-char-string
+
+# Vaultwarden Admin Configuration
+VAULTWARDEN_ADMIN_TOKEN=CHANGE-ME-generate-secure-admin-token
+
+# Email/SMTP Configuration (Optional - for email notifications)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USERNAME=your-email@gmail.com
+SMTP_PASSWORD=your-app-password-CHANGE-ME
+SMTP_FROM=homelab@mbs-home.ddns.net
+SMTP_SECURITY=starttls
+
+# Daily Report Email Configuration
+REPORT_FROM_EMAIL=homelab@mbs-home.ddns.net
+REPORT_TO_EMAIL=admin@mbs-home.ddns.net
+
+# ====================================================================================
+# Security Notes:
+# 1. Never commit this file to version control
+# 2. Use strong, unique passwords for each service
+# 3. Consider using a password manager to generate secrets
+# 4. Rotate secrets periodically for enhanced security
+# 5. Backup this file securely - you'll need it for disaster recovery
+# ====================================================================================
+
+# Generation Commands:
+# openssl rand -base64 32  # For 32-character secrets
+# openssl rand -hex 16     # For 16-character hex secrets
+# uuidgen                  # For UUID-style secrets

@@ -1,0 +1,36 @@
+FROM python:3.11-slim
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    cron \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+RUN pip install --no-cache-dir \
+    requests \
+    matplotlib \
+    Pillow
+
+# Create app directory
+WORKDIR /app
+
+# Copy scripts
+COPY daily-health-report.py /app/
+COPY daily-report.sh /app/
+RUN chmod +x /app/daily-health-report.py /app/daily-report.sh
+
+# Create log directory
+RUN mkdir -p /var/log/homelab
+
+# Set up cron job for daily reports at 8:00 AM
+RUN echo "0 8 * * * /usr/local/bin/python /app/daily-health-report.py >> /var/log/homelab/daily-report.log 2>&1" > /etc/cron.d/daily-report
+RUN chmod 0644 /etc/cron.d/daily-report
+RUN crontab /etc/cron.d/daily-report
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD ps aux | grep -q '[c]ron' || exit 1
+
+# Start cron in foreground
+CMD ["cron", "-f"]

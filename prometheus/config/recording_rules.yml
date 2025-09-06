@@ -1,0 +1,138 @@
+groups:
+  - name: node_recording_rules
+    interval: 30s
+    rules:
+      - record: instance:node_cpu_utilisation:rate5m
+        expr: 1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))
+
+      - record: instance:node_load1_per_cpu:ratio
+        expr: node_load1 / count by(instance) (node_cpu_seconds_total{mode="idle"})
+
+      - record: instance:node_memory_utilisation:ratio
+        expr: 1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes
+
+      - record: instance:node_vmstat_pgmajfault:rate5m
+        expr: rate(node_vmstat_pgmajfault[5m])
+
+      - record: instance:node_disk_io_time_weighted_seconds:rate5m
+        expr: rate(node_disk_io_time_weighted_seconds_total[5m])
+
+      - record: instance:node_network_receive_bytes_excluding_lo:rate5m
+        expr: sum by(instance) (rate(node_network_receive_bytes_total{device!="lo"}[5m]))
+
+      - record: instance:node_network_transmit_bytes_excluding_lo:rate5m
+        expr: sum by(instance) (rate(node_network_transmit_bytes_total{device!="lo"}[5m]))
+
+  - name: container_recording_rules
+    interval: 30s
+    rules:
+      - record: container:cpu_usage:rate5m
+        expr: sum by(container_label_com_docker_compose_service, instance) (rate(container_cpu_usage_seconds_total{container_label_com_docker_compose_service!=""}[5m]))
+
+      - record: container:memory_usage_bytes:avg
+        expr: avg by(container_label_com_docker_compose_service, instance) (container_memory_usage_bytes{container_label_com_docker_compose_service!=""})
+
+      - record: container:network_receive_bytes:rate5m
+        expr: sum by(container_label_com_docker_compose_service, instance) (rate(container_network_receive_bytes_total{container_label_com_docker_compose_service!=""}[5m]))
+
+      - record: container:network_transmit_bytes:rate5m
+        expr: sum by(container_label_com_docker_compose_service, instance) (rate(container_network_transmit_bytes_total{container_label_com_docker_compose_service!=""}[5m]))
+
+  - name: application_recording_rules
+    interval: 60s
+    rules:
+      - record: traefik:request_duration_seconds:histogram_quantile
+        expr: histogram_quantile(0.99, sum by(service, le) (rate(traefik_request_duration_seconds_bucket[5m])))
+
+      - record: traefik:requests:rate5m
+        expr: sum by(service) (rate(traefik_requests_total[5m]))
+
+      - record: traefik:requests_errors:rate5m
+        expr: sum by(service) (rate(traefik_requests_total{code=~"5.."}[5m]))
+
+      - record: service:availability:5m
+        expr: avg_over_time(up[5m])
+
+      - record: service:response_time:avg5m
+        expr: avg_over_time(probe_duration_seconds[5m])
+
+  - name: homelab_sla_rules
+    interval: 300s
+    rules:
+      - record: homelab:service_availability:24h
+        expr: avg_over_time(up[24h])
+
+      - record: homelab:critical_services_up:ratio
+        expr: |
+          (
+            count by() (up{job=~"traefik|jellyfin|authelia|prometheus"} == 1) /
+            count by() (up{job=~"traefik|jellyfin|authelia|prometheus"})
+          )
+
+      - record: homelab:media_services_up:ratio
+        expr: |
+          (
+            count by() (up{job=~"sonarr|radarr|lidarr|bazarr|prowlarr|transmission"} == 1) /
+            count by() (up{job=~"sonarr|radarr|lidarr|bazarr|prowlarr|transmission"})
+          )
+
+      - record: homelab:infrastructure_health:score
+        expr: |
+          (
+            instance:node_cpu_utilisation:rate5m < 0.8 and
+            instance:node_memory_utilisation:ratio < 0.85 and
+            up == 1
+          )
+
+  - name: resource_planning_rules
+    interval: 300s
+    rules:
+      - record: container:cpu_usage_prediction:linear_1h
+        expr: predict_linear(container:cpu_usage:rate5m[30m], 3600)
+
+      - record: container:memory_usage_prediction:linear_1h
+        expr: predict_linear(container:memory_usage_bytes:avg[30m], 3600)
+
+      - record: disk:usage_growth:rate24h
+        expr: |
+          (
+            (node_filesystem_size_bytes - node_filesystem_free_bytes) -
+            (node_filesystem_size_bytes - node_filesystem_free_bytes offset 24h)
+          ) / 86400
+
+      - record: disk:full_prediction:days
+        expr: |
+          (
+            node_filesystem_free_bytes /
+            (disk:usage_growth:rate24h * 86400)
+          )
+
+  - name: business_metrics
+    interval: 300s
+    rules:
+      - record: media:jellyfin_sessions:active
+        expr: jellyfin_active_sessions_total or 0
+
+      - record: media:total_media_files:count
+        expr: |
+          sum by() (
+            jellyfin_library_items_total{type="Movie"} or 0 +
+            jellyfin_library_items_total{type="Episode"} or 0 +
+            jellyfin_library_items_total{type="Audio"} or 0
+          )
+
+      - record: downloads:transmission_active:count
+        expr: transmission_active_torrents or 0
+
+      - record: security:auth_requests:rate5m
+        expr: rate(authelia_authentication_attempts_total[5m]) or 0
+
+      - record: dns:adguard_queries:rate5m
+        expr: rate(adguard_queries_total[5m]) or 0
+
+      - record: dns:adguard_blocked_ratio:5m
+        expr: |
+          (
+            rate(adguard_queries_blocked_total[5m]) /
+            rate(adguard_queries_total[5m])
+          ) or 0
