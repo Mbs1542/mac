@@ -110,6 +110,27 @@
         server: my-docker
         container: open-webui
 
+    - Code Server:
+        icon: vscode.svg
+        href: https://code.mbs-home.ddns.net
+        description: "VS Code בדפדפן - סביבת פיתוח מלאה מאובטחת דרך ה-VPN"
+        server: my-docker
+        container: code-server
+
+    - WebSSH:
+        icon: terminal.svg
+        href: https://ssh.mbs-home.ddns.net
+        description: "SSH בדפדפן - גישה מאובטחת לשרת דרך הדפדפן"
+        server: my-docker
+        container: webssh
+
+    - File Browser:
+        icon: files.svg
+        href: https://files.mbs-home.ddns.net
+        description: "מנהל קבצים בדפדפן - גישה מהירה ומאובטחת לקבצים"
+        server: my-docker
+        container: filebrowser
+
     - WireGuard:
         icon: wireguard.svg
         href: https://vpn.mbs-home.ddns.net
@@ -130,6 +151,13 @@
         description: "מערכת SSO מרכזית - התחברות מאובטחת לכל השירותים עם הרשאות מתקדמות"
         server: my-docker
         container: authelia
+
+    - Firefly III:
+        icon: finance.svg
+        href: https://money.mbs-home.ddns.net
+        description: "ניהול הוצאות משותף - תקציב, קטגוריות, דוחות וחוקים אוטומטיים"
+        server: my-docker
+        container: firefly-iii
 
 - "📧 תקשורת ומיילים":
     - Mail Server:

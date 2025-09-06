@@ -163,6 +163,10 @@ scrape_configs:
         - https://vpn.mbs-home.ddns.net
         - https://home.mbs-home.ddns.net
         - https://logs.mbs-home.ddns.net
+        - https://code.mbs-home.ddns.net
+        - https://files.mbs-home.ddns.net
+        - https://ssh.mbs-home.ddns.net
+        - https://money.mbs-home.ddns.net
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
