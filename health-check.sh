@@ -1,4 +1,26 @@
 #!/bin/bash
+set -euo pipefail
+
+echo "=== Homelab Health Check ==="
+echo "Date: $(date)"
+echo ""
+
+echo "Docker Services:"
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+echo ""
+
+echo "Disk Usage:"
+df -h /Volumes/WorkDrive || true
+echo ""
+
+echo "Service Availability:"
+services=("mbs-home.ddns.net" "nextcloud.mbs-home.ddns.net" "jellyfin.mbs-home.ddns.net" "vault.mbs-home.ddns.net" "auth.mbs-home.ddns.net")
+for service in "${services[@]}"; do
+  code=$(curl -s -o /dev/null -w "%{http_code}" https://"$service" || true)
+  echo "$service: HTTP ${code:-N/A}"
+done
+
+#!/bin/bash
 # בדיקת תקינות שירותים (גרסה מתוקנת)
 
 echo "🏥 בדיקת תקינות שירותים..."
