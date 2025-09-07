@@ -262,6 +262,7 @@ services:
     <<: *common-configs
     image: ghcr.io/gethomepage/homepage:latest
     hostname: homepage
+    user: "0:0"
     networks:
       - frontend
       - backend
@@ -273,6 +274,7 @@ services:
       - TZ=Asia/Jerusalem
       - PUID=1000
       - PGID=1000
+      - HOMEPAGE_ALLOWED_HOSTS=mbs-home.ddns.net,home.local,dashboard.local,localhost,localhost:3000,127.0.0.1,127.0.0.1:3000,192.168.1.191,192.168.1.191:3000
     healthcheck:
       test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000"]
       interval: 30s
