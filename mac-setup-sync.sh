@@ -14,12 +14,16 @@ mkdir -p "$ROOT/traefik/config" "$ROOT/traefik/certificates" \
          "$ROOT/portainer" \
          "$ROOT/prometheus/config" "$ROOT/prometheus/data" \
          "$ROOT/grafana/data" "$ROOT/grafana/config" \
-         "$ROOT/sonarr/config" "$ROOT/radarr/config" "$ROOT/qbittorrent/config"
+         "$ROOT/sonarr/config" "$ROOT/radarr/config" "$ROOT/qbittorrent/config" \
+         "$ROOT/bazarr/config" "$ROOT/prowlarr/config" "$ROOT/lidarr/config" \
+         "$ROOT/filebrowser" "$ROOT/firefly/export" "$ROOT/firefly/upload" "$ROOT/firefly/db/pgdata" \
+         "$ROOT/wireguard/config"
 
 # Media and downloads directories (outside docker root)
 mkdir -p \
   "/Volumes/WorkDrive/MacStorage/media/tv" \
   "/Volumes/WorkDrive/MacStorage/media/movies" \
+  "/Volumes/WorkDrive/MacStorage/media/music" \
   "/Volumes/WorkDrive/MacStorage/downloads"
 
 echo "Ensuring acme.json exists with correct permissions ..."
@@ -34,7 +38,7 @@ cp -f traefik/config/traefik.yml "$ROOT/traefik/config/traefik.yml"
 cp -f traefik/config/dynamic.yml "$ROOT/traefik/config/dynamic.yml"
 
 echo "Verifying services (if running) ..."
-services=(traefik nextcloud jellyfin vaultwarden homeassistant portainer grafana sonarr radarr qbittorrent adguardhome authelia)
+services=(traefik nextcloud jellyfin vaultwarden homeassistant portainer grafana sonarr radarr qbittorrent adguardhome authelia homepage filebrowser bazarr prowlarr lidarr transmission firefly firefly-db wireguard)
 for service in "${services[@]}"; do
   if docker ps --format '{{.Names}}' | grep -q "^$service$"; then
     echo "✓ $service is running"

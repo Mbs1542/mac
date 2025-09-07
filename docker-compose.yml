@@ -185,6 +185,7 @@ services:
     image: homeassistant/home-assistant:stable
     container_name: homeassistant
     restart: unless-stopped
+    privileged: true
     networks:
       - proxy
     volumes:
@@ -264,7 +265,7 @@ services:
       - TZ=${TZ}
     volumes:
       - /Volumes/WorkDrive/MacStorage/docker/sonarr/config:/config
-      - /Volumes/WorkDrive/MacStorage/media/tv:/tv
+      - /Volumes/WorkDrive/MacStorage/media:/media
       - /Volumes/WorkDrive/MacStorage/downloads:/downloads
     labels:
       - "traefik.enable=true"
@@ -285,7 +286,7 @@ services:
       - TZ=${TZ}
     volumes:
       - /Volumes/WorkDrive/MacStorage/docker/radarr/config:/config
-      - /Volumes/WorkDrive/MacStorage/media/movies:/movies
+      - /Volumes/WorkDrive/MacStorage/media:/media
       - /Volumes/WorkDrive/MacStorage/downloads:/downloads
     labels:
       - "traefik.enable=true"
@@ -318,4 +319,182 @@ services:
       - "traefik.http.routers.qbittorrent.tls=true"
       - "traefik.http.routers.qbittorrent.tls.certresolver=cloudflare"
       - "traefik.http.services.qbittorrent.loadbalancer.server.port=8080"
+
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    restart: unless-stopped
+    networks:
+      - proxy
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/homepage/config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homepage.rule=Host(`dash.mbs-home.ddns.net`)"
+      - "traefik.http.routers.homepage.entrypoints=https"
+      - "traefik.http.routers.homepage.tls=true"
+      - "traefik.http.routers.homepage.tls.certresolver=cloudflare"
+      - "traefik.http.services.homepage.loadbalancer.server.port=3000"
+
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    container_name: filebrowser
+    restart: unless-stopped
+    networks:
+      - proxy
+    volumes:
+      - /Volumes/WorkDrive/MacStorage:/srv
+      - /Volumes/WorkDrive/MacStorage/docker/filebrowser:/config
+      - /Volumes/WorkDrive/MacStorage/docker/filebrowser/database.db:/database.db
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.filebrowser.rule=Host(`files.mbs-home.ddns.net`)"
+      - "traefik.http.routers.filebrowser.entrypoints=https"
+      - "traefik.http.routers.filebrowser.tls=true"
+      - "traefik.http.routers.filebrowser.tls.certresolver=cloudflare"
+      - "traefik.http.services.filebrowser.loadbalancer.server.port=80"
+
+  bazarr:
+    image: linuxserver/bazarr:latest
+    container_name: bazarr
+    restart: unless-stopped
+    networks:
+      - proxy
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/bazarr/config:/config
+      - /Volumes/WorkDrive/MacStorage/media:/media
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.bazarr.rule=Host(`bazarr.mbs-home.ddns.net`)"
+      - "traefik.http.routers.bazarr.entrypoints=https"
+      - "traefik.http.routers.bazarr.tls=true"
+      - "traefik.http.routers.bazarr.tls.certresolver=cloudflare"
+      - "traefik.http.services.bazarr.loadbalancer.server.port=6767"
+
+  prowlarr:
+    image: linuxserver/prowlarr:latest
+    container_name: prowlarr
+    restart: unless-stopped
+    networks:
+      - proxy
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/prowlarr/config:/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.prowlarr.rule=Host(`prowlarr.mbs-home.ddns.net`)"
+      - "traefik.http.routers.prowlarr.entrypoints=https"
+      - "traefik.http.routers.prowlarr.tls=true"
+      - "traefik.http.routers.prowlarr.tls.certresolver=cloudflare"
+      - "traefik.http.services.prowlarr.loadbalancer.server.port=9696"
+
+  lidarr:
+    image: linuxserver/lidarr:latest
+    container_name: lidarr
+    restart: unless-stopped
+    networks:
+      - proxy
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/lidarr/config:/config
+      - /Volumes/WorkDrive/MacStorage/media/music:/music
+      - /Volumes/WorkDrive/MacStorage/downloads:/downloads
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.lidarr.rule=Host(`lidarr.mbs-home.ddns.net`)"
+      - "traefik.http.routers.lidarr.entrypoints=https"
+      - "traefik.http.routers.lidarr.tls=true"
+      - "traefik.http.routers.lidarr.tls.certresolver=cloudflare"
+      - "traefik.http.services.lidarr.loadbalancer.server.port=8686"
+
+  transmission:
+    image: linuxserver/transmission:latest
+    container_name: transmission
+    restart: unless-stopped
+    networks:
+      - proxy
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/transmission/config:/config
+      - /Volumes/WorkDrive/MacStorage/downloads:/downloads
+    ports:
+      - "9091:9091"
+      - "51413:51413"
+      - "51413:51413/udp"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.transmission.rule=Host(`transmission.mbs-home.ddns.net`)"
+      - "traefik.http.routers.transmission.entrypoints=https"
+      - "traefik.http.routers.transmission.tls=true"
+      - "traefik.http.routers.transmission.tls.certresolver=cloudflare"
+      - "traefik.http.services.transmission.loadbalancer.server.port=9091"
+
+  firefly:
+    image: fireflyiii/core:latest
+    container_name: firefly
+    restart: unless-stopped
+    networks:
+      - proxy
+      - internal
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=firefly-db
+      - DB_DATABASE=firefly
+      - DB_USERNAME=firefly
+      - DB_PASSWORD=${FIREFLY_DB_PASSWORD}
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/firefly/export:/var/www/html/storage/export
+      - /Volumes/WorkDrive/MacStorage/docker/firefly/upload:/var/www/html/storage/upload
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.firefly.rule=Host(`finance.mbs-home.ddns.net`)"
+      - "traefik.http.routers.firefly.entrypoints=https"
+      - "traefik.http.routers.firefly.tls=true"
+      - "traefik.http.routers.firefly.tls.certresolver=cloudflare"
+
+  firefly-db:
+    image: postgres:15
+    container_name: firefly-db
+    restart: unless-stopped
+    networks:
+      - internal
+    environment:
+      - POSTGRES_DB=firefly
+      - POSTGRES_USER=firefly
+      - POSTGRES_PASSWORD=${FIREFLY_DB_PASSWORD}
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/firefly/db/pgdata:/var/lib/postgresql/data
+
+  wireguard:
+    image: linuxserver/wireguard:latest
+    container_name: wireguard
+    restart: unless-stopped
+    networks:
+      - proxy
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/wireguard/config:/config
+      - /lib/modules:/lib/modules
+    ports:
+      - "51820:51820/udp"
 

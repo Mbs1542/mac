@@ -25,8 +25,14 @@ urls=(
   "monitor.mbs-home.ddns.net"
   "sonarr.mbs-home.ddns.net"
   "radarr.mbs-home.ddns.net"
+  "bazarr.mbs-home.ddns.net"
+  "prowlarr.mbs-home.ddns.net"
+  "lidarr.mbs-home.ddns.net"
   "torrent.mbs-home.ddns.net"
   "dns.mbs-home.ddns.net"
+  "dash.mbs-home.ddns.net"
+  "files.mbs-home.ddns.net"
+  "finance.mbs-home.ddns.net"
 )
 for host in "${urls[@]}"; do
   code=$(curl -s -o /dev/null -w "%{http_code}" https://"$host" || true)
