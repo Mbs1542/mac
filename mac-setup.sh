@@ -1,6 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Verify external drive is mounted
+if [ ! -d "/Volumes/WorkDrive/MacStorage/docker" ]; then
+  echo "❌ ERROR: External drive not mounted at /Volumes/WorkDrive"
+  echo "Please connect your external drive and try again"
+  exit 1
+fi
+
+# Verify Docker Desktop is running
+if ! docker info > /dev/null 2>&1; then
+  echo "❌ ERROR: Docker Desktop is not running"
+  echo "Please start Docker Desktop and try again"
+  exit 1
+fi
+
 # Safety backup
 BACKUP_DIR="/Volumes/WorkDrive/MacStorage/docker_backup_$(date +%Y%m%d_%H%M%S)"
 echo "Creating safety backup at $BACKUP_DIR..."
