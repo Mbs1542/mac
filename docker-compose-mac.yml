@@ -1,0 +1,481 @@
+version: '3.8'
+
+# =================== Global Extensions ===================
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+    compress: "true"
+
+x-common-configs: &common-configs
+  logging: *default-logging
+  restart: unless-stopped
+
+x-healthcheck-defaults: &healthcheck-defaults
+  interval: 30s
+  timeout: 10s
+  retries: 3
+  start_period: 40s
+
+# ===================================================================
+# Mac Homelab Stack - External Drive Optimized
+# Key Features:
+# - Optimized for macOS with Docker Desktop
+# - External drive storage at /Volumes/WorkDrive/MacStorage/docker/
+# - Cloudflare DNS challenge for SSL certificates
+# - Proper Mac file permissions and ownership
+# - Network configuration for Mac networking
+# ===================================================================
+
+networks:
+  homelab-main:
+    name: homelab-main
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
+  homelab-media:
+    name: homelab-media
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.31.0.0/16
+  homelab-mgmt:
+    name: homelab-mgmt
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.32.0.0/16
+  homelab-db:
+    name: homelab-db
+    driver: bridge
+    internal: true
+    ipam:
+      config:
+        - subnet: 172.33.0.0/16
+
+services:
+
+# =================== Reverse Proxy & SSL ===================
+
+  traefik:
+    <<: *common-configs
+    image: traefik:v3.1
+    container_name: traefik
+    hostname: traefik
+    networks:
+      - homelab-main
+      - homelab-mgmt
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"  # Dashboard
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /Volumes/WorkDrive/MacStorage/docker/traefik/config:/etc/traefik:ro
+      - /Volumes/WorkDrive/MacStorage/docker/traefik/certificates:/certificates
+    environment:
+      - TZ=${TZ:-America/New_York}
+      - CF_API_EMAIL=${CF_API_EMAIL}
+      - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
+    command:
+      - "--api.dashboard=true"
+      - "--api.insecure=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=homelab-main"
+      - "--providers.file.filename=/etc/traefik/dynamic.yml"
+      - "--providers.file.watch=true"
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge=true"
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare"
+      - "--certificatesresolvers.cloudflare.acme.email=${CF_API_EMAIL}"
+      - "--certificatesresolvers.cloudflare.acme.storage=/certificates/acme.json"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.letsencrypt.acme.email=${CF_API_EMAIL}"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/certificates/acme.json"
+      - "--log.level=INFO"
+      - "--accesslog=true"
+      - "--metrics.prometheus=true"
+      - "--metrics.prometheus.addEntryPointsLabels=true"
+      - "--metrics.prometheus.addServicesLabels=true"
+      - "--global.checkNewVersion=false"
+      - "--global.sendAnonymousUsage=false"
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/api/rawdata"]
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.5'
+        reservations:
+          memory: 128M
+          cpus: '0.2'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik-secure.rule=Host(`traefik.mbs-home.ddns.net`)"
+      - "traefik.http.routers.traefik-secure.entrypoints=websecure"
+      - "traefik.http.routers.traefik-secure.service=api@internal"
+      - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+      - "traefik.http.routers.traefik-secure.middlewares=secure-headers@file"
+
+# =================== DNS & Network Security ===================
+
+  adguard:
+    <<: *common-configs
+    image: adguard/adguardhome:latest
+    container_name: adguard-home
+    hostname: adguard-home
+    networks:
+      - homelab-main
+      - homelab-mgmt
+    ports:
+      - target: 53
+        published: 53
+        protocol: tcp
+        mode: host
+      - target: 53
+        published: 53
+        protocol: udp
+        mode: host
+      - "853:853/tcp"   # DNS over TLS
+      - "5443:5443/tcp" # DNS over QUIC
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/adguard/work:/opt/adguardhome/work
+      - /Volumes/WorkDrive/MacStorage/docker/adguard/conf:/opt/adguardhome/conf
+    environment:
+      - TZ=${TZ:-America/New_York}
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "nslookup", "google.com", "127.0.0.1"]
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.1'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.adguard.rule=Host(`dns.mbs-home.ddns.net`)"
+      - "traefik.http.routers.adguard.entrypoints=websecure"
+      - "traefik.http.routers.adguard.tls.certresolver=cloudflare"
+      - "traefik.http.routers.adguard.middlewares=authelia@file,secure-headers@file"
+      - "traefik.http.services.adguard.loadbalancer.server.port=3000"
+
+# =================== Authentication & Security ===================
+
+  authelia:
+    <<: *common-configs
+    image: authelia/authelia:latest
+    container_name: authelia
+    hostname: authelia
+    networks:
+      - homelab-main
+      - homelab-db
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/authelia:/config
+    environment:
+      - TZ=${TZ:-America/New_York}
+      - AUTHELIA_SESSION_SECRET=${AUTHELIA_SESSION_SECRET}
+      - AUTHELIA_STORAGE_ENCRYPTION_KEY=${AUTHELIA_STORAGE_ENCRYPTION_KEY}
+      - AUTHELIA_JWT_SECRET=${AUTHELIA_JWT_SECRET}
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:9091/api/health"]
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.3'
+        reservations:
+          memory: 128M
+          cpus: '0.1'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.authelia.rule=Host(`auth.mbs-home.ddns.net`)"
+      - "traefik.http.routers.authelia.entrypoints=websecure"
+      - "traefik.http.routers.authelia.tls.certresolver=cloudflare"
+      - "traefik.http.services.authelia.loadbalancer.server.port=9091"
+
+  vaultwarden:
+    <<: *common-configs
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    hostname: vaultwarden
+    networks:
+      - homelab-main
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/vaultwarden:/data
+    environment:
+      - TZ=${TZ:-America/New_York}
+      - WEBSOCKET_ENABLED=true
+      - SIGNUPS_ALLOWED=false
+      - ADMIN_TOKEN=${VAULTWARDEN_ADMIN_TOKEN}
+      - DOMAIN=https://vault.mbs-home.ddns.net
+      - SMTP_HOST=${SMTP_HOST:-localhost}
+      - SMTP_FROM=${SMTP_FROM:-vaultwarden@mbs-home.ddns.net}
+      - SMTP_FROM_NAME=Vaultwarden
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_SECURITY=${SMTP_SECURITY:-starttls}
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "curl", "-f", "http://localhost:80/alive"]
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.3'
+        reservations:
+          memory: 128M
+          cpus: '0.1'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.vaultwarden.rule=Host(`vault.mbs-home.ddns.net`)"
+      - "traefik.http.routers.vaultwarden.entrypoints=websecure"
+      - "traefik.http.routers.vaultwarden.tls.certresolver=cloudflare"
+      - "traefik.http.routers.vaultwarden.middlewares=secure-headers@file"
+      - "traefik.http.services.vaultwarden.loadbalancer.server.port=80"
+      # WebSocket support
+      - "traefik.http.routers.vaultwarden-ws.rule=Host(`vault.mbs-home.ddns.net`) && Path(`/notifications/hub`)"
+      - "traefik.http.routers.vaultwarden-ws.entrypoints=websecure"
+      - "traefik.http.routers.vaultwarden-ws.tls.certresolver=cloudflare"
+      - "traefik.http.services.vaultwarden-ws.loadbalancer.server.port=3012"
+
+# =================== Cloud Storage & Productivity ===================
+
+  nextcloud-db:
+    <<: *common-configs
+    image: postgres:15-alpine
+    container_name: nextcloud-db
+    hostname: nextcloud-db
+    networks:
+      - homelab-db
+    environment:
+      - POSTGRES_DB=nextcloud
+      - POSTGRES_USER=nextcloud
+      - POSTGRES_PASSWORD=${NEXTCLOUD_DB_PASSWORD}
+      - TZ=${TZ:-America/New_York}
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/postgres:/var/lib/postgresql/data
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD-SHELL", "pg_isready -U nextcloud -d nextcloud"]
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.2'
+
+  nextcloud-redis:
+    <<: *common-configs
+    image: redis:7-alpine
+    container_name: nextcloud-redis
+    hostname: nextcloud-redis
+    networks:
+      - homelab-db
+    command: ["redis-server", "--appendonly", "yes", "--maxmemory", "256mb", "--maxmemory-policy", "allkeys-lru"]
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/redis:/data
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "redis-cli", "ping"]
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.3'
+        reservations:
+          memory: 128M
+          cpus: '0.1'
+
+  nextcloud:
+    <<: *common-configs
+    image: nextcloud:latest
+    container_name: nextcloud
+    hostname: nextcloud
+    networks:
+      - homelab-main
+      - homelab-db
+    depends_on:
+      - nextcloud-db
+      - nextcloud-redis
+    environment:
+      - PUID=${PUID:-501}
+      - PGID=${PGID:-20}
+      - TZ=${TZ:-America/New_York}
+      # Database configuration
+      - POSTGRES_HOST=nextcloud-db
+      - POSTGRES_DB=nextcloud
+      - POSTGRES_USER=nextcloud
+      - POSTGRES_PASSWORD=${NEXTCLOUD_DB_PASSWORD}
+      # Redis configuration
+      - REDIS_HOST=nextcloud-redis
+      - REDIS_HOST_PORT=6379
+      # Nextcloud configuration
+      - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER:-admin}
+      - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
+      - NEXTCLOUD_TRUSTED_DOMAINS=mbs-home.ddns.net nextcloud.mbs-home.ddns.net
+      - TRUSTED_PROXIES=172.30.0.0/16
+      - OVERWRITEPROTOCOL=https
+      - OVERWRITEHOST=mbs-home.ddns.net
+      - OVERWRITE_CLI_URL=https://mbs-home.ddns.net
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/config:/var/www/html/config
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/custom_apps:/var/www/html/custom_apps
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/data:/var/www/html/data
+      - /Volumes/WorkDrive/MacStorage/docker/nextcloud/themes:/var/www/html/themes
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "curl", "-f", "http://localhost:80/status.php"]
+      start_period: 90s
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '1.0'
+        reservations:
+          memory: 512M
+          cpus: '0.3'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nextcloud.rule=Host(`mbs-home.ddns.net`) || Host(`nextcloud.mbs-home.ddns.net`)"
+      - "traefik.http.routers.nextcloud.entrypoints=websecure"
+      - "traefik.http.routers.nextcloud.tls.certresolver=cloudflare"
+      - "traefik.http.routers.nextcloud.middlewares=nextcloud-headers,secure-headers@file"
+      - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
+      # Nextcloud specific headers
+      - "traefik.http.middlewares.nextcloud-headers.headers.customRequestHeaders.X-Forwarded-Proto=https"
+      - "traefik.http.middlewares.nextcloud-headers.headers.customRequestHeaders.X-Forwarded-Ssl=on"
+      - "traefik.http.middlewares.nextcloud-headers.headers.customRequestHeaders.X-Forwarded-Host=mbs-home.ddns.net"
+      - "traefik.http.middlewares.nextcloud-headers.headers.customResponseHeaders.Referrer-Policy=no-referrer"
+
+# =================== Media Services ===================
+
+  jellyfin:
+    <<: *common-configs
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    hostname: jellyfin
+    networks:
+      - homelab-main
+      - homelab-media
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/jellyfin/config:/config
+      - /Volumes/WorkDrive/MacStorage/docker/jellyfin/cache:/cache
+      - /Volumes/WorkDrive/MacStorage/Media/Movies:/data/movies:ro
+      - /Volumes/WorkDrive/MacStorage/Media/Music:/data/music:ro
+      - /Volumes/WorkDrive/MacStorage/Media/TV:/data/tvshows:ro
+    environment:
+      - PUID=${PUID:-501}
+      - PGID=${PGID:-20}
+      - TZ=${TZ:-America/New_York}
+      - JELLYFIN_PublishedServerUrl=https://jellyfin.mbs-home.ddns.net
+      # Fix mobile connectivity issues
+      - JELLYFIN_CACHE_DIR=/cache
+      - JELLYFIN_CONFIG_DIR=/config
+      - JELLYFIN_DATA_DIR=/config/data
+      - JELLYFIN_LOG_DIR=/config/log
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "curl", "-f", "http://localhost:8096/health"]
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '2.0'
+        reservations:
+          memory: 1G
+          cpus: '0.5'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jellyfin.rule=Host(`jellyfin.mbs-home.ddns.net`)"
+      - "traefik.http.routers.jellyfin.entrypoints=websecure"
+      - "traefik.http.routers.jellyfin.tls.certresolver=cloudflare"
+      - "traefik.http.routers.jellyfin.middlewares=jellyfin-headers,secure-headers@file"
+      - "traefik.http.services.jellyfin.loadbalancer.server.port=8096"
+      # Mobile app connectivity improvements
+      - "traefik.http.middlewares.jellyfin-headers.headers.customRequestHeaders.X-Forwarded-Proto=https"
+      - "traefik.http.middlewares.jellyfin-headers.headers.customRequestHeaders.X-Forwarded-Host=jellyfin.mbs-home.ddns.net"
+      - "traefik.http.middlewares.jellyfin-headers.headers.customRequestHeaders.X-Forwarded-For=$$remote_addr"
+
+# =================== Management & Dashboards ===================
+
+  portainer:
+    <<: *common-configs
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    hostname: portainer
+    networks:
+      - homelab-main
+      - homelab-mgmt
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - TZ=${TZ:-America/New_York}
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:9000"]
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.2'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.mbs-home.ddns.net`)"
+      - "traefik.http.routers.portainer.entrypoints=websecure"
+      - "traefik.http.routers.portainer.tls.certresolver=cloudflare"
+      - "traefik.http.routers.portainer.middlewares=authelia@file,secure-headers@file"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+
+  homepage:
+    <<: *common-configs
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    hostname: homepage
+    networks:
+      - homelab-main
+      - homelab-media
+      - homelab-mgmt
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/homepage/config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - TZ=${TZ:-America/New_York}
+      - PUID=${PUID:-501}
+      - PGID=${PGID:-20}
+      - HOMEPAGE_ALLOWED_HOSTS=mbs-home.ddns.net,home.local,dashboard.local,192.168.1.191
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000"]
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.3'
+        reservations:
+          memory: 128M
+          cpus: '0.1'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.homepage.rule=Host(`mbs-home.ddns.net`) || Host(`home.local`) || Host(`dashboard.local`)"
+      - "traefik.http.routers.homepage.entrypoints=websecure"
+      - "traefik.http.routers.homepage.tls.certresolver=cloudflare"
+      - "traefik.http.routers.homepage.middlewares=authelia@file,secure-headers@file"
+      - "traefik.http.services.homepage.loadbalancer.server.port=3000"
