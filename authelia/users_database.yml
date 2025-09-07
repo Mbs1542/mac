@@ -16,14 +16,15 @@ users:
       - users
 
   user1:
+    displayname: "משתמש 1"
+    password: "$pbkdf2-sha512$310000$LkK9mRa7z0xRH2iSau62Zg$A/KAOhXR1BTePW8ZynbwuMm4AufaesX1cZ0O1ZxDblSuydexv0CS8pJaKNmhLxoMfrBiQOmcQXlrVRJHiXWJJA" # password123
+    email: user1@mbs-home.ddns.net
+    groups:
+      - users
+
   exampleuser:
     displayname: "Example User"
     password: "$pbkdf2-sha512$310000$LkK9mRa7z0xRH2iSau62Zg$A/KAOhXR1BTePW8ZynbwuMm4AufaesX1cZ0O1ZxDblSuydexv0CS8pJaKNmhLxoMfrBiQOmcQXlrVRJHiXWJJA"
     email: example@mbs-home.ddns.net
-    groups:
-      - users
-    displayname: "משתמש 1"
-    password: "$pbkdf2-sha512$310000$LkK9mRa7z0xRH2iSau62Zg$A/KAOhXR1BTePW8ZynbwuMm4AufaesX1cZ0O1ZxDblSuydexv0CS8pJaKNmhLxoMfrBiQOmcQXlrVRJHiXWJJA" # password123
-    email: user1@mbs-home.ddns.net
     groups:
       - users
