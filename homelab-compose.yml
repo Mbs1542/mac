@@ -99,6 +99,7 @@ services:
         - "traefik.http.routers.traefik-secure.service=api@internal"
         - "traefik.http.routers.traefik-secure.tls=true"
         - "traefik.http.routers.traefik-secure.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.traefik-secure.middlewares=authelia@file"
         - "traefik.http.services.traefik.loadbalancer.server.port=8080"
         - "traefik.docker.network=frontend"
 
@@ -156,6 +157,7 @@ services:
         - "traefik.http.routers.adguard.entrypoints=websecure"
         - "traefik.http.routers.adguard.tls=true"
         - "traefik.http.routers.adguard.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.adguard.middlewares=authelia@file"
         - "traefik.http.services.adguard.loadbalancer.server.port=3000"
         - "traefik.docker.network=frontend"
 
@@ -209,6 +211,7 @@ services:
         - "traefik.http.routers.wireguard-ui.entrypoints=websecure"
         - "traefik.http.routers.wireguard-ui.tls=true"
         - "traefik.http.routers.wireguard-ui.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.wireguard-ui.middlewares=authelia@file"
         - "traefik.http.services.wireguard-ui.loadbalancer.server.port=51821"
         - "traefik.docker.network=frontend"
 
@@ -255,6 +258,7 @@ services:
         - "traefik.http.routers.portainer.entrypoints=websecure"
         - "traefik.http.routers.portainer.tls=true"
         - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.portainer.middlewares=authelia@file"
         - "traefik.http.services.portainer.loadbalancer.server.port=9000"
         - "traefik.docker.network=frontend"
 
@@ -299,6 +303,7 @@ services:
         - "traefik.http.routers.homepage.entrypoints=websecure"
         - "traefik.http.routers.homepage.tls=true"
         - "traefik.http.routers.homepage.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.homepage.middlewares=authelia@file"
         - "traefik.http.services.homepage.loadbalancer.server.port=3000"
         - "traefik.docker.network=frontend"
 
@@ -348,6 +353,7 @@ services:
         - "traefik.http.routers.jellyfin.entrypoints=websecure"
         - "traefik.http.routers.jellyfin.tls=true"
         - "traefik.http.routers.jellyfin.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.jellyfin.middlewares=authelia@file"
         - "traefik.http.services.jellyfin.loadbalancer.server.port=8096"
         - "traefik.docker.network=frontend"
 
@@ -394,6 +400,7 @@ services:
         - "traefik.http.routers.sonarr.entrypoints=websecure"
         - "traefik.http.routers.sonarr.tls=true"
         - "traefik.http.routers.sonarr.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.sonarr.middlewares=authelia@file"
         - "traefik.http.services.sonarr.loadbalancer.server.port=8989"
         - "traefik.docker.network=frontend"
 
@@ -438,6 +445,7 @@ services:
         - "traefik.http.routers.radarr.entrypoints=websecure"
         - "traefik.http.routers.radarr.tls=true"
         - "traefik.http.routers.radarr.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.radarr.middlewares=authelia@file"
         - "traefik.http.services.radarr.loadbalancer.server.port=7878"
         - "traefik.docker.network=frontend"
 
@@ -482,6 +490,7 @@ services:
         - "traefik.http.routers.lidarr.entrypoints=websecure"
         - "traefik.http.routers.lidarr.tls=true"
         - "traefik.http.routers.lidarr.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.lidarr.middlewares=authelia@file"
         - "traefik.http.services.lidarr.loadbalancer.server.port=8686"
         - "traefik.docker.network=frontend"
 
@@ -526,6 +535,7 @@ services:
         - "traefik.http.routers.bazarr.entrypoints=websecure"
         - "traefik.http.routers.bazarr.tls=true"
         - "traefik.http.routers.bazarr.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.bazarr.middlewares=authelia@file"
         - "traefik.http.services.bazarr.loadbalancer.server.port=6767"
         - "traefik.docker.network=frontend"
 
@@ -568,6 +578,7 @@ services:
         - "traefik.http.routers.prowlarr.entrypoints=websecure"
         - "traefik.http.routers.prowlarr.tls=true"
         - "traefik.http.routers.prowlarr.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.prowlarr.middlewares=authelia@file"
         - "traefik.http.services.prowlarr.loadbalancer.server.port=9696"
         - "traefik.docker.network=frontend"
 
@@ -649,6 +660,7 @@ services:
         - "traefik.http.routers.transmission.entrypoints=websecure"
         - "traefik.http.routers.transmission.tls=true"
         - "traefik.http.routers.transmission.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.transmission.middlewares=authelia@file"
         - "traefik.http.services.transmission.loadbalancer.server.port=9091"
         - "traefik.docker.network=frontend"
 
@@ -696,6 +708,7 @@ services:
         - "traefik.http.routers.slskd.entrypoints=websecure"
         - "traefik.http.routers.slskd.tls=true"
         - "traefik.http.routers.slskd.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.slskd.middlewares=authelia@file"
         - "traefik.http.services.slskd.loadbalancer.server.port=5030"
         - "traefik.docker.network=frontend"
 
@@ -742,7 +755,50 @@ services:
         - "traefik.http.routers.openwebui.entrypoints=websecure"
         - "traefik.http.routers.openwebui.tls=true"
         - "traefik.http.routers.openwebui.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.openwebui.middlewares=authelia@file"
         - "traefik.http.services.openwebui.loadbalancer.server.port=8080"
+        - "traefik.docker.network=frontend"
+
+  # =================== אימות ואבטחה ===================
+
+  authelia:
+    <<: *common-configs
+    image: authelia/authelia:latest
+    hostname: authelia
+    networks:
+      - frontend
+      - management
+    volumes:
+      - /Volumes/WorkDrive/MacStorage/docker/authelia:/config
+    environment:
+      - TZ=Asia/Jerusalem
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:9091/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+        window: 120s
+      replicas: 1
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.3'
+        reservations:
+          memory: 128M
+          cpus: '0.1'
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.authelia.rule=Host(`auth.mbs-home.ddns.net`) || Host(`auth.local`)"
+        - "traefik.http.routers.authelia.entrypoints=websecure"
+        - "traefik.http.routers.authelia.tls=true"
+        - "traefik.http.routers.authelia.tls.certresolver=letsencrypt"
+        - "traefik.http.services.authelia.loadbalancer.server.port=9091"
         - "traefik.docker.network=frontend"
 
   # =================== שירותי ניטור (אופציונלי) ===================
@@ -819,5 +875,6 @@ services:
         - "traefik.http.routers.dozzle.entrypoints=websecure"
         - "traefik.http.routers.dozzle.tls=true"
         - "traefik.http.routers.dozzle.tls.certresolver=letsencrypt"
+        - "traefik.http.routers.dozzle.middlewares=authelia@file"
         - "traefik.http.services.dozzle.loadbalancer.server.port=8080"
         - "traefik.docker.network=frontend"
