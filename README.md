@@ -13,6 +13,7 @@ This repo contains a working configuration for running your homelab on macOS usi
 - `.env.example` — copy to `.env` and fill in values
 - `mac-setup-sync.sh` — creates directories and sets permissions
 - `health-check.sh` — quick status script
+  - Checks: traefik, nextcloud, jellyfin, vaultwarden, authelia, homeassistant, portainer, grafana, sonarr, radarr, qbittorrent, adguardhome
 
 ### Step-by-step
 1) Verify mount and list data directory:
@@ -69,6 +70,9 @@ sleep 10
 docker compose up -d nextcloud || docker-compose up -d nextcloud
 
 docker compose up -d || docker-compose up -d
+
+# Optionally verify running services
+bash mac-setup-sync.sh
 ```
 
 8) Verification:
