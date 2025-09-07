@@ -102,3 +102,44 @@ rm -rf ~/Library/Containers/com.docker.docker/Data/vms/0/data/Docker.raw
 open -a Docker
 ```
 
+## Post-Deployment Verification
+
+After running `./mac-setup.sh`, verify everything works:
+
+### Local Tests
+```
+curl -I http://localhost:80
+curl -I http://localhost:443
+docker exec traefik wget -qO- http://nextcloud:80 | head -n 5
+docker exec traefik wget -qO- http://jellyfin:8096 | head -n 5
+nslookup mbs-home.ddns.net
+```
+
+### Critical Services Check
+```
+curl -I https://vault.mbs-home.ddns.net
+curl -I https://mbs-home.ddns.net
+curl -I http://localhost:8123
+curl -I https://jellyfin.mbs-home.ddns.net
+```
+
+## Important Reminders
+- Ensure `/Volumes/WorkDrive` is in Docker Desktop File Sharing and restart Docker if needed
+- Router forwards: 80, 443, and 51820/udp to Mac IP
+- Cloudflare DNS is set to DNS only (gray cloud), and `mbs-home.ddns.net` points to your public IP
+
+## To Deploy
+```
+cd ~/mac
+git pull
+cat docker-compose.yml | grep volumes
+
+cp .env.example .env
+nano .env
+
+chmod +x mac-setup.sh rollback.sh
+./mac-setup.sh
+
+docker compose logs -f traefik || docker-compose logs -f traefik
+```
+
