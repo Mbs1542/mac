@@ -21,13 +21,14 @@ providers:
     endpoint: "unix:///var/run/docker.sock"
     exposedByDefault: false
   file:
-    filename: /config.yml
+    directory: /etc/traefik
+    watch: true
 
 certificatesResolvers:
   cloudflare:
     acme:
       email: your-email@example.com
-      storage: acme.json
+      storage: /acme.json
       caServer: https://acme-v02.api.letsencrypt.org/directory
       dnsChallenge:
         provider: cloudflare
