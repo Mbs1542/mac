@@ -1,5 +1,13 @@
 http:
   middlewares:
+    security-headers:
+      headers:
+        stsSeconds: 15552000
+        stsIncludeSubdomains: true
+        stsPreload: true
+
+http:
+  middlewares:
     authelia:
       forwardAuth:
         address: http://authelia:9091/api/verify?rd=https://auth.mbs-home.ddns.net/
